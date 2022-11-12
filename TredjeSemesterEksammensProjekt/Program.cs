@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TredjeSemesterEksammensProjekt.Data;
+using TredjeSemesterEksammensProjekt.Infrastructure.Contract;
+using TredjeSemesterEksammensProjekt.Infrastructure.Implementation;
 using TredjeSemesterEksammensProjekt.UserDbContextProjekt;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-
 
 var connectionString = builder.Configuration.GetConnectionString("WebAppUserDbContextConnection");
 builder.Services.AddDbContext<WebAppUserDbContext>(options =>
@@ -41,6 +41,11 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.AuthorizeFolder("/Konverter", "KonverterPolicy");
     options.Conventions.AuthorizeFolder("/Konsulent", "KonsulentPolicy");
 });
+
+//IOC
+builder.Services.AddHttpClient<IOpgaveService, OpgaveService>(client => 
+    client.BaseAddress = new Uri(builder.Configuration["OpgaveBaseUrl"])   
+);
 
 var app = builder.Build();
 

@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Data\" />
+    <Folder Include="Infrastructure\Contract\Dto\" />
   </ItemGroup>
 
   <ItemGroup>
