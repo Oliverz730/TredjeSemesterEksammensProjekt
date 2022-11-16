@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
+using TredjeSemesterEksamensProjekt.Opgave.Application.Commands;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -6,8 +8,15 @@ namespace TredjeSemesterEksamensProjekt.Api.Controllers
 {
     [Route("api/Opgave")]
     [ApiController]
-    public class OpgaveController : ControllerBase
+    public class KompetanceController : ControllerBase
     {
+        private readonly IKompetanceCreateCommand _createKompetanceCommand;
+
+        public KompetanceController(IKompetanceCreateCommand createKompetanceCommand)
+        {
+            _createKompetanceCommand = createKompetanceCommand;
+        }
+
         // GET: api/<OpgaveController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -24,8 +33,18 @@ namespace TredjeSemesterEksamensProjekt.Api.Controllers
 
         // POST api/<OpgaveController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Consumes(MediaTypeNames.Application.Json)]
+        public ActionResult Post(KompetanceCreateRequestDto request)
         {
+            try
+            {
+                _createKompetanceCommand.Create(request);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         // PUT api/<OpgaveController>/5

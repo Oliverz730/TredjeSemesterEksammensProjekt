@@ -9,15 +9,21 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Domain.Model
     public class OpgaveEntity
     {
         public int Id { get; private set; }
-        public TimeSpan Duration { get; private set; }
+        public DateTime StartDate { get; private set; }
+        public DateTime EndDate { get; private set; }
         public string Status { get; private set; }
         public KompetanceEntity Kompetance { get; private set; }
      
-        public OpgaveEntity(TimeSpan duration, string status, KompetanceEntity kompetance)
+        public OpgaveEntity(DateTime startDate, DateTime endDate, string status, KompetanceEntity kompetance, int id)
         {
-            Duration = duration;
+            StartDate = startDate;
+            EndDate = endDate;
             Status = status;
             Kompetance = kompetance;
+            Id = id;
+        }
+        internal OpgaveEntity()
+        {   
         }
 
     }
