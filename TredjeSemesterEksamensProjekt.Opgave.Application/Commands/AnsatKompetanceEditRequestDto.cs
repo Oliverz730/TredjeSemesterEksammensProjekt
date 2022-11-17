@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TredjeSemesterEksamensProjekt.Opgave.Application.Queries
+namespace TredjeSemesterEksamensProjekt.Opgave.Application.Commands
 {
-    public class AnsatKompetanceQueryResultDto
+    public class AnsatKompetanceEditRequestDto
     {
         public int Id { get; set; }
-        public string Description { get; set; }
     }
 }

@@ -8,8 +8,8 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Domain.Model
 {
     public class AnsatEntity
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int Id { get; private set; }
+        public string Name { get; private set; }
         public ICollection<KompetanceEntity> Kompetancer { get; private set; }
         
         public string UserId { get; private set; }
@@ -29,6 +29,13 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Domain.Model
 
         internal AnsatEntity()
         {
+        }
+
+        public void Edit(string userId,string name, ICollection<KompetanceEntity> kompetancer)
+        {
+            UserId = userId;
+            Name = name;
+            Kompetancer = kompetancer;
         }
 
     }

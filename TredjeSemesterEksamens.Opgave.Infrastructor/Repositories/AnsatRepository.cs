@@ -24,9 +24,9 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
 
         AnsatQueryResultDto IAnsatRepository.Get(string userId)
         {
-            var ansat = _db.AnsatEntities.Include(a => a.Kompetancer).FirstOrDefault(a => a.UserId == userId);
+            var ansat = _db.AnsatEntities.AsNoTracking().Include(a => a.Kompetancer).FirstOrDefault(a => a.UserId == userId);
 
-            var kompetancer = ansat.Kompetancer.Select(k => new AnsatKompetanceQueryResultDto { Description = k.Description }).ToList();
+            var kompetancer = ansat.Kompetancer.Select(k => new AnsatKompetanceQueryResultDto { Description = k.Description, Id = k.Id }).ToList();
 
             return new AnsatQueryResultDto
             {
@@ -37,13 +37,19 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
 
         }
 
-        AnsatEntity IAnsatRepository.Load(int id)
+        AnsatEntity IAnsatRepository.Load(string userId)
         {
-            var ansat = _db.AnsatEntities.Include(a => a.Kompetancer).FirstOrDefault(x => x.Id == id);
+            var ansat = _db.AnsatEntities.AsNoTracking().Include(a => a.Kompetancer).FirstOrDefault(x => x.UserId == userId);
 
             if (ansat == null) throw new Exception("Ansat Findes Ikke");
 
             return ansat;   
+        }
+
+        void IAnsatRepository.Update(AnsatEntity ansat)
+        {
+            _db.AnsatEntities.Update(ansat);
+            _db.SaveChanges();
         }
     }
 }

@@ -15,6 +15,10 @@
     <a class="nav-link text-dark border border-4 w-auto" asp-area="" asp-page="/Kompetance/Create">Ny Kompetance</a>
 
     <form method="post">
+        <input type="hidden" value="@Model.UserId" asp-for="UserId"/>
+        <input type="hidden" value="@Model.UserName" asp-for="UserName"/>
+
+        <input type="submit" class="btn btn-lg btn-primary" />
 
         <table class="table table-striped">
             <thead>
@@ -34,10 +38,10 @@
                             <td>
                                 <section class="form-check">
                                     @if(kompetance.Enable){
-                                        <input type="checkbox" checked/>
+                                        <input name="KompetanceIder" type="checkbox" value="@kompetance.Id" checked />
                                     }
                                     else{
-                                        <input type="checkbox"/>
+                                        <input name="KompetanceIder" type="checkbox" value="@kompetance.Id" />
                                     }
                                 </section>
                             </td>

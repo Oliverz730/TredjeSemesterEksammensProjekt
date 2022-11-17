@@ -14,11 +14,13 @@ namespace TredjeSemesterEksamensProjekt.Api.Controllers
 
         private readonly IAnsatCreateCommand _createAnsatCommand;
         private readonly IAnsatGetQuery _getAnsatQuery;
+        private readonly IAnsatEditCommand _editAnsatCommand;
 
-        public AnsatController(IAnsatCreateCommand createCommand, IAnsatGetQuery ansatGetQuery)
+        public AnsatController(IAnsatCreateCommand createCommand, IAnsatGetQuery ansatGetQuery, IAnsatEditCommand editAnsatCommand)
         {
             _createAnsatCommand = createCommand;
             _getAnsatQuery = ansatGetQuery;
+            _editAnsatCommand = editAnsatCommand;
         }
 
         // GET: api/<AnsatController>
@@ -55,9 +57,21 @@ namespace TredjeSemesterEksamensProjekt.Api.Controllers
         }
 
         // PUT api/<AnsatController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult Put(AnsatEditRequestDto request)
         {
+            try
+            {
+                _editAnsatCommand.Edit(request);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         // DELETE api/<AnsatController>/5

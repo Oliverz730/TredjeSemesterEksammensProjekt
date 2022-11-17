@@ -6,7 +6,8 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Application.Repositories
     public interface IAnsatRepository
     {
         void Add(AnsatEntity ansat);
-        AnsatEntity Load(int id);
+        AnsatEntity Load(string userId);
         AnsatQueryResultDto Get(string userId);
+        void Update(AnsatEntity ansat);
     }
 }

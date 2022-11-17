@@ -26,6 +26,7 @@ builder.Services
     .AddScoped<IKompetanceGetAllQuery, KompetanceGetAllQuery>()
     .AddScoped<IKompetanceGetQuery,KompetanceGetQuery>()
     .AddScoped<IAnsatGetQuery, AnsatGetQuery>()
+    .AddScoped<IAnsatEditCommand, AnsatEditCommand>()
     ;
 
 // Database

@@ -10,6 +10,7 @@ namespace TredjeSemesterEksammensProjekt.Infrastructure.Contract
         Task<IEnumerable<KompetanceQueryResultDto>?> GetAllKompetance();
         Task CreateAnsat(AnsatCreateRequestDto ansatCreateRequestDto);
         Task<AnsatQueryResultDto> GetAnsat(string userId);
+        Task EditAnsat(AnsatEditRequestDto ansatEditRequestDto);
 
     }
 }

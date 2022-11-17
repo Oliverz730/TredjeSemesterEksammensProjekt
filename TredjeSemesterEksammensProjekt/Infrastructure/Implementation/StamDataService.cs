@@ -22,6 +22,11 @@ namespace TredjeSemesterEksammensProjekt.Infrastructure.Implementation
             var res = await _httpClient.PostAsJsonAsync($"api/Kompetance", kompetanceCreateRequestDto);
         }
 
+        async Task IStamDataService.EditAnsat(AnsatEditRequestDto ansatEditRequestDto)
+        {
+            var res = await _httpClient.PutAsJsonAsync($"api/Ansat", ansatEditRequestDto);
+        }
+
         async Task IStamDataService.EditKompetance(KompetanceEditRequestDto kompetanceEditRequestDto)
         {
             var res = await _httpClient.PutAsJsonAsync($"api/Kompetance", kompetanceEditRequestDto);

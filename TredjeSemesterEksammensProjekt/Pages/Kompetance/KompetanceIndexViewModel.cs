@@ -4,5 +4,7 @@
     {
         public string Desciption { get; set; }
         public bool Enable { get; set; }
+
+        public int Id { get; set; }
     }
 }

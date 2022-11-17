@@ -23,7 +23,7 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
 
         KompetanceEntity IKompetanceRepository.Load(int id)
         {
-            var kompetanceEntity = _db.KompetanceEntities.AsNoTracking().Include(k => k.Ansatte).FirstOrDefault(x => x.Id == id);
+            var kompetanceEntity = _db.KompetanceEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
             if (kompetanceEntity == null) throw new Exception("Kompetance findes ikke");
 
             return kompetanceEntity;
@@ -43,6 +43,7 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
 
             return new KompetanceQueryResultDto
             {
+                Id= kompetanceEntity.Id,
                 Description = kompetanceEntity.Description,
                 //Ansatte = ansatteDto
             };
@@ -59,7 +60,7 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
             foreach(var entity in _db.KompetanceEntities.AsNoTracking().ToList())
             {
                 //var ansatte = entity.Ansatte.Select(a => new KompetanceAnsatQueryResultDto { UserId = a.UserId});
-                yield return new KompetanceQueryResultDto { Description = entity.Description };
+                yield return new KompetanceQueryResultDto { Description = entity.Description, Id = entity.Id };
             }
         }
     }

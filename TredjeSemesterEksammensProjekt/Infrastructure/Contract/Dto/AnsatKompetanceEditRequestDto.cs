@@ -1,8 +1,7 @@
 ﻿namespace TredjeSemesterEksammensProjekt.Infrastructure.Contract.Dto
 {
-    public class AnsatKompetanceQueryResultDto
+    public class AnsatKompetanceEditRequestDto
     {
         public int Id { get; set; }
-        public string Description { get; set; }
     }
 }
