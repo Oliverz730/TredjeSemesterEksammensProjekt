@@ -43,8 +43,8 @@ builder.Services.AddRazorPages(options =>
 });
 
 //IOC
-builder.Services.AddHttpClient<IOpgaveService, OpgaveService>(client => 
-    client.BaseAddress = new Uri(builder.Configuration["OpgaveBaseUrl"])   
+builder.Services.AddHttpClient<IStamDataService, StamDataService>(client => 
+    client.BaseAddress = new Uri(builder.Configuration["StamDataBaseUrl"])   
 );
 
 var app = builder.Build();

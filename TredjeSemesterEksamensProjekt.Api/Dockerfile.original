@@ -8,11 +8,6 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["TredjeSemesterEksamensProjekt.Api/TredjeSemesterEksamensProjekt.Api.csproj", "TredjeSemesterEksamensProjekt.Api/"]
-COPY ["TredjeSemesterEksamens.Opgave.Infrastructor/TredjeSemesterEksamensProjekt.Opgave.Infrastructor.csproj", "TredjeSemesterEksamens.Opgave.Infrastructor/"]
-COPY ["TredjeSemesterEksamensProjekt.Opgave.Application/TredjeSemesterEksamensProjekt.Opgave.Application.csproj", "TredjeSemesterEksamensProjekt.Opgave.Application/"]
-COPY ["TredjeSemesterEksamensProjekt.Opgave.Domain/TredjeSemesterEksamensProjekt.Opgave.Domain.csproj", "TredjeSemesterEksamensProjekt.Opgave.Domain/"]
-COPY ["TredjeSemesterEksamensProjekt.SqlDbContextProjekt/TredjeSemesterEksamensProjekt.SqlDbContextProjekt.csproj", "TredjeSemesterEksamensProjekt.SqlDbContextProjekt/"]
-COPY ["TredjeSemesterEksamensProjekt.SqlServerContext.Migrations/TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.csproj", "TredjeSemesterEksamensProjekt.SqlServerContext.Migrations/"]
 RUN dotnet restore "TredjeSemesterEksamensProjekt.Api/TredjeSemesterEksamensProjekt.Api.csproj"
 COPY . .
 WORKDIR "/src/TredjeSemesterEksamensProjekt.Api"

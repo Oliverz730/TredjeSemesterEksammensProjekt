@@ -6,7 +6,7 @@ using TredjeSemesterEksamensProjekt.Opgave.Application.Commands;
 
 namespace TredjeSemesterEksamensProjekt.Api.Controllers
 {
-    [Route("api/Opgave")]
+    [Route("api/Kompetance")]
     [ApiController]
     public class KompetanceController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace TredjeSemesterEksamensProjekt.Api.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "Komp 1", "Komp 2" };
         }
 
         // GET api/<OpgaveController>/5
@@ -34,8 +34,11 @@ namespace TredjeSemesterEksamensProjekt.Api.Controllers
         // POST api/<OpgaveController>
         [HttpPost]
         [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult Post(KompetanceCreateRequestDto request)
         {
+
             try
             {
                 _createKompetanceCommand.Create(request);

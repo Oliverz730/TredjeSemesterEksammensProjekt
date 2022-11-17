@@ -18,6 +18,12 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Domain.Model
             Description = description;
             Ansatte = ansatte;
         }
+
+        public KompetanceEntity(string description)
+        {
+            Description = description;
+        }
+
         internal KompetanceEntity()
         {
         }

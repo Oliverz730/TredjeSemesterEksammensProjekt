@@ -17,7 +17,7 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
 
         void IKompetanceRepository.Add(KompetanceEntity kompetance)
         {
-            _db.Add(kompetance);
+            _db.KompetanceEntities.Add(kompetance);
             _db.SaveChanges();
         }
 

@@ -1,9 +1,9 @@
 ﻿
-namespace TredjeSemesterEksamensProjekt.Opgave.Application.Commands
+namespace TredjeSemesterEksammensProjekt.Infrastructure.Contract.Dto
 {
     public class KompetanceCreateRequestDto
     {
-        public string Description { get; private set; }
+        public string Description { get; set; }
 
     }
 }

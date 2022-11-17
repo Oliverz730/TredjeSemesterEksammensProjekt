@@ -14,7 +14,7 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Application.Commands.Implementati
 
         void IKompetanceCreateCommand.Create(KompetanceCreateRequestDto kompetanceCreateRequestDto)
         {
-            var kompetance = new KompetanceEntity(kompetanceCreateRequestDto.Description, new List<AnsatEntity>());
+            var kompetance = new KompetanceEntity(kompetanceCreateRequestDto.Description);
             _kompetanceRepository.Add(kompetance);
         }
     }

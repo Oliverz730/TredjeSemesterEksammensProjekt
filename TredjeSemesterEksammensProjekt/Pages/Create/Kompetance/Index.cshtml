@@ -1,0 +1,21 @@
+﻿@page
+@model TredjeSemesterEksammensProjekt.Pages.Create.Kompetance.IndexModel
+@{
+}
+
+
+<section>
+
+    <h1>Opret Kompetance</h1>
+
+    <section class="w-25">
+
+        <form class="form-floating" method="post">
+            <input asp-for="Input.Description" class="form-control" autocomplete="new-description" aria-required="true" />
+            <label asp-for="Input.Description"></label>
+            <span asp-validation-for="Input.Description" class="text-danger"></span>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Tilføj</button>
+        </form>
+    </section>
+
+</section>
