@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TredjeSemesterEksamensProjekt.Opgave.Application.Commands
 {
-    public class AnsatCreateRequestDto
+    public class KompetanceEditRequestDto
     {
-        public string UserId { get; set; }
-        public string Name { get; set; }
+        public string Description { get; set; }
+        public ICollection<KompetanceAnsatEditRequestDto> Ansatte { get; set; }
     }
 }

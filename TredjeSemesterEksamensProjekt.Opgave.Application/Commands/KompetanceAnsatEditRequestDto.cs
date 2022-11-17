@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TredjeSemesterEksamensProjekt.Opgave.Application.Commands
 {
-    public class AnsatCreateRequestDto
+    public class KompetanceAnsatEditRequestDto
     {
         public string UserId { get; set; }
         public string Name { get; set; }

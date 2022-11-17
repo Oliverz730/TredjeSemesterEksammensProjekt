@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TredjeSemesterEksamensProjekt.SqlDbContextProjekt;
 
@@ -11,9 +12,10 @@ using TredjeSemesterEksamensProjekt.SqlDbContextProjekt;
 namespace TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations
 {
     [DbContext(typeof(TredjeSemesterEksamensProjektContext))]
-    partial class TredjeSemesterEksamensProjektContextModelSnapshot : ModelSnapshot
+    [Migration("20221117120750_AnsatNameMigration")]
+    partial class AnsatNameMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

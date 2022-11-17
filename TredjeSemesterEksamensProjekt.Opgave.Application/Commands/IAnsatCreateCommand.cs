@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace TredjeSemesterEksamensProjekt.Opgave.Application.Commands
 {
-    public class AnsatCreateRequestDto
+    public interface IAnsatCreateCommand
     {
-        public string UserId { get; set; }
-        public string Name { get; set; }
+        void Create(AnsatCreateRequestDto ansatCreateRequestDto);
     }
 }

@@ -34,8 +34,9 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Create/Kompetance/Index">Kompetance</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Kompetance/Index">Kompetance</a>
                         </li>
+
 
                         @if (AuthService.AuthorizeAsync(User, "KonsulentPolicy").Result.Succeeded)
                         {

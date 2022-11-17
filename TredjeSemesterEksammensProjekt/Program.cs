@@ -18,8 +18,6 @@ builder.Services.AddDbContext<WebAppUserDbContext>(options =>
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<WebAppUserDbContext>();
 
-
-
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 //Add Claims

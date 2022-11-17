@@ -20,6 +20,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using TredjeSemesterEksammensProjekt.Infrastructure.Contract;
+using TredjeSemesterEksammensProjekt.Infrastructure.Contract.Dto;
 
 namespace TredjeSemesterEksammensProjekt.Areas.Identity.Pages.Account
 {
@@ -32,13 +34,16 @@ namespace TredjeSemesterEksammensProjekt.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IStamDataService _stamDataService;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IStamDataService stamDataService
+            )
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -46,6 +51,7 @@ namespace TredjeSemesterEksammensProjekt.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _stamDataService = stamDataService;
         }
 
 
@@ -110,6 +116,16 @@ namespace TredjeSemesterEksammensProjekt.Areas.Identity.Pages.Account
             [DataType(DataType.Text)]
             [Display(Name = "Choose Role")]
             public string RoleChoice { get; set; }
+
+            /// <summary>
+            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+            ///     directly from your code. This API may change or be removed in future releases.
+            /// </summary>
+            [DataType(DataType.Text)]
+            [Display(Name = "Name")]
+            public string Name { get; set; }
+
+
         }
 
 
@@ -133,6 +149,8 @@ namespace TredjeSemesterEksammensProjekt.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    await _stamDataService.CreateAnsat(new AnsatCreateRequestDto { Name = Input.Name, UserId = Input.Email });
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);

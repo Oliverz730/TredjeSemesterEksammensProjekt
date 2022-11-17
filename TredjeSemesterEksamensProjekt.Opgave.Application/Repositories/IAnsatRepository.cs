@@ -1,4 +1,5 @@
-﻿using TredjeSemesterEksamensProjekt.Opgave.Domain.Model;
+﻿using TredjeSemesterEksamensProjekt.Opgave.Application.Queries;
+using TredjeSemesterEksamensProjekt.Opgave.Domain.Model;
 
 namespace TredjeSemesterEksamensProjekt.Opgave.Application.Repositories
 {
@@ -6,5 +7,6 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Application.Repositories
     {
         void Add(AnsatEntity ansat);
         AnsatEntity Load(int id);
+        AnsatQueryResultDto Get(string userId);
     }
 }

@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using TredjeSemesterEksamensProjekt.Opgave.Application.Commands;
 using TredjeSemesterEksamensProjekt.Opgave.Application.Commands.Implementation;
+using TredjeSemesterEksamensProjekt.Opgave.Application.Queries;
+using TredjeSemesterEksamensProjekt.Opgave.Application.Queries.Implementation;
 using TredjeSemesterEksamensProjekt.Opgave.Application.Repositories;
 using TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories;
 using TredjeSemesterEksamensProjekt.SqlDbContextProjekt;
@@ -19,6 +21,11 @@ builder.Services.AddSwaggerGen();
 builder.Services
     .AddScoped<IKompetanceCreateCommand, KompetanceCreateCommand>()
     .AddScoped<IKompetanceRepository, KompetanceRepository>()
+    .AddScoped<IAnsatRepository, AnsatRepository>()
+    .AddScoped<IAnsatCreateCommand, AnsatCreateCommand>()
+    .AddScoped<IKompetanceGetAllQuery, KompetanceGetAllQuery>()
+    .AddScoped<IKompetanceGetQuery,KompetanceGetQuery>()
+    .AddScoped<IAnsatGetQuery, AnsatGetQuery>()
     ;
 
 // Database

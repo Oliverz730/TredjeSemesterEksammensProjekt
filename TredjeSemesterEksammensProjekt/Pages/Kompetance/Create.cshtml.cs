@@ -5,14 +5,14 @@ using System.Xml.Linq;
 using TredjeSemesterEksammensProjekt.Infrastructure.Contract.Dto;
 using TredjeSemesterEksammensProjekt.Infrastructure.Contract;
 
-namespace TredjeSemesterEksammensProjekt.Pages.Create.Kompetance
+namespace TredjeSemesterEksammensProjekt.Pages.Kompetance
 {
-    public class IndexModel : PageModel
+    public class CreateModel : PageModel
     {
 
         private readonly IStamDataService _stamdataService;
 
-        public IndexModel(IStamDataService stamDataService)
+        public CreateModel(IStamDataService stamDataService)
         {
             _stamdataService = stamDataService;
         }
@@ -35,7 +35,7 @@ namespace TredjeSemesterEksammensProjekt.Pages.Create.Kompetance
             var dto = new KompetanceCreateRequestDto { Description = Input.Description };
             await _stamdataService.CreateKompetance(dto);
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Kompetance/Index");
         }
 
         public void OnGet()

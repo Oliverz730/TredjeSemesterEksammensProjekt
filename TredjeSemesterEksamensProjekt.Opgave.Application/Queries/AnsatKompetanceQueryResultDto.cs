@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace TredjeSemesterEksamensProjekt.Opgave.Application.Queries
 {
-    public class KompetanceQueryResultDto
+    public class AnsatKompetanceQueryResultDto
     {
         public string Description { get; set; }
-        //public ICollection<KompetanceAnsatQueryResultDto> Ansatte { get; set; }
     }
 }

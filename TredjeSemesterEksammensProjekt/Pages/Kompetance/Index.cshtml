@@ -1,0 +1,53 @@
+﻿@page
+@model TredjeSemesterEksammensProjekt.Pages.Kompetance.IndexModel
+@{
+}
+
+
+<section>
+
+
+    <h1>Hej @Model.UserName</h1>
+
+    <h2>Kompetance</h2>
+
+    
+    <a class="nav-link text-dark border border-4 w-auto" asp-area="" asp-page="/Kompetance/Create">Ny Kompetance</a>
+
+    <form method="post">
+
+        <table class="table table-striped">
+            <thead>
+
+                <tr>
+                    <th class="col-1">Valg</th>
+                    <th>Beskrivelse</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @if(Model.IndexViewModel.Any()){
+                    @foreach (var kompetance in Model.IndexViewModel)
+                    {
+                        <tr>
+
+                            <td>
+                                <section class="form-check">
+                                    @if(kompetance.Enable){
+                                        <input type="checkbox" checked/>
+                                    }
+                                    else{
+                                        <input type="checkbox"/>
+                                    }
+                                </section>
+                            </td>
+
+                            <td class="form-check-label">@kompetance.Desciption</td>
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </form>
+</section>
