@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Features", "Features", "{2F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TredjeSemesterEksamensProjekt.Api", "TredjeSemesterEksamensProjekt.Api\TredjeSemesterEksamensProjekt.Api.csproj", "{20FEAFA4-B87E-4B50-8652-9B9E242BCD6E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Opgave", "Opgave", "{19730E75-5ABC-42A9-8554-6E90FBDE4AC6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StamData", "StamData", "{19730E75-5ABC-42A9-8554-6E90FBDE4AC6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TredjeSemesterEksamensProjekt.Opgave.Domain", "TredjeSemesterEksamensProjekt.Opgave.Domain\TredjeSemesterEksamensProjekt.Opgave.Domain.csproj", "{5B30820E-3964-47B5-9426-DFE72B2745FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TredjeSemesterEksamensProjekt.StamData.Domain", "TredjeSemesterEksamensProjekt.Opgave.Domain\TredjeSemesterEksamensProjekt.StamData.Domain.csproj", "{5B30820E-3964-47B5-9426-DFE72B2745FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TredjeSemesterEksamensProjekt.Opgave.Domain.Test", "TredjeSemesterEksamensProjekt.Opgave.Domain.Test\TredjeSemesterEksamensProjekt.Opgave.Domain.Test.csproj", "{73885831-B4CD-4600-920C-F327864C38B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TredjeSemesterEksamensProjekt.StamData.Domain.Test", "TredjeSemesterEksamensProjekt.Opgave.Domain.Test\TredjeSemesterEksamensProjekt.StamData.Domain.Test.csproj", "{73885831-B4CD-4600-920C-F327864C38B4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TredjeSemesterEksamensProjekt.Opgave.Application", "TredjeSemesterEksamensProjekt.Opgave.Application\TredjeSemesterEksamensProjekt.Opgave.Application.csproj", "{B9485C70-0BB8-4F51-B213-28B314C56254}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TredjeSemesterEksamensProjekt.StamData.Application", "TredjeSemesterEksamensProjekt.Opgave.Application\TredjeSemesterEksamensProjekt.StamData.Application.csproj", "{B9485C70-0BB8-4F51-B213-28B314C56254}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TredjeSemesterEksamensProjekt.Opgave.Infrastructor", "TredjeSemesterEksamens.Opgave.Infrastructor\TredjeSemesterEksamensProjekt.Opgave.Infrastructor.csproj", "{D7C27B58-1F62-4A31-9EA5-B8E6DE6B9026}"
 EndProject

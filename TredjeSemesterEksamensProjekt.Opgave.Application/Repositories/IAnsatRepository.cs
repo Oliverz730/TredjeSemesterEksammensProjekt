@@ -1,7 +1,7 @@
-﻿using TredjeSemesterEksamensProjekt.Opgave.Application.Queries;
-using TredjeSemesterEksamensProjekt.Opgave.Domain.Model;
+﻿using TredjeSemesterEksamensProjekt.StamData.Application.Queries;
+using TredjeSemesterEksamensProjekt.StamData.Domain.Model;
 
-namespace TredjeSemesterEksamensProjekt.Opgave.Application.Repositories
+namespace TredjeSemesterEksamensProjekt.StamData.Application.Repositories
 {
     public interface IAnsatRepository
     {

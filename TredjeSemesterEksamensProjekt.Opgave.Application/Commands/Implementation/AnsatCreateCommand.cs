@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TredjeSemesterEksamensProjekt.Opgave.Application.Repositories;
-using TredjeSemesterEksamensProjekt.Opgave.Domain.Model;
+﻿using TredjeSemesterEksamensProjekt.StamData.Application.Repositories;
+using TredjeSemesterEksamensProjekt.StamData.Domain.Model;
 
-namespace TredjeSemesterEksamensProjekt.Opgave.Application.Commands.Implementation
+namespace TredjeSemesterEksamensProjekt.StamData.Application.Commands.Implementation
 {
     public class AnsatCreateCommand : IAnsatCreateCommand
     {

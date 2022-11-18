@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
-using TredjeSemesterEksamensProjekt.Opgave.Application.Commands;
-using TredjeSemesterEksamensProjekt.Opgave.Application.Queries;
+using TredjeSemesterEksamensProjekt.StamData.Application.Commands;
+using TredjeSemesterEksamensProjekt.StamData.Application.Queries;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

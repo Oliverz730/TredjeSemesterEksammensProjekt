@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TredjeSemesterEksamensProjekt.Opgave.Domain.Model;
-
-namespace TredjeSemesterEksamensProjekt.Opgave.Application.Queries
+﻿namespace TredjeSemesterEksamensProjekt.StamData.Application.Queries
 {
     public class AnsatQueryResultDto
     {

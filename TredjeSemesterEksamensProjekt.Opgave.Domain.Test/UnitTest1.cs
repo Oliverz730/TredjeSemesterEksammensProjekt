@@ -1,4 +1,4 @@
-namespace TredjeSemesterEksamensProjekt.Opgave.Domain.Test
+namespace TredjeSemesterEksamensProjekt.StamData.Domain.Test
 {
     public class UnitTest1
     {

@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TredjeSemesterEksamensProjekt.Opgave.Domain\TredjeSemesterEksamensProjekt.Opgave.Domain.csproj" />
+    <ProjectReference Include="..\TredjeSemesterEksamensProjekt.Opgave.Domain\TredjeSemesterEksamensProjekt.StamData.Domain.csproj" />
   </ItemGroup>
 
 </Project>

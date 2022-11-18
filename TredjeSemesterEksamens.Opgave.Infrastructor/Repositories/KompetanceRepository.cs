@@ -1,8 +1,8 @@
-﻿using TredjeSemesterEksamensProjekt.Opgave.Application.Repositories;
-using TredjeSemesterEksamensProjekt.Opgave.Domain.Model;
-using TredjeSemesterEksamensProjekt.SqlDbContextProjekt;
+﻿using TredjeSemesterEksamensProjekt.SqlDbContextProjekt;
 using Microsoft.EntityFrameworkCore;
-using TredjeSemesterEksamensProjekt.Opgave.Application.Queries;
+using TredjeSemesterEksamensProjekt.StamData.Application.Queries;
+using TredjeSemesterEksamensProjekt.StamData.Application.Repositories;
+using TredjeSemesterEksamensProjekt.StamData.Domain.Model;
 
 namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
 {

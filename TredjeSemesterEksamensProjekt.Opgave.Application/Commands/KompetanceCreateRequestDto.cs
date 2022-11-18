@@ -1,6 +1,4 @@
-﻿using TredjeSemesterEksamensProjekt.Opgave.Domain.Model;
-
-namespace TredjeSemesterEksamensProjekt.Opgave.Application.Commands
+﻿namespace TredjeSemesterEksamensProjekt.StamData.Application.Commands
 {
     public class KompetanceCreateRequestDto
     {

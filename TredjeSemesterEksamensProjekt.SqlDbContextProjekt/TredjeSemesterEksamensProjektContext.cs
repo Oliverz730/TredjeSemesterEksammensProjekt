@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TredjeSemesterEksamensProjekt.Opgave.Domain.Model;
 using TredjeSemesterEksamensProjekt.SqlDbContextProjekt.OpgaveConfiguration;
+using TredjeSemesterEksamensProjekt.StamData.Domain.Model;
 
 namespace TredjeSemesterEksamensProjekt.SqlDbContextProjekt
 {

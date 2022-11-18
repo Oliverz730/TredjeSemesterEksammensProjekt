@@ -1,7 +1,7 @@
-﻿using TredjeSemesterEksamensProjekt.Opgave.Application.Repositories;
-using TredjeSemesterEksamensProjekt.Opgave.Domain.Model;
+﻿using TredjeSemesterEksamensProjekt.StamData.Application.Repositories;
+using TredjeSemesterEksamensProjekt.StamData.Domain.Model;
 
-namespace TredjeSemesterEksamensProjekt.Opgave.Application.Commands.Implementation
+namespace TredjeSemesterEksamensProjekt.StamData.Application.Commands.Implementation
 {
     public class KompetanceCreateCommand : IKompetanceCreateCommand
     {
