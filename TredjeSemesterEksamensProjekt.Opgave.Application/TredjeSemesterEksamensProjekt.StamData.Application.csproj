@@ -10,4 +10,9 @@
     <ProjectReference Include="..\TredjeSemesterEksamensProjekt.Opgave.Domain\TredjeSemesterEksamensProjekt.StamData.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Ansat\" />
+    <Folder Include="Kompetance\" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories;
 using TredjeSemesterEksamensProjekt.SqlDbContextProjekt;
 using TredjeSemesterEksamensProjekt.StamData.Application.Commands;
 using TredjeSemesterEksamensProjekt.StamData.Application.Commands.Implementation;
 using TredjeSemesterEksamensProjekt.StamData.Application.Queries;
 using TredjeSemesterEksamensProjekt.StamData.Application.Queries.Implementation;
 using TredjeSemesterEksamensProjekt.StamData.Application.Repositories;
+using TredjeSemesterEksamensProjekt.StamData.Infrastructor.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

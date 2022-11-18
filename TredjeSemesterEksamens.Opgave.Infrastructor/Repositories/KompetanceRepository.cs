@@ -1,10 +1,10 @@
-﻿using TredjeSemesterEksamensProjekt.SqlDbContextProjekt;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using TredjeSemesterEksamensProjekt.SqlDbContextProjekt;
 using TredjeSemesterEksamensProjekt.StamData.Application.Queries;
 using TredjeSemesterEksamensProjekt.StamData.Application.Repositories;
 using TredjeSemesterEksamensProjekt.StamData.Domain.Model;
 
-namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
+namespace TredjeSemesterEksamensProjekt.StamData.Infrastructor.Repositories
 {
     public class KompetanceRepository : IKompetanceRepository
     {

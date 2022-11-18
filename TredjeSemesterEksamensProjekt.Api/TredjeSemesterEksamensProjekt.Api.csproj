@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TredjeSemesterEksamens.Opgave.Infrastructor\TredjeSemesterEksamensProjekt.Opgave.Infrastructor.csproj" />
+    <ProjectReference Include="..\TredjeSemesterEksamens.Opgave.Infrastructor\TredjeSemesterEksamensProjekt.StamData.Infrastructor.csproj" />
     <ProjectReference Include="..\TredjeSemesterEksamensProjekt.Opgave.Domain\TredjeSemesterEksamensProjekt.StamData.Domain.csproj" />
     <ProjectReference Include="..\TredjeSemesterEksamensProjekt.Opgave.Application\TredjeSemesterEksamensProjekt.StamData.Application.csproj" />
     <ProjectReference Include="..\TredjeSemesterEksamensProjekt.SqlDbContextProjekt\TredjeSemesterEksamensProjekt.SqlDbContextProjekt.csproj" />
