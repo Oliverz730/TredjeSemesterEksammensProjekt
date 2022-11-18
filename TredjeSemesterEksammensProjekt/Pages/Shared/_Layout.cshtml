@@ -19,12 +19,49 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+
+                        <!--
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
+                        -->
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Kalender/Index">Kalender</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Kompetance/Index">Kompetance</a>
+                        </li>
+
+
+                        @if (AuthService.AuthorizeAsync(User, "KonsulentPolicy").Result.Succeeded)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Konsulent/Index">Konsulent</a>
+                            </li>
+                        }
+                        @if (AuthService.AuthorizeAsync(User, "KonverterPolicy").Result.Succeeded)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Konverter/Index">Konverter</a>
+                            </li>
+                        }
+                        @if (AuthService.AuthorizeAsync(User, "SælgerPolicy").Result.Succeeded)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Sælger/Index">Sælger</a>
+                            </li>
+                        }
+                        @if (AuthService.AuthorizeAsync(User, "TeknikerPolicy").Result.Succeeded)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Tekniker/Index">Tekniker</a>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

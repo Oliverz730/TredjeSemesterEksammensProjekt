@@ -1,0 +1,19 @@
+version: '3.4'
+
+
+services:
+  tredjesemestereksammensprojekt:
+    image: ${DOCKER_REGISTRY-}tredjesemestereksammensprojekt
+    build:
+        context: .
+        dockerfile: TredjeSemesterEksammensProjekt/Dockerfile
+
+  tredjesemestereksammensprojektapi:
+    image: ${DOCKER_REGISTRY-}tredjesemestereksammensprojektapi
+    build:
+        context: .
+        dockerfile: TredjeSemesterEksamensProjekt.Api/Dockerfile
+    ports:
+      - "17000:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
