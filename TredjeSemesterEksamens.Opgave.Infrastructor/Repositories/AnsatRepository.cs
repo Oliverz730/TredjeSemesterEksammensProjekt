@@ -39,7 +39,9 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
 
         AnsatEntity IAnsatRepository.Load(string userId)
         {
-            var ansat = _db.AnsatEntities.AsNoTracking().Include(a => a.Kompetancer).FirstOrDefault(x => x.UserId == userId);
+            var ansat = _db.AnsatEntities.FirstOrDefault(x => x.UserId == userId);
+
+            _db.Entry(ansat).Collection(a => a.Kompetancer).Load();
 
             if (ansat == null) throw new Exception("Ansat Findes Ikke");
 
@@ -48,7 +50,7 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
 
         void IAnsatRepository.Update(AnsatEntity ansat)
         {
-            _db.AnsatEntities.Update(ansat);
+            //_db.AnsatEntities.Update(ansat);
             _db.SaveChanges();
         }
     }

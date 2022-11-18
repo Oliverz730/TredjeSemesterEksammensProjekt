@@ -56,7 +56,7 @@ namespace TredjeSemesterEksamensProjekt.Api.Controllers
             }
         }
 
-        // PUT api/<AnsatController>/5
+        // PUT api/<AnsatController>
         [HttpPut]
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]

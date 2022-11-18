@@ -23,7 +23,7 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Infrastructor.Repositories
 
         KompetanceEntity IKompetanceRepository.Load(int id)
         {
-            var kompetanceEntity = _db.KompetanceEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            var kompetanceEntity = _db.KompetanceEntities.FirstOrDefault(x => x.Id == id);
             if (kompetanceEntity == null) throw new Exception("Kompetance findes ikke");
 
             return kompetanceEntity;

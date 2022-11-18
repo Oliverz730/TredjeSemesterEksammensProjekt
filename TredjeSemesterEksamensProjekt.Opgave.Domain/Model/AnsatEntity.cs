@@ -10,7 +10,7 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Domain.Model
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
-        public ICollection<KompetanceEntity> Kompetancer { get; private set; }
+        public virtual ICollection<KompetanceEntity> Kompetancer { get; private set; }
         
         public string UserId { get; private set; }
 
@@ -35,6 +35,7 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Domain.Model
         {
             UserId = userId;
             Name = name;
+
             Kompetancer = kompetancer;
         }
 

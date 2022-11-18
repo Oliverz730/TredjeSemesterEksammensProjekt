@@ -11,7 +11,7 @@ namespace TredjeSemesterEksamensProjekt.Opgave.Domain.Model
         public int Id{ get; set; }
         public string Description { get; private set; }
 
-        public ICollection<AnsatEntity> Ansatte { get; private set; }
+        public virtual ICollection<AnsatEntity> Ansatte { get; private set; }
 
         public KompetanceEntity(string description, ICollection<AnsatEntity> ansatte)
         {

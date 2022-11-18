@@ -35,13 +35,13 @@ namespace TredjeSemesterEksammensProjekt.Pages.Kompetance
 
             await _stamdataService.EditAnsat(dto);
 
-            return Page();
+            return RedirectToPage("/Kompetance/Index");
         }
 
         public async Task<ActionResult> OnGet()
         {
-            if (User.Identity.Name == null) return NotFound();
 
+            if (User.Identity.Name == null) return NotFound();
             var businessModel = await _stamdataService.GetAllKompetance();
             var ansatModel = await _stamdataService.GetAnsat(User.Identity.Name);
 
