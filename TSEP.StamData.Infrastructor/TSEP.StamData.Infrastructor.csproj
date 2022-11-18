@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TSEP.StamData.Application\TSEP.StamData.Application.csproj" />
+    <ProjectReference Include="..\TSEP.StamData.Domain\TSEP.StamData.Domain.csproj" />
+    <ProjectReference Include="..\TSEP.SqlDbContext\TSEP.SqlDbContext.csproj" />
+  </ItemGroup>
+
+</Project>
