@@ -7,16 +7,18 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["TredjeSemesterEksammensProjekt/TredjeSemesterEksammensProjekt.csproj", "TredjeSemesterEksammensProjekt/"]
-RUN dotnet restore "TredjeSemesterEksammensProjekt/TredjeSemesterEksammensProjekt.csproj"
+COPY ["TSEP.App/TSEP.App.csproj", "TSEP.App/"]
+COPY ["TSEP.UserDbContext/TSEP.UserDbContext.csproj", "TSEP.UserDbContext/"]
+COPY ["TSEP.UserDbMigration/TSEP.UserDbMigration.csproj", "TSEP.UserDbMigration/"]
+RUN dotnet restore "TSEP.App/TSEP.App.csproj"
 COPY . .
-WORKDIR "/src/TredjeSemesterEksammensProjekt"
-RUN dotnet build "TredjeSemesterEksammensProjekt.csproj" -c Release -o /app/build
+WORKDIR "/src/TSEP.App"
+RUN dotnet build "TSEP.App.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "TredjeSemesterEksammensProjekt.csproj" -c Release -o /app/publish
+RUN dotnet publish "TSEP.App.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "TredjeSemesterEksammensProjekt.dll"]
+ENTRYPOINT ["dotnet", "TSEP.App.dll"]

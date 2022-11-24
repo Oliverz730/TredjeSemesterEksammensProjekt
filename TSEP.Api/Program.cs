@@ -34,17 +34,15 @@ builder.Services
     .AddScoped<IAnsatEditCommand, AnsatEditCommand>()
     ;
 
+builder.Configuration.AddEnvironmentVariables();
+
 // Database
 // Add-Migration InitialMigration -Context TredjeSemesterEksamensProjektContext -Project TredjeSemesterEksamensProjekt.SqlServerContext.Migrations
 // Update-Database -Context TredjeSemesterEksamensProjektContext
-//String 1 :
-//"TredjeSemesterEksamensProjektDbConnection": "Server=localhost;Database=TredjeSemesterEksamensProjektDomain;Trusted_Connection=True;MultipleActiveResultSets=true"
-//String 2 :
-//"TredjeSemesterEksamensProjektDbConnection": "Server=LAPTOP-1HT927JP;Database=TredjeSemesterEksamensProjektDomain;Trusted_Connection=True;MultipleActiveResultSets=true"
 var connectionString = builder.Configuration.GetConnectionString("TredjeSemesterEksamensProjektDbConnection");
 builder.Services.AddDbContext<TredjeSemesterEksamensProjektContext>(options =>
     options.UseSqlServer(connectionString,
-    x => x.MigrationsAssembly("TredjeSemesterEksamensProjekt.SqlServerContext.Migrations"))
+    x => x.MigrationsAssembly("TSEP.SqlDbContext.Migrations"))
     );
 
 

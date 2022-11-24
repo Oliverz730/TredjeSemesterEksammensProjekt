@@ -7,8 +7,9 @@
       "composeLaunchServiceName": "tredjesemestereksammensprojektapi",
       "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/swagger",
       "serviceActions": {
-        "tredjesemestereksammensprojekt": "StartWithoutDebugging",
-        "tredjesemestereksammensprojektapi": "StartDebugging"
+        "tredjesemestereksammensprojekt": "StartDebugging",
+        "tredjesemestereksammensprojektapi": "StartDebugging",
+        "db": "StartWithoutDebugging"
       }
     }
   }

@@ -12,8 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("WebAppUserDbContextConnection");
 builder.Services.AddDbContext<WebAppUserDbContext>(options =>
     options.UseSqlServer(connectionString,
-    x=> x.MigrationsAssembly("UserDbMigrationProjekt"))
+    x=> x.MigrationsAssembly("TSEP.UserDbMigration"))
     );
+
+
+builder.Configuration.AddEnvironmentVariables();
+
+// Database
+// Add-Migration NonLocal -Context WebAppUserDbContext -Project TSEP.UserDbMigration
+// Update-Database -Context WebAppUserDbContext
+
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<WebAppUserDbContext>();

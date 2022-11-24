@@ -6,14 +6,41 @@ services:
     image: ${DOCKER_REGISTRY-}tredjesemestereksammensprojekt
     build:
         context: .
-        dockerfile: TredjeSemesterEksammensProjekt/Dockerfile
+        dockerfile: TSEP.App/Dockerfile
+    environment:
+      "ASPNETCORE_ENVIRONMENT": "Development"
+      "ConnectionStrings:TredjeSemesterEksamensProjektDbConnection": "Server=db;Database=TredjeSemesterEksammensProjekt;user id=test;password=test;MultipleActiveResultSets=true"
+      "StamDataBaseUrl" : "http://tredjesemestereksammensprojektapi"
+    depends_on:
+      - db
+      - tredjesemestereksammensprojektapi
 
   tredjesemestereksammensprojektapi:
     image: ${DOCKER_REGISTRY-}tredjesemestereksammensprojektapi
     build:
         context: .
-        dockerfile: TredjeSemesterEksamensProjekt.Api/Dockerfile
+        dockerfile: TSEP.Api/Dockerfile
     ports:
       - "17000:80"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    environment:
+      "ASPNETCORE_ENVIRONMENT": "Development"
+      "ConnectionStrings:WebAppUserDbContextConnection": "Server=db;Database=TredjeSemesterEksamensProjektDomain;user id=test;password=test;MultipleActiveResultSets=true"
+    depends_on:
+      - db
+
+
+  db:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    user: root
+    ports:
+     - "14330:1433"
+    environment:
+        MSSQL_SA_PASSWORD: "SqlPassw0rd!"
+        ACCEPT_EULA: "Y" 
+
+    volumes:
+      - C:\DockerVolumes\sqlserver\data:/var/opt/mssql/data
+      - C:\DockerVolumes\sqlserver\log:/var/opt/mssql/log
+      - C:\DockerVolumes\sqlserver\secrets:/var/opt/mssql/secrets 
+
+    container_name: sql2019
