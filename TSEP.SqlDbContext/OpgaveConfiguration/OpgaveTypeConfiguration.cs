@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TSEP.StamData.Domain.Model;
+using TSEP.Igangsættelse.Domain.Model;
 
 namespace TSEP.SqlDbContext.OpgaveConfiguration
 {
-    public class OpgaveTypeConfiguration : IEntityTypeConfiguration<OpgaveEntity>
+    public class OpgaveTypeConfiguration : IEntityTypeConfiguration<OpgaveTypeEntity>
     {
-        public void Configure(EntityTypeBuilder<OpgaveEntity> builder)
+        public void Configure(EntityTypeBuilder<OpgaveTypeEntity> builder)
         {
-            builder.ToTable("Opgave", "opgave");
+            builder.ToTable("OpgaveType", "opgaveType");
 
             builder.HasKey(x => x.Id);
         }

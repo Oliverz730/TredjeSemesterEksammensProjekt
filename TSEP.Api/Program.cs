@@ -26,6 +26,7 @@ builder.Services.AddSwaggerGen();
 
 //IOC
 
+//StamData
 builder.Services
     .AddScoped<IKompetanceCreateCommand, KompetanceCreateCommand>()
     .AddScoped<IKompetanceRepository, KompetanceRepository>()

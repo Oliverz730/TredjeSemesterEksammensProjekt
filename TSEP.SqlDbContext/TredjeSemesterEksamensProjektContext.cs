@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TSEP.SqlDbContext.OpgaveConfiguration;
 using TSEP.StamData.Domain.Model;
+using TSEP.Igangsættelse.Domain.Model;
+
 
 namespace TSEP.SqlDbContext
 {
@@ -12,8 +14,9 @@ namespace TSEP.SqlDbContext
         }
 
         public DbSet<KompetanceEntity> KompetanceEntities { get; set; }
-        public DbSet<OpgaveEntity> OpgaveEntities { get; set; }
+        public DbSet<OpgaveTypeEntity> OpgaveTypeEntities { get; set; }
         public DbSet<AnsatEntity> AnsatEntities { get; set; }
+        public DbSet<ProjektEntity> ProjektEntities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -21,6 +24,7 @@ namespace TSEP.SqlDbContext
                 .ApplyConfiguration(new OpgaveTypeConfiguration())
                 .ApplyConfiguration(new KompetanceTypeConfiguration())
                 .ApplyConfiguration(new AnsatTypeConfiguration())
+                .ApplyConfiguration(new ProjektConfuguration())
                 ;
         }
     }
