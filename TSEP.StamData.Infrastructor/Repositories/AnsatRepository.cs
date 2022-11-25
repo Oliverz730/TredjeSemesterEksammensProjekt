@@ -24,7 +24,7 @@ namespace TSEP.StamData.Infrastructor.Repositories
         AnsatQueryResultDto IAnsatRepository.Get(string userId)
         {
             var ansat = _db.AnsatEntities.AsNoTracking().Include(a => a.Kompetancer).FirstOrDefault(a => a.UserId == userId);
-
+            if (ansat == null) throw new Exception("Ansat Findes ikke");
             var kompetancer = ansat.Kompetancer.Select(k => new AnsatKompetanceQueryResultDto { Description = k.Description, Id = k.Id }).ToList();
 
             return new AnsatQueryResultDto

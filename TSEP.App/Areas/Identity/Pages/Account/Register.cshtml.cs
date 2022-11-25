@@ -18,7 +18,7 @@ using TSEP.App.Infrastructure.Contract.Dto;
 
 namespace TSEP.App.Areas.Identity.Pages.Account
 {
-   // [Authorize(Policy = "AdminPolicy")]
+    [Authorize(Policy = "AdminPolicy")]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;

@@ -14,6 +14,9 @@ using TSEP.StamData.Infrastructor.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Docker
+builder.Configuration.AddEnvironmentVariables();
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -34,12 +37,13 @@ builder.Services
     .AddScoped<IAnsatEditCommand, AnsatEditCommand>()
     ;
 
-builder.Configuration.AddEnvironmentVariables();
 
 // Database
 // Add-Migration InitialMigration -Context TredjeSemesterEksamensProjektContext -Project TredjeSemesterEksamensProjekt.SqlServerContext.Migrations
 // Update-Database -Context TredjeSemesterEksamensProjektContext
 var connectionString = builder.Configuration.GetConnectionString("TredjeSemesterEksamensProjektDbConnection");
+
+
 builder.Services.AddDbContext<TredjeSemesterEksamensProjektContext>(options =>
     options.UseSqlServer(connectionString,
     x => x.MigrationsAssembly("TSEP.SqlDbContext.Migrations"))

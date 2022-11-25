@@ -8,9 +8,9 @@ services:
         context: .
         dockerfile: TSEP.App/Dockerfile
     environment:
-      "ASPNETCORE_ENVIRONMENT": "Development"
-      "ConnectionStrings:TredjeSemesterEksamensProjektDbConnection": "Server=db;Database=TredjeSemesterEksammensProjekt;user id=test;password=test;MultipleActiveResultSets=true"
-      "StamDataBaseUrl" : "http://tredjesemestereksammensprojektapi"
+      ASPNETCORE_ENVIRONMENT : "Development"
+      "ConnectionStrings:TredjeSemesterEksamensProjektDbConnection" : "Server=db;Database=TredjeSemesterEksammensProjekt;user id=test;password=test;MultipleActiveResultSets=true;"
+      StamDataBaseUrl : "http://tredjesemestereksammensprojektapi"
     depends_on:
       - db
       - tredjesemestereksammensprojektapi
@@ -23,8 +23,8 @@ services:
     ports:
       - "17000:80"
     environment:
-      "ASPNETCORE_ENVIRONMENT": "Development"
-      "ConnectionStrings:WebAppUserDbContextConnection": "Server=db;Database=TredjeSemesterEksamensProjektDomain;user id=test;password=test;MultipleActiveResultSets=true"
+      ASPNETCORE_ENVIRONMENT : "Development"
+      "ConnectionStrings:WebAppUserDbContextConnection" : "Server=db;Database=TredjeSemesterEksamensProjektDomain;user id=test;password=test;MultipleActiveResultSets=true;"
     depends_on:
       - db
 
