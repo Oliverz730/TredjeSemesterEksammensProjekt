@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
+using TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations;
 using TSEP.SqlDbContext;
 using TSEP.StamData.Application.Ansat.Commands;
 using TSEP.StamData.Application.Ansat.Commands.Implementation;
@@ -40,10 +42,12 @@ builder.Services
 
 
 // Database
-// Add-Migration InitialMigration -Context TredjeSemesterEksamensProjektContext -Project TredjeSemesterEksamensProjekt.SqlServerContext.Migrations
+// Add - Migration RowVersionIgangsættelse - Context TredjeSemesterEksamensProjektContext - Project TSEP.SqlDbContext.Migrations
 // Update-Database -Context TredjeSemesterEksamensProjektContext
 var connectionString = builder.Configuration.GetConnectionString("TredjeSemesterEksamensProjektDbConnection");
-
+//Set til True under Migration
+var updateDatabase = false;
+if (updateDatabase) connectionString = "Server=localhost,14330;Database=TredjeSemesterEksamensProjektDomain;user id=test;password=test;MultipleActiveResultSets=true";
 
 builder.Services.AddDbContext<TredjeSemesterEksamensProjektContext>(options =>
     options.UseSqlServer(connectionString,

@@ -1,4 +1,5 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations;
+
 namespace TSEP.Igangsættelse.Domain.Model
 {
     public class ProjektEntity
@@ -10,7 +11,9 @@ namespace TSEP.Igangsættelse.Domain.Model
         public string ActualEstimated { get; private set; }
         public string SælgerUserId { get; private set; }
         public string KundeUserId { get; private set; }
-        public ProjektEntity(int id, DateTime startDate, DateTime endDate, string estimatedTime, string actualEstimated, string sælgerUserId, string kundeUserId)
+        [Timestamp]
+        public byte[] RowVersion { get; private set; }
+        public ProjektEntity(int id, DateTime startDate, DateTime endDate, string estimatedTime, string actualEstimated, string sælgerUserId, string kundeUserId, byte[] rowVersion)
         {
             Id = id;
             StartDate = startDate;
@@ -19,6 +22,7 @@ namespace TSEP.Igangsættelse.Domain.Model
             ActualEstimated = actualEstimated;
             SælgerUserId = sælgerUserId;
             KundeUserId = kundeUserId;
+            RowVersion = rowVersion;
         }
         //EF
         internal ProjektEntity() { }

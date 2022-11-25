@@ -45,6 +45,7 @@ namespace TSEP.StamData.Infrastructor.Repositories
             {
                 Id= kompetanceEntity.Id,
                 Description = kompetanceEntity.Description,
+                RowVersion = kompetanceEntity.RowVersion,
                 //Ansatte = ansatteDto
             };
         }
@@ -60,7 +61,7 @@ namespace TSEP.StamData.Infrastructor.Repositories
             foreach(var entity in _db.KompetanceEntities.AsNoTracking().ToList())
             {
                 //var ansatte = entity.Ansatte.Select(a => new KompetanceAnsatQueryResultDto { UserId = a.UserId});
-                yield return new KompetanceQueryResultDto { Description = entity.Description, Id = entity.Id };
+                yield return new KompetanceQueryResultDto { Description = entity.Description, Id = entity.Id,RowVersion = entity.RowVersion};
             }
         }
     }

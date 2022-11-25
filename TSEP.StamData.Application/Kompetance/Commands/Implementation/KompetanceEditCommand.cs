@@ -15,8 +15,8 @@ namespace TSEP.StamData.Application.Kompetance.Commands.Implementation
 
         void IKompetanceEditCommand.Edit(KompetanceEditRequestDto kompetanceEditRequestDto)
         {
-            var ansatte = kompetanceEditRequestDto.Ansatte.Select(x => new AnsatEntity(x.UserId, x.Name)).ToList();
-            var kompetance = new KompetanceEntity(kompetanceEditRequestDto.Description, ansatte);
+            var ansatte = kompetanceEditRequestDto.Ansatte.Select(x => new AnsatEntity(x.UserId, x.Name,x.RowVersion)).ToList();
+            var kompetance = new KompetanceEntity(kompetanceEditRequestDto.Description, ansatte, kompetanceEditRequestDto.RowVersion);
 
             _kompetanceRepository.Update(kompetance);
         }

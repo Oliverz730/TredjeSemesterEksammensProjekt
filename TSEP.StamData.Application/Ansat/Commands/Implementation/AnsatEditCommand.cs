@@ -31,7 +31,7 @@ namespace TSEP.StamData.Application.Ansat.Commands.Implementation
 
 
             //Do It
-            model.Edit(ansatEditRequestDto.UserId, ansatEditRequestDto.Name, kompetancer);
+            model.Edit(ansatEditRequestDto.UserId, ansatEditRequestDto.Name, kompetancer, ansatEditRequestDto.RowVersion);
             
 
             // Save
