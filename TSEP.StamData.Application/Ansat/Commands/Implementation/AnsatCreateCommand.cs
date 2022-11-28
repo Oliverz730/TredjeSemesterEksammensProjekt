@@ -13,7 +13,7 @@ namespace TSEP.StamData.Application.Ansat.Commands.Implementation
 
         void IAnsatCreateCommand.Create(AnsatCreateRequestDto ansatCreateRequestDto)
         {
-            var ansat = new AnsatEntity(ansatCreateRequestDto.UserId, ansatCreateRequestDto.Name, ansatCreateRequestDto.RowVersion);
+            var ansat = new AnsatEntity(ansatCreateRequestDto.UserId, ansatCreateRequestDto.Name);
             _ansatRepository.Add(ansat);
         }
     }

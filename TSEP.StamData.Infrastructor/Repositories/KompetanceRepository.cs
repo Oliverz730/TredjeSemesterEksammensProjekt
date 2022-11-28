@@ -52,7 +52,7 @@ namespace TSEP.StamData.Infrastructor.Repositories
 
         void IKompetanceRepository.Update(KompetanceEntity kompetance)
         {
-            _db.KompetanceEntities.Update(kompetance);
+            //_db.KompetanceEntities.Update(kompetance);
             _db.SaveChanges();
         }
 

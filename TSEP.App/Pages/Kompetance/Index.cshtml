@@ -14,8 +14,18 @@
     
 
     <form method="post">
-        <input type="hidden" value="@Model.UserId" asp-for="UserId"/>
-        <input type="hidden" value="@Model.UserName" asp-for="UserName"/>
+        <input type="hidden" asp-for="@Model.UserId"/>
+        <input type="hidden" asp-for="@Model.UserName"/>
+        <input type="hidden" asp-for="@Model.RowVersion"/>
+        
+        @for (int i = 0; i < Model.IndexViewModel.Count; i++)
+        {
+            <input type="hidden" asp-for="@Model.IndexViewModel[i].RowVersion"/>
+            <input type="hidden" asp-for="@Model.IndexViewModel[i].Id"/>
+            <input type="hidden" asp-for="@Model.IndexViewModel[i].Desciption"/>
+            <input type="hidden" asp-for="@Model.IndexViewModel[i].Enable"/>
+        }
+
         <section class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <ul class="navbar-nav flex-grow-1 nav nav-pills">
                 <li class="nav-item">
@@ -44,11 +54,13 @@
 
                             <td>
                                 <section class="form-check">
-                                    @if(kompetance.Enable){
-                                        <input name="KompetanceIder" type="checkbox" value="@kompetance.Id" checked />
+                                    @if (kompetance.Enable)
+                                    {
+                                        <input name="KompetanceIder" type="checkbox" value="@kompetance.Id" checked/>
                                     }
-                                    else{
-                                        <input name="KompetanceIder" type="checkbox" value="@kompetance.Id" />
+                                    else
+                                    {
+                                        <input name="KompetanceIder" type="checkbox" value="@kompetance.Id"/>
                                     }
                                 </section>
                             </td>

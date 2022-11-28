@@ -4,7 +4,5 @@
     {
         public string UserId { get; set; }
         public string Name { get; set; }
-
-        public byte[] RowVersion { get; set; }
     }
 }

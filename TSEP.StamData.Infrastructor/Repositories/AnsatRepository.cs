@@ -25,13 +25,14 @@ namespace TSEP.StamData.Infrastructor.Repositories
         {
             var ansat = _db.AnsatEntities.AsNoTracking().Include(a => a.Kompetancer).FirstOrDefault(a => a.UserId == userId);
             if (ansat == null) throw new Exception("Ansat Findes ikke");
-            var kompetancer = ansat.Kompetancer.Select(k => new AnsatKompetanceQueryResultDto { Description = k.Description, Id = k.Id }).ToList();
+            var kompetancer = ansat.Kompetancer.Select(k => new AnsatKompetanceQueryResultDto { Description = k.Description, Id = k.Id, RowVersion = k.RowVersion}).ToList();
 
             return new AnsatQueryResultDto
             {
                 Name = ansat.Name,
                 UserId = ansat.UserId,
-                Kompetancer = kompetancer
+                Kompetancer = kompetancer,
+                RowVersion = ansat.RowVersion,
             };
 
         }

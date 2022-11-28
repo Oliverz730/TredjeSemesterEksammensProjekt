@@ -3,5 +3,7 @@
     public class KompetanceAnsatEditRequestDto
     {
         public string UserId { get; set; }
+        public byte[] RowVersion { get; set; }
+
     }
 }

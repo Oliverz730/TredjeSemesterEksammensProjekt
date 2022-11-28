@@ -15,7 +15,7 @@ namespace TSEP.StamData.Application.Kompetance.Commands.Implementation
 
         void IKompetanceCreateCommand.Create(KompetanceCreateRequestDto kompetanceCreateRequestDto)
         {
-            var kompetance = new KompetanceEntity(kompetanceCreateRequestDto.Description, kompetanceCreateRequestDto.RowVersion);
+            var kompetance = new KompetanceEntity(kompetanceCreateRequestDto.Description);
             _kompetanceRepository.Add(kompetance);
         }
     }

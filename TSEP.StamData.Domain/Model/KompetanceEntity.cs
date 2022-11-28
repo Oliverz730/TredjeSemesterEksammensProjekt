@@ -8,7 +8,8 @@ namespace TSEP.StamData.Domain.Model
         public string Description { get; private set; }
 
         public virtual ICollection<AnsatEntity> Ansatte { get; private set; }
-        [Timestamp]
+        //Hvis Timestamp (RowVersion) tabes under roundtrip, vil man ikke få lov til at edit.
+        [Timestamp] 
         public byte[] RowVersion { get; set; }
 
         public KompetanceEntity(string description, ICollection<AnsatEntity> ansatte, byte[] rowVersion)
@@ -22,6 +23,10 @@ namespace TSEP.StamData.Domain.Model
         {
             Description = description;
             RowVersion = rowVersion;
+        }
+        public KompetanceEntity(string description)
+        {
+            Description = description;
         }
         //EF
         internal KompetanceEntity()

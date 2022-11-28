@@ -25,6 +25,12 @@ namespace TSEP.StamData.Domain.Model
             Name = name;
             RowVersion = rowVersion;
         }
+
+        public AnsatEntity(string userId, string name)
+        {
+            UserId = userId;
+            Name = name;
+        }
         //EF
         internal AnsatEntity()
         {
