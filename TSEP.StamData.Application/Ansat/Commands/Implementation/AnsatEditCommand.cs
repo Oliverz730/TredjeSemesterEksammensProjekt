@@ -18,24 +18,18 @@ namespace TSEP.StamData.Application.Ansat.Commands.Implementation
 
         void IAnsatEditCommand.Edit(AnsatEditRequestDto ansatEditRequestDto)
         {
-            //Read
-
+            //Read It
             var model = _ansatRepository.Load(ansatEditRequestDto.UserId);
-            List<KompetanceEntity> kompetancer = new();
-
-            foreach (var komp in ansatEditRequestDto.Kompetancer)
-            {
-                kompetancer.Add(_kompetanceRepository.Load(komp.Id));
-              
-            }
-
+            List<KompetanceEntity> kompetancer = ansatEditRequestDto
+                .Kompetancer
+                .Select(k => _kompetanceRepository.Load(k.Id))
+                .ToList();
 
             //Do It
             model.Edit(ansatEditRequestDto.UserId, ansatEditRequestDto.Name, kompetancer, ansatEditRequestDto.RowVersion);
             
 
-            // Save
-
+            //Save It
             _ansatRepository.Update(model);
 
 

@@ -16,7 +16,11 @@ namespace TSEP.Api.Controllers
         private readonly IAnsatGetQuery _getAnsatQuery;
         private readonly IAnsatEditCommand _editAnsatCommand;
 
-        public AnsatController(IAnsatCreateCommand createCommand, IAnsatGetQuery ansatGetQuery, IAnsatEditCommand editAnsatCommand)
+        public AnsatController(
+            IAnsatCreateCommand createCommand, 
+            IAnsatGetQuery ansatGetQuery, 
+            IAnsatEditCommand editAnsatCommand
+            )
         {
             _createAnsatCommand = createCommand;
             _getAnsatQuery = ansatGetQuery;

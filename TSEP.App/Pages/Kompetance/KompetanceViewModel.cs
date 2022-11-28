@@ -1,6 +1,6 @@
 ﻿namespace TSEP.App.Pages.Kompetance
 {
-    public class KompetanceIndexViewModel
+    public class KompetanceViewModel
     {
         public string Desciption { get; set; }
         public bool Enable { get; set; }

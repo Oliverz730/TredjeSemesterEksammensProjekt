@@ -12,6 +12,13 @@ namespace TSEP.StamData.Domain.Model
         [Timestamp] 
         public byte[] RowVersion { get; set; }
 
+        public void Edit(string description, ICollection<AnsatEntity> ansatte, byte[] rowVersion)
+        {
+            Description = description;
+            Ansatte = ansatte;
+            RowVersion = rowVersion;
+        }
+
         public KompetanceEntity(string description, ICollection<AnsatEntity> ansatte, byte[] rowVersion)
         {
             Description = description;

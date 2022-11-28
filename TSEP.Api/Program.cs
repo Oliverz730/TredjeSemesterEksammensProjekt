@@ -42,10 +42,10 @@ builder.Services
 
 
 // Database
-// Add - Migration RowVersionIgangsættelse - Context TredjeSemesterEksamensProjektContext - Project TSEP.SqlDbContext.Migrations
+// Add -Migration RowVersionIgangsættelse -Context TredjeSemesterEksamensProjektContext -Project TSEP.SqlDbContext.Migrations
 // Update-Database -Context TredjeSemesterEksamensProjektContext
 var connectionString = builder.Configuration.GetConnectionString("TredjeSemesterEksamensProjektDbConnection");
-//Set til True under Migration
+//Connection string til opdatering af database via migration, Set til True under Migration
 var updateDatabase = false;
 if (updateDatabase) connectionString = "Server=localhost,14330;Database=TredjeSemesterEksamensProjektDomain;user id=test;password=test;MultipleActiveResultSets=true";
 

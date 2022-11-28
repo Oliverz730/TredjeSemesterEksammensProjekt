@@ -14,13 +14,11 @@ namespace TSEP.StamData.Application.Kompetance.Queries.Implementation
 
         KompetanceQueryResultDto IKompetanceGetQuery.Get(int id)
         {
-
+            //Hent KompetanceQueryResultDto fra Repository
             var kompetanceDto = _kompetanceRepository.Get(id);
 
-
-
+            //Returnerer den fundne KompetanceQueryResultDto
             return kompetanceDto;
-
         }
     }
 }
