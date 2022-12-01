@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 using TSEP.Igangsættelse.Application.Projekt.Commands;
+using TSEP.Igangsættelse.Application.Projekt.Queries;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,23 +12,33 @@ namespace TSEP.Api.Controllers
     public class ProjektController : ControllerBase
     {
         private readonly IProjektCreateCommand _projektCreateCommand;
-        public ProjektController(IProjektCreateCommand projektCreateCommand)
+        private readonly IProjektGetQuery _projektGetQuery;
+        private readonly IProjektGetAllQuery _projektGetAllQuery;
+        public ProjektController(
+            IProjektCreateCommand projektCreateCommand,
+            IProjektGetAllQuery projektGetAllQuery,
+            IProjektGetQuery projektGetQuery
+            )
         {
             _projektCreateCommand = projektCreateCommand;
+            _projektGetAllQuery = projektGetAllQuery;
+            _projektGetQuery = projektGetQuery;
         }
 
         // GET: api/<ProjektController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<ProjektQueryResultDto> Get(string userId)
         {
-            return new string[] { "value1", "value2" };
+            return _projektGetAllQuery.GetAll(userId);
         }
 
         // GET api/<ProjektController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ProjektQueryResultDto Get(int id)
         {
-            return "value";
+            return _projektGetQuery.Get(id);
         }
 
         // POST api/<ProjektController>

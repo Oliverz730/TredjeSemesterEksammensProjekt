@@ -53,9 +53,9 @@ namespace TSEP.Igangsættelse.Infrastructor.Repositories
             //_db.KompetanceEntities.Update(kompetance);
             _db.SaveChanges();
         }
-        IEnumerable<ProjektQueryResultDto> IProjektRepository.GetAll()
+        IEnumerable<ProjektQueryResultDto> IProjektRepository.GetAll(string userId)
         {
-            foreach (var entity in _db.ProjektEntities.AsNoTracking().ToList())
+            foreach (var entity in _db.ProjektEntities.Where(pId => pId.SælgerUserId == userId).AsNoTracking().ToList())
             {
                 //var ansatte = entity.Ansatte.Select(a => new KompetanceAnsatQueryResultDto { UserId = a.UserId});
                 yield return new ProjektQueryResultDto { 
