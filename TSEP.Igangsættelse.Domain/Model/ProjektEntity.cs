@@ -43,5 +43,14 @@ namespace TSEP.Igangsættelse.Domain.Model
         { 
             return 1; 
         }
+        public void Edit(DateTime startDate, DateTime endDate, string estimatedTime, string actualEstimated, string kundeUserId, byte[] rowVersion)
+        {
+            StartDate = startDate;
+            EndDate = endDate;
+            EstimatedTime = estimatedTime;
+            ActualEstimated = actualEstimated;
+            KundeUserId = kundeUserId;
+            RowVersion = rowVersion;
+        }
     }
 }
