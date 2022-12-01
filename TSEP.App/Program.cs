@@ -54,7 +54,7 @@ builder.Services.AddHttpClient<IStamDataService, StamDataService>(client =>
 );
 
 builder.Services.AddHttpClient<IIgangsættelseService, IgangsættelseService>(client =>
-    client.BaseAddress = new Uri(builder.Configuration["IgangsættelseBaseUrl"])
+    client.BaseAddress = new Uri(builder.Configuration["StamDataBaseUrl"])
 );
 
 var app = builder.Build();
