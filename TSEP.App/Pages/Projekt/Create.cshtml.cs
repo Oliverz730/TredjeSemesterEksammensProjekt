@@ -19,10 +19,12 @@ namespace TSEP.App.Pages.Projekt
 
         public async Task<ActionResult> OnPostAsync()
         {
+            if (!ModelState.IsValid) return Page();
+
             var dto = new ProjektCreateRequestDto
             {
                 KundeUserId= Input.KundeUserId,
-                SælgerUserId= Input.SælgerUserId,
+                SælgerUserId= User.Identity.Name,
                 EndDate= Input.EndDate,
                 StartDate= Input.StartDate,
                 ActualEstimated= Input.ActualEstimated,
@@ -30,7 +32,7 @@ namespace TSEP.App.Pages.Projekt
             };
             await _igangsættelseService.CreateProjekt(dto);
 
-            return RedirectToPage("Sælger/Index");
+            return RedirectToPage("/Sælger/Index");
         }
 
         public void OnGet()

@@ -8,6 +8,5 @@
         public string ActualEstimated { get; set; }
         public string SælgerUserId { get; set; }
         public string KundeUserId { get; set; }
-        public byte[] RowVersion { get; set; }
     }
 }

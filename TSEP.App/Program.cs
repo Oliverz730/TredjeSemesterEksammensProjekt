@@ -49,8 +49,9 @@ builder.Services.AddRazorPages(options =>
 });
 
 //IOC
+
 builder.Services.AddHttpClient<IStamDataService, StamDataService>(client => 
-    client.BaseAddress = new Uri(builder.Configuration["StamDataBaseUrl"])   
+    client.BaseAddress = new Uri(builder.Configuration["StamDataBaseUrl"])
 );
 
 builder.Services.AddHttpClient<IIgangsættelseService, IgangsættelseService>(client =>
