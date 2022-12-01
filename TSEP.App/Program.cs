@@ -53,6 +53,10 @@ builder.Services.AddHttpClient<IStamDataService, StamDataService>(client =>
     client.BaseAddress = new Uri(builder.Configuration["StamDataBaseUrl"])   
 );
 
+builder.Services.AddHttpClient<IIgangsættelseService, IgangsættelseService>(client =>
+    client.BaseAddress = new Uri(builder.Configuration["IgangsættelseBaseUrl"])
+);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

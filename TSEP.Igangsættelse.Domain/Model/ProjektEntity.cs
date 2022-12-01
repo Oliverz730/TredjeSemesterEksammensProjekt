@@ -24,6 +24,15 @@ namespace TSEP.Igangsættelse.Domain.Model
             KundeUserId = kundeUserId;
             RowVersion = rowVersion;
         }
+        public ProjektEntity(DateTime startDate, DateTime endDate, string estimatedTime, string actualEstimated, string sælgerUserId, string kundeUserId)
+        {
+            StartDate = startDate;
+            EndDate = endDate;
+            EstimatedTime = estimatedTime;
+            ActualEstimated = actualEstimated;
+            SælgerUserId = sælgerUserId;
+            KundeUserId = kundeUserId;
+        }
         //EF
         internal ProjektEntity() { }
         public int Estimate(string boliger)

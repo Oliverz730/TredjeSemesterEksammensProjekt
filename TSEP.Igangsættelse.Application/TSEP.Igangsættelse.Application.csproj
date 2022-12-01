@@ -8,7 +8,10 @@
 
   <ItemGroup>
     <Folder Include="OpgaveType\" />
-    <Folder Include="Projekt\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TSEP.Igangsættelse.Domain\TSEP.Igangsættelse.Domain.csproj" />
   </ItemGroup>
 
 </Project>
