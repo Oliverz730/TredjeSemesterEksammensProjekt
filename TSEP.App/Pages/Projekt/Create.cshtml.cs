@@ -22,7 +22,6 @@ namespace TSEP.App.Pages.Projekt
             var dto = new ProjektCreateRequestDto
             {
                 KundeUserId= Input.KundeUserId,
-                SælgerUserId= Input.SælgerUserId,
                 EndDate= Input.EndDate,
                 StartDate= Input.StartDate,
                 ActualEstimated= Input.ActualEstimated,
@@ -30,7 +29,7 @@ namespace TSEP.App.Pages.Projekt
             };
             await _igangsættelseService.CreateProjekt(dto);
 
-            return RedirectToPage("Sælger/Index");
+            return RedirectToPage("/Sælger/Index");
         }
 
         public void OnGet()

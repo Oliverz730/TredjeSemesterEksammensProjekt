@@ -9,26 +9,34 @@
     <section class="w-25">
 
         <form class="form-floating" method="post">
-            <input asp-for="Input.StartDate" class="form-control" autocomplete="new-description" aria-required="true" />
-            <label asp-for="Input.StartDate"></label>
-            <span asp-validation-for="Input.StartDate" class="text-danger"></span>
-
-            <input asp-for="Input.EndDate" class="form-control" autocomplete="new-description" aria-required="true" />
-            <label asp-for="Input.EndDate"></label>
-            <span asp-validation-for="Input.EndDate" class="text-danger"></span>
-
-            <input asp-for="Input.EstimatedTime" class="form-control" autocomplete="new-description" aria-required="true" />
-            <label asp-for="Input.EstimatedTime"></label>
-            <span asp-validation-for="Input.EstimatedTime" class="text-danger"></span>
-
-            <input asp-for="Input.ActualEstimated" class="form-control" autocomplete="new-description" aria-required="true" />
-            <label asp-for="Input.ActualEstimated"></label>
-            <span asp-validation-for="Input.ActualEstimated" class="text-danger"></span>
-
-            <input asp-for="Input.KundeUserId" class="form-control" autocomplete="new-description" aria-required="true" />
-            <label asp-for="Input.KundeUserId"></label>
-            <span asp-validation-for="Input.KundeUserId" class="text-danger"></span>
-
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Tilføj</button>
+            <section class"form-group">
+                <label asp-for="Input.StartDate"></label>
+                <input asp-for="Input.StartDate" class="form-control" autocomplete="new-description" aria-required="true" />
+                <span asp-validation-for="Input.StartDate" class="text-danger"></span>
+            </section>
+            <section class"form-group">
+                <label asp-for="Input.EndDate"></label>
+                <input asp-for="Input.EndDate" class="form-control" autocomplete="new-description" aria-required="true" />
+                <span asp-validation-for="Input.EndDate" class="text-danger"></span>
+            </section>
+            <section class"form-group">
+                <label asp-for="Input.EstimatedTime"></label>
+                <input asp-for="Input.EstimatedTime" class="form-control" autocomplete="new-description" aria-required="true" />
+                <span asp-validation-for="Input.EstimatedTime" class="text-danger"></span>
+            </section>
+            <section class"form-group">
+                <label asp-for="Input.ActualEstimated"></label>
+                <input asp-for="Input.ActualEstimated" class="form-control" autocomplete="new-description" aria-required="true" />
+                <span asp-validation-for="Input.ActualEstimated" class="text-danger"></span>
+            </section>
+            <section class"form-group">
+                <label asp-for="Input.KundeUserId"></label>
+                <input asp-for="Input.KundeUserId" class="form-control" autocomplete="new-description" aria-required="true" />
+                <span asp-validation-for="Input.KundeUserId" class="text-danger"></span>
+            </section>
+            <br />
+            <section class"form-group">
+                <button type="submit" class="w-100 btn btn-lg btn-primary">Tilføj</button>
+            </section>
         </form>
     </section>
