@@ -31,11 +31,11 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Igangsættelse", "Igangsættelse", "{188B77B8-128C-42DC-BB86-710C233FEF4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSEP.Igangsættelse.Application", "TSEP.Igangsættelse.Application\TSEP.Igangsættelse.Application.csproj", "{FC646DFF-76F1-456F-9192-E21EDE037A7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Igangsættelse.Application", "TSEP.Igangsættelse.Application\TSEP.Igangsættelse.Application.csproj", "{FC646DFF-76F1-456F-9192-E21EDE037A7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSEP.Igangsættelse.Domain", "TSEP.Igangsættelse.Domain\TSEP.Igangsættelse.Domain.csproj", "{F11D0975-E6F3-410F-94B6-2FF6E2697C1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Igangsættelse.Domain", "TSEP.Igangsættelse.Domain\TSEP.Igangsættelse.Domain.csproj", "{F11D0975-E6F3-410F-94B6-2FF6E2697C1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSEP.Igangsættelse.Infrastructor", "TSEP.Igangsættelse.Infrastructor\TSEP.Igangsættelse.Infrastructor.csproj", "{C1D61596-60C2-4681-B209-53D8C7A7886C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Igangsættelse.Infrastructor", "TSEP.Igangsættelse.Infrastructor\TSEP.Igangsættelse.Infrastructor.csproj", "{C1D61596-60C2-4681-B209-53D8C7A7886C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
