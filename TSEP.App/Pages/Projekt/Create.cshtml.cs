@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TSEP.App.Infrastructure.Contract;
+using TSEP.App.Infrastructure.Contract.Dto;
 using System.ComponentModel.DataAnnotations;
 
 namespace TSEP.App.Pages.Projekt
@@ -14,14 +15,24 @@ namespace TSEP.App.Pages.Projekt
         }
 
         [BindProperty]
-        public InputModel Input { get; set; }
-        public class InputModel
+        public ProjektCreateViewModel Input { get; set; }
+
+        public async Task<ActionResult> OnPostAsync()
         {
-            [Required]
-            [DataType(DataType.DateTime)]
-            [Display(Name = "Start DateTime")]
-            public string StartDateTime { get; set; }
+            var dto = new ProjektCreateRequestDto
+            {
+                KundeUserId= Input.KundeUserId,
+                SælgerUserId= Input.SælgerUserId,
+                EndDate= Input.EndDate,
+                StartDate= Input.StartDate,
+                ActualEstimated= Input.ActualEstimated,
+                EstimatedTime= Input.EstimatedTime,
+            };
+            await _igangsættelseService.CreateProjekt(dto);
+
+            return RedirectToPage("Sælger/Index");
         }
+
         public void OnGet()
         {
         }
