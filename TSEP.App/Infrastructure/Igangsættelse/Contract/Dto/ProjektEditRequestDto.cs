@@ -1,9 +1,9 @@
-﻿namespace TSEP.App.Infrastructure.Contract.Dto
+﻿namespace TSEP.App.Infrastructure.Igangsættelse.Contract.Dto
 {
-    public class ProjektQueryResultDto
+    public class ProjektEditRequestDto
     {
-        public int Id { get; set; }
         public string ProjektName { get; set; }
+        public string UserId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string EstimatedTime { get; set; }

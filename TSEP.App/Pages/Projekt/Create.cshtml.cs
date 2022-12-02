@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TSEP.App.Infrastructure.Contract;
-using TSEP.App.Infrastructure.Contract.Dto;
+using TSEP.App.Infrastructure.Igangsættelse.Contract;
 using System.ComponentModel.DataAnnotations;
+using TSEP.App.Infrastructure.Igangsættelse.Contract.Dto;
 
 namespace TSEP.App.Pages.Projekt
 {

@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TSEP.App.Infrastructure.Contract;
-using TSEP.App.Infrastructure.Contract.Dto;
+using TSEP.App.Infrastructure.Igangsættelse.Contract;
 
 namespace TSEP.App.Pages.Sælger
 {
@@ -13,13 +12,9 @@ namespace TSEP.App.Pages.Sælger
         {
             _igangsættelseService = igangsættelseService;
         }
-
         
-
-
         [BindProperty]
         public List<ProjektIndexViewModel> IndexViewModels { get; set; } = new();
-
 
         //public async Task<ActionResult> OnPostAsync() { await _igangsættelseService.EditProjekt(dto); }
         public async Task<ActionResult> OnGet()
