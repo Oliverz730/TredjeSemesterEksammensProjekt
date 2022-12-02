@@ -21,7 +21,6 @@ using TSEP.StamData.Infrastructor.Repositories;
 using TSEP.Igangsættelse.Application.Projekt.Commands;
 using TSEP.Igangsættelse.Application.Projekt.Commands.Implementation;
 using TSEP.Igangsættelse.Application.Projekt.Repositories;
-using TSEP.Igangsættelse.Infrastructor.Repositories;
 using TSEP.Igangsættelse.Application.Projekt.Queries;
 using TSEP.Igangsættelse.Application.Projekt.Queries.Implementation;
 
@@ -56,10 +55,6 @@ builder.Services
 builder.Services
     .AddScoped<IOpgaveTypeCreateCommand, OpgaveTypeCreateCommand>()
     .AddScoped<IOpgaveTypeRepository, OpgaveTypeRepository>()
-    ;
-
-//Igangsættelse
-builder.Services
     .AddScoped<IProjektCreateCommand, ProjektCreateCommand>()
     .AddScoped<IProjektRepository, ProjektRepository>()
     .AddScoped<IProjektGetAllQuery, ProjektGetAllQuery>()
