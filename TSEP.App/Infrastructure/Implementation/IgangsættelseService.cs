@@ -17,12 +17,16 @@ namespace TSEP.App.Infrastructure.Implementation
         }
         async Task<IEnumerable<ProjektQueryResultDto>?> IIgangsættelseService.GetAllProjekt(string userId)
         {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<ProjektQueryResultDto>>($"api/Projekt");
+            return await _httpClient.GetFromJsonAsync<IEnumerable<ProjektQueryResultDto>>($"api/Projekt/" + userId);
         }
 
-        async Task<ProjektQueryResultDto?> IIgangsættelseService.GetProjekt(string userId)
+        async Task<ProjektQueryResultDto?> IIgangsættelseService.GetProjekt(int id, string userId)
         {
-            return await _httpClient.GetFromJsonAsync<ProjektQueryResultDto>($"api/Projekt/" + userId);
+            return await _httpClient.GetFromJsonAsync<ProjektQueryResultDto>($"api/Projekt/{id}/{userId}");
+        }
+        async Task IIgangsættelseService.EditProjekt(ProjektEditRequestDto projektEditRequestDto)
+        {
+            var res = await _httpClient.PutAsJsonAsync($"api/Projekt", projektEditRequestDto);
         }
     }
 }

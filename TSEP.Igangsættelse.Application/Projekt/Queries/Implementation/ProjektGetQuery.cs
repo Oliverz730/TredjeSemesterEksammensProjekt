@@ -16,9 +16,9 @@ namespace TSEP.Igangsættelse.Application.Projekt.Queries.Implementation
             _projektRepository = projektRepository;
         }
 
-        ProjektQueryResultDto IProjektGetQuery.Get(int id)
+        ProjektQueryResultDto IProjektGetQuery.Get(int id, string userId)
         {
-            var projektDto = _projektRepository.Get(id);
+            var projektDto = _projektRepository.Get(id, userId);
 
             return projektDto;
         }

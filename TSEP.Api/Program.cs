@@ -17,6 +17,8 @@ using TSEP.Igangsættelse.Application.Projekt.Commands;
 using TSEP.Igangsættelse.Application.Projekt.Commands.Implementation;
 using TSEP.Igangsættelse.Application.Projekt.Repositories;
 using TSEP.Igangsættelse.Infrastructor.Repositories;
+using TSEP.Igangsættelse.Application.Projekt.Queries;
+using TSEP.Igangsættelse.Application.Projekt.Queries.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +50,9 @@ builder.Services
 builder.Services
     .AddScoped<IProjektCreateCommand, ProjektCreateCommand>()
     .AddScoped<IProjektRepository, ProjektRepository>()
+    .AddScoped<IProjektGetAllQuery, ProjektGetAllQuery>()
+    .AddScoped<IProjektGetQuery, ProjektGetQuery>()
+    .AddScoped<IProjektEditCommand, ProjektEditCommand>()
     ;
 
 

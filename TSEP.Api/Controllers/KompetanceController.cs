@@ -49,7 +49,6 @@ namespace TSEP.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult Post(KompetanceCreateRequestDto request)
         {
-
             try
             {
                 _createKompetanceCommand.Create(request);
@@ -61,7 +60,6 @@ namespace TSEP.Api.Controllers
             }
         }
 
-        
         // PUT api/<OpgaveController>/5
         [HttpPut("{id}")]
         public ActionResult Put([FromBody] int id)

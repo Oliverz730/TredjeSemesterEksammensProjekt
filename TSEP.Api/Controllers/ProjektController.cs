@@ -25,20 +25,22 @@ namespace TSEP.Api.Controllers
             _projektGetQuery = projektGetQuery;
         }
 
-        // GET: api/<ProjektController>
-        [HttpGet]
+        // GET: api/<ProjektController>/sælgerId
+        [HttpGet("{userId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IEnumerable<ProjektQueryResultDto> Get(string userId)
         {
             return _projektGetAllQuery.GetAll(userId);
         }
 
         // GET api/<ProjektController>/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}/{userId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ProjektQueryResultDto Get(int id)
+        public ProjektQueryResultDto Get(int id, string userId)
         {
-            return _projektGetQuery.Get(id);
+            return _projektGetQuery.Get(id, userId);
         }
 
         // POST api/<ProjektController>

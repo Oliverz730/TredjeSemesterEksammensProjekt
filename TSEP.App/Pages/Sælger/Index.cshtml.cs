@@ -14,35 +14,35 @@ namespace TSEP.App.Pages.Sælger
             _igangsættelseService = igangsættelseService;
         }
 
-        [BindProperty]
-        public int Id { get; set; }
-        [BindProperty]
-        public DateTime StartDate { get; set; }
-        [BindProperty]
-        public DateTime EndDate { get; set; }
-        [BindProperty]
-        public string EstimatedTime { get; set; }
-        [BindProperty]
-        public string ActualEstimated { get; set; }
-        [BindProperty]
-        public string SælgerUserId { get; set; }
-        [BindProperty]
-        public string KundeUserId { get; set; }
-        [BindProperty]
-        public byte[] RowVersion { get; set; }
+        
 
 
         [BindProperty]
-        public List<ProjektIndexViewModel> IndexViewModel { get; set; } = new();
+        public List<ProjektIndexViewModel> IndexViewModels { get; set; } = new();
 
 
         //public async Task<ActionResult> OnPostAsync() { await _igangsættelseService.EditProjekt(dto); }
         public async Task<ActionResult> OnGet()
         {
-            var businessModel = await _igangsættelseService.GetAllProjekt(User.Identity.Name);
+            if (User.Identity.Name == null) return NotFound();
+
+            var businessModels = await _igangsættelseService.GetAllProjekt(User.Identity.Name);
             //var projektModel = await _igangsættelseService.GetProjekt();  // Skal have et indtastet input fra siden
 
-
+            IndexViewModels = businessModels.Select(pDto => new ProjektIndexViewModel
+            {
+                RowVersion = pDto.RowVersion,
+                ProjektName = pDto.ProjektName,
+                SælgerUserId = pDto.SælgerUserId,
+                EndDate = pDto.EndDate,
+                StartDate = pDto.StartDate,
+                Id = pDto.Id,
+                EstimatedTime = pDto.EstimatedTime,
+                ActualEstimated = pDto.ActualEstimated,
+                KundeUserId = pDto.KundeUserId
+                
+            }).ToList();
+            
 
             return Page();
         }
