@@ -1,0 +1,17 @@
+﻿@page
+@model TSEP.App.Pages.Sælger.CreateModel
+@{
+}
+<section>
+
+    <h1>Opret Projekt</h1>
+
+    <section class="w-25">
+
+        <form class="form-floating" method="post">
+            <input asp-for="Input.StartDateTime" class="form-control" autocomplete="new-description" aria-required="true" />
+            <label asp-for="Input.StartDateTime"></label>
+            <span asp-validation-for="Input.StartDateTime" class="text-danger"></span>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Tilføj</button>
+        </form>
+    </section>

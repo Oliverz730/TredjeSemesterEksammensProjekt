@@ -18,6 +18,10 @@ using TSEP.StamData.Application.Kompetance.Queries;
 using TSEP.StamData.Application.Kompetance.Queries.Implementation;
 using TSEP.StamData.Application.Kompetance.Repositories;
 using TSEP.StamData.Infrastructor.Repositories;
+using TSEP.Igangsættelse.Application.Projekt.Commands;
+using TSEP.Igangsættelse.Application.Projekt.Commands.Implementation;
+using TSEP.Igangsættelse.Application.Projekt.Repositories;
+using TSEP.Igangsættelse.Infrastructor.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +54,12 @@ builder.Services
 builder.Services
     .AddScoped<IOpgaveTypeCreateCommand, OpgaveTypeCreateCommand>()
     .AddScoped<IOpgaveTypeRepository, OpgaveTypeRepository>()
+    ;
+
+//Igangsættelse
+builder.Services
+    .AddScoped<IProjektCreateCommand, ProjektCreateCommand>()
+    .AddScoped<IProjektRepository, ProjektRepository>()
     ;
 
 

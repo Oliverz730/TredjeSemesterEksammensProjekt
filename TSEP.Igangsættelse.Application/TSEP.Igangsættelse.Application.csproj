@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Projekt\" />
-  </ItemGroup>
+    <ProjectReference Include="..\TSEP.Igangsættelse.Domain\TSEP.Igangsættelse.Domain.csproj" />
+
+</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TSEP.Igangsættelse.Domain\TSEP.Igangsættelse.Domain.csproj" />
