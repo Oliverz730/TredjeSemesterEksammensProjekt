@@ -23,6 +23,7 @@ namespace TSEP.App.Pages.Projekt
 
             var dto = new ProjektCreateRequestDto
             {
+                ProjektName = Input.ProjektName,
                 KundeUserId= Input.KundeUserId,
                 SælgerUserId= User.Identity.Name,
                 EndDate= Input.EndDate,

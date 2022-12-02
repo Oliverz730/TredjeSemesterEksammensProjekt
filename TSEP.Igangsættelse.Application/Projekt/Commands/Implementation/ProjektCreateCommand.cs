@@ -25,7 +25,8 @@ namespace TSEP.Igangsættelse.Application.Projekt.Commands.Implementation
                 projektCreateRequestDto.EstimatedTime,
                 projektCreateRequestDto.ActualEstimated,
                 projektCreateRequestDto.SælgerUserId,
-                projektCreateRequestDto.KundeUserId
+                projektCreateRequestDto.KundeUserId,
+                projektCreateRequestDto.ProjektName
                 );
 
             _projektRepository.Add(projekt);

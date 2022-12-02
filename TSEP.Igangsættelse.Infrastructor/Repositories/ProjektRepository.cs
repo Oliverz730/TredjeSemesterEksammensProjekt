@@ -30,15 +30,17 @@ namespace TSEP.Igangsættelse.Infrastructor.Repositories
 
             return projektEntity;
         }
-        ProjektQueryResultDto IProjektRepository.Get(int id)
+        ProjektQueryResultDto IProjektRepository.Get(int id, string userId)
         {
             var projektEntity = _db.ProjektEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            
             if (projektEntity == null) throw new Exception("Projekt findes ikke");
-
+            if (projektEntity.SælgerUserId != userId) throw new Exception("Sælger har ikke lov til at se dette projekt"); 
 
             return new ProjektQueryResultDto
             {
                 Id = projektEntity.Id,
+                ProjektName = projektEntity.ProjektName,
                 StartDate = projektEntity.StartDate,
                 EndDate = projektEntity.EndDate,
                 EstimatedTime = projektEntity.EstimatedTime,
@@ -53,20 +55,21 @@ namespace TSEP.Igangsættelse.Infrastructor.Repositories
             //_db.KompetanceEntities.Update(kompetance);
             _db.SaveChanges();
         }
-        IEnumerable<ProjektQueryResultDto> IProjektRepository.GetAll()
+        IEnumerable<ProjektQueryResultDto> IProjektRepository.GetAll(string userId)
         {
-            foreach (var entity in _db.ProjektEntities.AsNoTracking().ToList())
+            foreach (var projekt in _db.ProjektEntities.Where(pId => pId.SælgerUserId == userId).AsNoTracking().ToList())
             {
                 //var ansatte = entity.Ansatte.Select(a => new KompetanceAnsatQueryResultDto { UserId = a.UserId});
                 yield return new ProjektQueryResultDto { 
-                    Id = entity.Id, 
-                    StartDate = entity.StartDate, 
-                    EndDate = entity.EndDate, 
-                    EstimatedTime = entity.EstimatedTime,
-                    ActualEstimated = entity.ActualEstimated,
-                    SælgerUserId = entity.SælgerUserId,
-                    KundeUserId = entity.KundeUserId,
-                    RowVersion = entity.RowVersion,
+                    Id = projekt.Id, 
+                    ProjektName = projekt.ProjektName,
+                    StartDate = projekt.StartDate, 
+                    EndDate = projekt.EndDate, 
+                    EstimatedTime = projekt.EstimatedTime,
+                    ActualEstimated = projekt.ActualEstimated,
+                    SælgerUserId = projekt.SælgerUserId,
+                    KundeUserId = projekt.KundeUserId,
+                    RowVersion = projekt.RowVersion,
                 };
             }
         }

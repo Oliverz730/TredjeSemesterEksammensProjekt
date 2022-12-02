@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TSEP.Igangsættelse.Application.Projekt.Queries
+﻿namespace TSEP.App.Infrastructure.Contract.Dto
 {
-    public class ProjektQueryResultDto
+    public class ProjektEditRequestDto
     {
-        public int Id { get; set; }
         public string ProjektName { get; set; }
+        public string UserId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string EstimatedTime { get; set; }

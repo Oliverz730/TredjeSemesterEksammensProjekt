@@ -5,6 +5,7 @@ namespace TSEP.Igangsættelse.Application.Projekt.Commands
 {
     public class ProjektCreateRequestDto
     {
+        public string ProjektName { get; set; }
         public DateTime StartDate { get;  set; }
         public DateTime EndDate { get;  set; }
         public string EstimatedTime { get;  set; }

@@ -16,9 +16,9 @@ namespace TSEP.Igangsættelse.Application.Projekt.Queries.Implementation
             _projektRepository = projektRepository;
         }
 
-        IEnumerable<ProjektQueryResultDto> IProjektGetAllQuery.GetAll()
+        IEnumerable<ProjektQueryResultDto> IProjektGetAllQuery.GetAll(string userId)
         {
-            return _projektRepository.GetAll();
+            return _projektRepository.GetAll(userId);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace TSEP.Igangsættelse.Application.Projekt.Commands.Implementation
         {
             var model= _projektRepository.Load(editRequestDto.Id );
 
-            model.Edit( editRequestDto.StartDate, editRequestDto.EndDate, editRequestDto.EstimatedTime, editRequestDto.ActualEstimated, editRequestDto.KundeUserId, editRequestDto.RowVersion);
+            model.Edit( editRequestDto.StartDate, editRequestDto.EndDate, editRequestDto.EstimatedTime, editRequestDto.ActualEstimated, editRequestDto.KundeUserId, editRequestDto.ProjektName,editRequestDto.RowVersion);
             
             _projektRepository.Update(model);
         }
