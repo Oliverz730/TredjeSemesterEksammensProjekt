@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TSEP.App.Infrastructure.Contract;
-using TSEP.App.Infrastructure.Contract.Dto;
+using TSEP.App.Infrastructure.StamData.Contract;
+using TSEP.App.Infrastructure.StamData.Contract.Dto;
 
 namespace TSEP.App.Pages.Kompetance
 {
@@ -23,7 +23,7 @@ namespace TSEP.App.Pages.Kompetance
         public byte[] RowVersion { get; set; }
 
         [BindProperty]
-        public List<KompetanceViewModel> IndexViewModel { get; set; } = new();
+        public List<KompetanceIndexViewModel> IndexViewModel { get; set; } = new();
         [BindProperty]
         public List<int> KompetanceIder { get; set; } = new();
 
@@ -62,12 +62,12 @@ namespace TSEP.App.Pages.Kompetance
             //Hvis ingen kompetance blev fundet, return til Page
             if (kompetanceModel == null) return Page();
 
-            //Konverter fra KompetanceQueryResultDto til KompetanceViewModel
-            IndexViewModel = kompetanceModel.Select(k => new KompetanceViewModel
+            //Konverter fra KompetanceQueryResultDto til KompetanceIndexViewModel
+            IndexViewModel = kompetanceModel.Select(k => new KompetanceIndexViewModel
                 {
                     //Overfør data fra Dto til viewModel
                     Id = k.Id,
-                    Desciption = k.Description,
+                    Description = k.Description,
                     RowVersion = k.RowVersion,
 
                     //Hvis den Ansatte indeholder kompetancen sæt enable til true

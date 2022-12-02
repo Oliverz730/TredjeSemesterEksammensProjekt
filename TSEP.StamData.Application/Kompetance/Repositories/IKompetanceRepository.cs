@@ -9,8 +9,6 @@ namespace TSEP.StamData.Application.Kompetance.Repositories
         KompetanceEntity Load(int id);
         KompetanceQueryResultDto Get(int id);
         IEnumerable<KompetanceQueryResultDto> GetAll();
-
-
         void Update(KompetanceEntity kompetance);
     }
 }

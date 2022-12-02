@@ -62,7 +62,8 @@ namespace TSEP.StamData.Infrastructor.Repositories
 
         void IAnsatRepository.Update(AnsatEntity ansat)
         {
-            //_db.AnsatEntities.Update(ansat);
+
+            _db.AnsatEntities.Update(ansat);
 
             //Gem ændringer på Ansat 
             _db.SaveChanges();

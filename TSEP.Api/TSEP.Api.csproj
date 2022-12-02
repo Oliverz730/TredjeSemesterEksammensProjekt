@@ -19,8 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TSEP.Igangsættelse.Application\TSEP.Igangsættelse.Application.csproj" />
+    <ProjectReference Include="..\TSEP.Igangsættelse.Infrastructor\TSEP.Igangsættelse.Infrastructor.csproj" />
     <ProjectReference Include="..\TSEP.StamData.Infrastructor\TSEP.StamData.Infrastructor.csproj" />
-    <ProjectReference Include="..\TSEP.StamData.Domain\TSEP.StamData.Domain.csproj" />
     <ProjectReference Include="..\TSEP.StamData.Application\TSEP.StamData.Application.csproj" />
     <ProjectReference Include="..\TSEP.SqlDbContext\TSEP.SqlDbContext.csproj" />
     <ProjectReference Include="..\TSEP.SqlDbContext.Migrations\TSEP.SqlDbContext.Migrations.csproj" />

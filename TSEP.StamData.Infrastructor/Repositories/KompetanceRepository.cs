@@ -26,7 +26,7 @@ namespace TSEP.StamData.Infrastructor.Repositories
         KompetanceEntity IKompetanceRepository.Load(int id)
         {
             //Find den Ansat med det givne userId
-            var kompetanceEntity = _db.KompetanceEntities.FirstOrDefault(x => x.Id == id);
+            var kompetanceEntity = _db.KompetanceEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
 
             //Hvis Kompetancen ikke findes, smid en exception
             if (kompetanceEntity == null) throw new Exception("Kompetance findes ikke");
@@ -54,7 +54,7 @@ namespace TSEP.StamData.Infrastructor.Repositories
 
         void IKompetanceRepository.Update(KompetanceEntity kompetance)
         {
-            //_db.KompetanceEntities.Update(kompetance);
+            _db.KompetanceEntities.Update(kompetance);
 
             //Gem ændringer på Kompetancen 
             _db.SaveChanges();

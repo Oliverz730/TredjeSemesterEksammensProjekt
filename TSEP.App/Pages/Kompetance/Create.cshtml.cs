@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TSEP.App.Infrastructure.Contract;
-using TSEP.App.Infrastructure.Contract.Dto;
+using TSEP.App.Infrastructure.StamData.Contract;
+using TSEP.App.Infrastructure.StamData.Contract.Dto;
 
 namespace TSEP.App.Pages.Kompetance
 {

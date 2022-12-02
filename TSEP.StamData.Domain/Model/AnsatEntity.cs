@@ -10,31 +10,14 @@ namespace TSEP.StamData.Domain.Model
         public string UserId { get; private set; }
         [Timestamp]
         public byte[] RowVersion { get; private set; }
-
-        public AnsatEntity(ICollection<KompetanceEntity> kompetancer, string userId, string name, byte[] rowVersion)
-        {
-            Kompetancer = kompetancer;
-            UserId = userId;
-            Name = name;
-            RowVersion = rowVersion;
-        }
-
-        public AnsatEntity(string userId, string name, byte[] rowVersion)
-        {
-            UserId = userId;
-            Name = name;
-            RowVersion = rowVersion;
-        }
-
+        
         public AnsatEntity(string userId, string name)
         {
             UserId = userId;
             Name = name;
         }
         //EF
-        internal AnsatEntity()
-        {
-        }
+        internal AnsatEntity() { }
 
         public void Edit(string userId,string name, ICollection<KompetanceEntity> kompetancer, byte[] rowVersion)
         {
