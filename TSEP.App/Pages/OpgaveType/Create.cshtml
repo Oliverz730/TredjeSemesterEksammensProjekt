@@ -1,0 +1,31 @@
+﻿@page
+@model TSEP.App.Pages.OpgaveType.CreateModel
+@{
+}
+
+
+<section>
+
+    <h1>Opret Opgave Type</h1>
+
+    <section class="w-25">
+
+        <form class="form-floating" method="post">
+            
+            <section class="form-group">
+                <label asp-for="Input.Beskrivelse"></label>
+                <input asp-for="Input.Beskrivelse" class="form-control" autocomplete="new-description" aria-required="true"/>
+                <span asp-validation-for="Input.Beskrivelse" class="text-danger"></span>
+            </section>
+
+            <section class="form-group">
+                <label asp-for="Input.KompetanceId"></label>
+                <select asp-for="Input.KompetanceId" class="form-control" aria-required="true" asp-items="Model.KompetanceList"></select>
+                <span asp-validation-for="Input.Beskrivelse" class="text-danger"></span>
+            </section>
+
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Tilføj</button>
+        </form>
+    </section>
+
+</section>

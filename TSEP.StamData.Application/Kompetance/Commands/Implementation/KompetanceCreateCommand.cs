@@ -15,7 +15,10 @@ namespace TSEP.StamData.Application.Kompetance.Commands.Implementation
 
         void IKompetanceCreateCommand.Create(KompetanceCreateRequestDto kompetanceCreateRequestDto)
         {
+            //Opræt Kompetance med de givne data
             var kompetance = new KompetanceEntity(kompetanceCreateRequestDto.Description);
+
+            //Tilføj Kompetancen til Repositoriet
             _kompetanceRepository.Add(kompetance);
         }
     }

@@ -13,8 +13,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using TSEP.App.Infrastructure.Contract;
-using TSEP.App.Infrastructure.Contract.Dto;
+using TSEP.App.Infrastructure.StamData.Contract;
+using TSEP.App.Infrastructure.StamData.Contract.Dto;
 
 namespace TSEP.App.Areas.Identity.Pages.Account
 {

@@ -1,5 +1,5 @@
 ﻿
-namespace TSEP.App.Infrastructure.Contract.Dto
+namespace TSEP.App.Infrastructure.StamData.Contract.Dto
 {
     public class KompetanceCreateRequestDto
     {

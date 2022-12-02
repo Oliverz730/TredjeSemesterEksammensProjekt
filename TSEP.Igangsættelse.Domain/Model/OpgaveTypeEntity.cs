@@ -25,5 +25,11 @@ namespace TSEP.Igangsættelse.Domain.Model
             KompetanceId = kompetanceId;
             RowVersion = rowVersion;
         }
+
+        public OpgaveTypeEntity(string beskrivelse, int kompetanceId)
+        {
+            Beskrivelse = beskrivelse;
+            KompetanceId = kompetanceId;
+        }
     }
 }

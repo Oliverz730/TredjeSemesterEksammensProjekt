@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TSEP.App.Infrastructure.Contract;
-using TSEP.App.Infrastructure.Contract.Dto;
+using TSEP.App.Infrastructure.StamData.Contract;
+using TSEP.App.Infrastructure.StamData.Contract.Dto;
 
 namespace TSEP.App.Pages.Kompetance
 {
@@ -29,43 +29,53 @@ namespace TSEP.App.Pages.Kompetance
 
         public async Task<ActionResult> OnPostAsync()
         {
+            //Find de Kompetancer som er blevet markeret via checkboxes
             var kompetanceDtoer = IndexViewModel.FindAll(k => KompetanceIder.Contains(k.Id)).Select(k => new AnsatKompetanceEditRequestDto { Id = k.Id, RowVersion = k.RowVersion}).ToList();
+            
+            //Konverter fra Bindproperties til AnsatEditRequestDto
             var dto = new AnsatEditRequestDto { Name = UserName,UserId = UserId,Kompetancer = kompetanceDtoer, RowVersion = RowVersion};
 
+            //Send Edit request via StamdataService
             await _stamdataService.EditAnsat(dto);
 
+            //Opdater siden med de nye informationer
             return RedirectToPage("/Kompetance/Index");
         }
 
         public async Task<ActionResult> OnGet()
         {
-
+            //Hvis  brugeren ikke er logget ind, vis ikke siden
             if (User.Identity.Name == null) return NotFound();
-            var businessModel = await _stamdataService.GetAllKompetance();
+
+            //Hent data på den Ansat samt alle kompetancer
+            var kompetanceModel = await _stamdataService.GetAllKompetance();
             var ansatModel = await _stamdataService.GetAnsat(User.Identity.Name);
 
+            //Hvis der ikke blev fundet nogen ansat, smid en Exception
             if (ansatModel == null) throw new Exception("Ansat findes ikke");
 
+            //Gem relevant Ansat data i bindproperties'ne 
             UserName = ansatModel.Name;
             UserId = ansatModel.UserId;
             RowVersion = ansatModel.RowVersion;
 
-            if (businessModel == null)
-            {
+            //Hvis ingen kompetance blev fundet, return til Page
+            if (kompetanceModel == null) return Page();
 
-            }
-            else
-            {
-                IndexViewModel = businessModel.Select(k => new KompetanceIndexViewModel
+            //Konverter fra KompetanceQueryResultDto til KompetanceIndexViewModel
+            IndexViewModel = kompetanceModel.Select(k => new KompetanceIndexViewModel
                 {
+                    //Overfør data fra Dto til viewModel
                     Id = k.Id,
-                    Desciption = k.Description,
-                    Enable = ansatModel.Kompetancer.Any(kmp => kmp.Id == k.Id),
-                    RowVersion = k.RowVersion
-                })
-                    .ToList();
-            }
+                    Description = k.Description,
+                    RowVersion = k.RowVersion,
 
+                    //Hvis den Ansatte indeholder kompetancen sæt enable til true
+                    Enable = ansatModel.Kompetancer.Any(kmp => kmp.Id == k.Id),
+
+            }).ToList();
+
+            //HVis siden
             return Page();
 
         }

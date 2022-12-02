@@ -1,0 +1,29 @@
+﻿@page
+@model TSEP.App.Pages.Kompetance.EditModel
+@{
+}
+
+<section>
+
+    <h1>Edit Kompetance</h1>
+
+    <section class="w-50">
+
+        <form class="form-floating" method="post">
+            
+            @*Damn div du be nessecary*@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <section class="form-group">
+                <input type="hidden" asp-for="KompetanceEditModel.RowVersion"/>
+                <input type="hidden" asp-for="KompetanceEditModel.Id"/>
+
+                <span asp-validation-for="KompetanceEditModel.Description" class="text-danger"></span>
+                <input asp-for="KompetanceEditModel.Description" class="form-control" value="@Model.KompetanceEditModel.Description" autocomplete="new-description" aria-required="true"/>
+                <label asp-for="KompetanceEditModel.Description"></label>
+                <button type="submit" class="w-100 btn btn-lg btn-primary">Edit</button>
+            </section>
+        </form>
+    </section>
+
+</section>

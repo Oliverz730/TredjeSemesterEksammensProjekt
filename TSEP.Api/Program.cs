@@ -1,6 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations;
+using TSEP.Igangsættelse.Application.OpgaveType.Commands;
+using TSEP.Igangsættelse.Application.OpgaveType.Commands.Implementation;
+using TSEP.Igangsættelse.Application.Repositories;
+using TSEP.Igangsættelse.Infrastructor.Repositories;
+
 using TSEP.SqlDbContext;
 using TSEP.StamData.Application.Ansat.Commands;
 using TSEP.StamData.Application.Ansat.Commands.Implementation;
@@ -39,9 +44,16 @@ builder.Services
     .AddScoped<IAnsatRepository, AnsatRepository>()
     .AddScoped<IAnsatCreateCommand, AnsatCreateCommand>()
     .AddScoped<IKompetanceGetAllQuery, KompetanceGetAllQuery>()
-    .AddScoped<IKompetanceGetQuery,KompetanceGetQuery>()
+    .AddScoped<IKompetanceGetQuery, KompetanceGetQuery>()
     .AddScoped<IAnsatGetQuery, AnsatGetQuery>()
     .AddScoped<IAnsatEditCommand, AnsatEditCommand>()
+    .AddScoped<IKompetanceEditCommand, KompetanceEditCommand>()
+    ;
+
+//IgangSættelse
+builder.Services
+    .AddScoped<IOpgaveTypeCreateCommand, OpgaveTypeCreateCommand>()
+    .AddScoped<IOpgaveTypeRepository, OpgaveTypeRepository>()
     ;
 
 //Igangsættelse
@@ -52,10 +64,10 @@ builder.Services
 
 
 // Database
-// Add - Migration RowVersionIgangsættelse - Context TredjeSemesterEksamensProjektContext - Project TSEP.SqlDbContext.Migrations
+// Add -Migration RowVersionIgangsættelse -Context TredjeSemesterEksamensProjektContext -Project TSEP.SqlDbContext.Migrations
 // Update-Database -Context TredjeSemesterEksamensProjektContext
 var connectionString = builder.Configuration.GetConnectionString("TredjeSemesterEksamensProjektDbConnection");
-//Set til True under Migration
+//Connection string til opdatering af database via migration, Set til True under Migration
 var updateDatabase = false;
 if (updateDatabase) connectionString = "Server=localhost,14330;Database=TredjeSemesterEksamensProjektDomain;user id=test;password=test;MultipleActiveResultSets=true";
 

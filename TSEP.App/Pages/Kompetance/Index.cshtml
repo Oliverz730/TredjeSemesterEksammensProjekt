@@ -22,7 +22,7 @@
         {
             <input type="hidden" asp-for="@Model.IndexViewModel[i].RowVersion"/>
             <input type="hidden" asp-for="@Model.IndexViewModel[i].Id"/>
-            <input type="hidden" asp-for="@Model.IndexViewModel[i].Desciption"/>
+            <input type="hidden" asp-for="@Model.IndexViewModel[i].Description"/>
             <input type="hidden" asp-for="@Model.IndexViewModel[i].Enable"/>
         }
 
@@ -51,7 +51,6 @@
                     @foreach (var kompetance in Model.IndexViewModel)
                     {
                         <tr>
-
                             <td>
                                 <section class="form-check">
                                     @if (kompetance.Enable)
@@ -64,9 +63,10 @@
                                     }
                                 </section>
                             </td>
-
-                            <td class="form-check-label">@kompetance.Desciption</td>
-
+                            <td class="form-check-label">@kompetance.Description</td>
+                            <td class="form-check-label">
+                                <a asp-page="./Edit" asp-route-id="@kompetance.Id">Edit</a>
+                            </td>
                         </tr>
                     }
                 }

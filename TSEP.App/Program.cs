@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TredjeSemesterEksammensProjekt.Data;
-using TSEP.App.Infrastructure.Contract;
-using TSEP.App.Infrastructure.Implementation;
+using TSEP.App.Infrastructure.Igangsættelse.Contract;
+using TSEP.App.Infrastructure.Igangsættelse.Implementation;
+using TSEP.App.Infrastructure.StamData.Contract;
+using TSEP.App.Infrastructure.StamData.Implementation;
 using TSEP.UserDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,6 +53,10 @@ builder.Services.AddRazorPages(options =>
 //IOC
 
 builder.Services.AddHttpClient<IStamDataService, StamDataService>(client => 
+    client.BaseAddress = new Uri(builder.Configuration["StamDataBaseUrl"])
+);
+
+builder.Services.AddHttpClient<IIgangsættelseService, IgangsættelseService>(client =>
     client.BaseAddress = new Uri(builder.Configuration["StamDataBaseUrl"])
 );
 

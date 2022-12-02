@@ -17,50 +17,55 @@ namespace TSEP.StamData.Infrastructor.Repositories
 
         void IKompetanceRepository.Add(KompetanceEntity kompetance)
         {
+            //Tilføj Kompetancen til databasen
             _db.KompetanceEntities.Add(kompetance);
+            //Gem ændringerne i databasen
             _db.SaveChanges();
         }
 
         KompetanceEntity IKompetanceRepository.Load(int id)
         {
-            var kompetanceEntity = _db.KompetanceEntities.FirstOrDefault(x => x.Id == id);
+            //Find den Ansat med det givne userId
+            var kompetanceEntity = _db.KompetanceEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
+
+            //Hvis Kompetancen ikke findes, smid en exception
             if (kompetanceEntity == null) throw new Exception("Kompetance findes ikke");
 
+            //Returnerer den fundne Kompetance
             return kompetanceEntity;
         }
 
         KompetanceQueryResultDto IKompetanceRepository.Get(int id)
         {
+            //Indlæs data på Kompetancen baseret på dens Id
             var kompetanceEntity = _db.KompetanceEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            
+            //Hvis Kompetancen ikke blev fundet, smid en exception
             if (kompetanceEntity == null) throw new Exception("Kompetance findes ikke");
 
-            /*
-            var ansatteDto = _db.KompetanceEntities.AsNoTracking().Where(k => k.Id == id).SelectMany(k => k.Ansatte).Select(a => new KompetanceAnsatQueryResultDto
-            {
-                UserId = a.UserId
-            }).ToList();
-            */
-
+            //Konverter fra KompetanceEntity til KompetanceQueryResultDto
             return new KompetanceQueryResultDto
             {
                 Id= kompetanceEntity.Id,
                 Description = kompetanceEntity.Description,
                 RowVersion = kompetanceEntity.RowVersion,
-                //Ansatte = ansatteDto
             };
         }
 
         void IKompetanceRepository.Update(KompetanceEntity kompetance)
         {
-            //_db.KompetanceEntities.Update(kompetance);
+            _db.KompetanceEntities.Update(kompetance);
+
+            //Gem ændringer på Kompetancen 
             _db.SaveChanges();
         }
 
         IEnumerable<KompetanceQueryResultDto> IKompetanceRepository.GetAll()
         {
+            //Iterer over listen af kompetanceEntity
             foreach(var entity in _db.KompetanceEntities.AsNoTracking().ToList())
             {
-                //var ansatte = entity.Ansatte.Select(a => new KompetanceAnsatQueryResultDto { UserId = a.UserId});
+                //Konverter fra KompetanceEntity til KompetanceQueryResultDto, og yield hver enkeltvis
                 yield return new KompetanceQueryResultDto { Description = entity.Description, Id = entity.Id,RowVersion = entity.RowVersion};
             }
         }

@@ -11,19 +11,22 @@ namespace TSEP.Api.Controllers
     [ApiController]
     public class KompetanceController : ControllerBase
     {
-        private readonly IKompetanceCreateCommand _createKompetanceCommand;
+        private readonly IKompetanceCreateCommand _kompetanceCreateCommand;
         private readonly IKompetanceGetQuery _kompetanceGetQuery;
         private readonly IKompetanceGetAllQuery _kompetanceGetAllQuery;
+        private readonly IKompetanceEditCommand _kompetanceEditCommand;
 
         public KompetanceController(
-            IKompetanceCreateCommand createKompetanceCommand,
-            IKompetanceGetQuery kompetanceGetQuery,
-            IKompetanceGetAllQuery kompetanceGetAllQuery
+            IKompetanceCreateCommand kompetanceCreateCommand, 
+            IKompetanceGetQuery kompetanceGetQuery, 
+            IKompetanceGetAllQuery kompetanceGetAllQuery, 
+            IKompetanceEditCommand kompetanceEditCommand
             )
         {
-            _createKompetanceCommand = createKompetanceCommand;
+            _kompetanceCreateCommand = kompetanceCreateCommand;
             _kompetanceGetQuery = kompetanceGetQuery;
             _kompetanceGetAllQuery = kompetanceGetAllQuery;
+            _kompetanceEditCommand = kompetanceEditCommand;
         }
 
         // GET: api/<OpgaveController>
@@ -52,7 +55,7 @@ namespace TSEP.Api.Controllers
 
             try
             {
-                _createKompetanceCommand.Create(request);
+                _kompetanceCreateCommand.Create(request);
                 return Ok();
             }
             catch (Exception e)
@@ -63,12 +66,15 @@ namespace TSEP.Api.Controllers
 
         
         // PUT api/<OpgaveController>/5
-        [HttpPut("{id}")]
-        public ActionResult Put([FromBody] int id)
+        [HttpPut]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult Put(KompetanceEditRequestDto request)
         {
             try
             {
-                //_createKompetanceCommand.Create(request);
+                _kompetanceEditCommand.Edit(request);
                 return Ok();
             }
             catch (Exception e)
