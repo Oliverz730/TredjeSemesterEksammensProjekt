@@ -1,4 +1,4 @@
-﻿using TSEP.Igangsættelse.Application.Repositories;
+﻿using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
 using TSEP.Igangsættelse.Domain.Model;
 using TSEP.SqlDbContext;
 

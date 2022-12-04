@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations;
 using TSEP.Igangsættelse.Application.OpgaveType.Commands;
 using TSEP.Igangsættelse.Application.OpgaveType.Commands.Implementation;
-using TSEP.Igangsættelse.Application.Repositories;
+using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
 using TSEP.Igangsættelse.Infrastructor.Repositories;
 
 using TSEP.SqlDbContext;

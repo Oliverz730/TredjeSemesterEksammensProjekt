@@ -1,6 +1,6 @@
 ﻿using TSEP.Igangsættelse.Domain.Model;
 
-namespace TSEP.Igangsættelse.Application.Repositories
+namespace TSEP.Igangsættelse.Application.OpgaveType.Repositories
 {
     public interface IOpgaveTypeRepository
     {
