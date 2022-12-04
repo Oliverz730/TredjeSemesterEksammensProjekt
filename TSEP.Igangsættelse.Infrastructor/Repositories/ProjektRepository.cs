@@ -52,7 +52,7 @@ namespace TSEP.Igangsættelse.Infrastructor.Repositories
         }
         void IProjektRepository.Update(ProjektEntity projekt)
         {
-            //_db.KompetanceEntities.Update(kompetance);
+            _db.ProjektEntities.Update(projekt);
             _db.SaveChanges();
         }
         IEnumerable<ProjektQueryResultDto> IProjektRepository.GetAll(string userId)

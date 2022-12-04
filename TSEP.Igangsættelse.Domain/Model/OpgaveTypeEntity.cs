@@ -18,18 +18,18 @@ namespace TSEP.Igangsættelse.Domain.Model
 
         //EF
         internal OpgaveTypeEntity() { }
-
-        public OpgaveTypeEntity(string beskrivelse, int kompetanceId, byte[] rowVersion)
-        {
-            Beskrivelse = beskrivelse;
-            KompetanceId = kompetanceId;
-            RowVersion = rowVersion;
-        }
-
+        
         public OpgaveTypeEntity(string beskrivelse, int kompetanceId)
         {
             Beskrivelse = beskrivelse;
             KompetanceId = kompetanceId;
+        }
+
+        public void Edit(string beskrivelse, int kompetanceId, byte[] rowVersion)
+        {
+            Beskrivelse = beskrivelse;
+            KompetanceId = kompetanceId;
+            RowVersion = rowVersion;
         }
     }
 }
