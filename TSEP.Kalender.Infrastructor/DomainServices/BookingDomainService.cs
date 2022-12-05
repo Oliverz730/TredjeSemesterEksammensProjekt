@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TSEP.Kalender.Domain.DomainServices;
 using TSEP.SqlDbContext;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace TSEP.Kalender.Infrastructor.DomainServices
 {
