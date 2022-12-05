@@ -24,13 +24,13 @@ namespace TSEP.Kalender.Domain.Model
             _domainService = domainService;
 
 
-            //Pre COnditions
+            //Pre Conditions
             Id = id;
             StartDate = startDate;
             EndDate = endDate;
 
 
-            if (_domainService.BookingExsistsOnDate(StartDate.Date, EndDate.Date)) throw new ArgumentException("Der eksistere allerede en Bmi måling for i dag!");
+            if (_domainService.BookingExsistsOnDate(StartDate.Date, EndDate.Date)) throw new ArgumentException("Der eksistere allerede en Opgave i den periode");
         }
         //EF
         internal BookingEntity() {}
