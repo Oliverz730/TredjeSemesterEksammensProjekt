@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TSEP.Kalender.Domain.DomainServices;
 using TSEP.SqlDbContext;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace TSEP.Kalender.Infrastructor.DomainServices
 {
@@ -17,7 +19,7 @@ namespace TSEP.Kalender.Infrastructor.DomainServices
         }
         bool IBookingDomainService.BookingExsistsOnDate(DateTime startDate, DateTime endDate)
         {
-            return _db.BookingEntities.AsNoTracking().ToList().Any(a => a.Date.Date == date.Date);
+            return _db.BookingEntities.AsNoTracking().ToList().Any(a => a.StartDate == startDate);
         }
     }
 }

@@ -12,17 +12,34 @@ using TSEP.StamData.Application.Ansat.Commands.Implementation;
 using TSEP.StamData.Application.Ansat.Queries;
 using TSEP.StamData.Application.Ansat.Queries.Implementation;
 using TSEP.StamData.Application.Ansat.Repositories;
+
 using TSEP.StamData.Application.Kompetance.Commands;
 using TSEP.StamData.Application.Kompetance.Commands.Implementation;
 using TSEP.StamData.Application.Kompetance.Queries;
 using TSEP.StamData.Application.Kompetance.Queries.Implementation;
 using TSEP.StamData.Application.Kompetance.Repositories;
+
 using TSEP.StamData.Infrastructor.Repositories;
+
 using TSEP.Igangsættelse.Application.Projekt.Commands;
 using TSEP.Igangsættelse.Application.Projekt.Commands.Implementation;
 using TSEP.Igangsættelse.Application.Projekt.Repositories;
 using TSEP.Igangsættelse.Application.Projekt.Queries;
 using TSEP.Igangsættelse.Application.Projekt.Queries.Implementation;
+
+using TSEP.Kalender.Application.Booking.Commands;
+using TSEP.Kalender.Application.Booking.Commands.Implementation;
+using TSEP.Kalender.Application.Booking.Query;
+using TSEP.Kalender.Application.Booking.Query.Implementation;
+using TSEP.Kalender.Application.Booking.Repositories;
+
+using TSEP.Kalender.Infrastructor.Repositories;
+
+using TSEP.Kalender.Application.Opgave.Repositories;
+using TSEP.Kalender.Application.Opgave.Commands;
+using TSEP.Kalender.Application.Opgave.Commands.Implementation;
+using TSEP.Kalender.Application.Opgave.Query;
+using TSEP.Kalender.Application.Opgave.Query.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,6 +78,18 @@ builder.Services
     .AddScoped<IProjektGetQuery, ProjektGetQuery>()
     .AddScoped<IProjektEditCommand, ProjektEditCommand>()
     ;
+
+//Kalender
+builder.Services
+    .AddScoped<IBookingCreateCommand, BookingCreateCommand>()
+    .AddScoped<IBookingGetAllQuery, BookingGetAllQuery>()
+    .AddScoped<IBookingRepository, BookingRepository>()
+    .AddScoped<IOpgaveCreateCommand, OpgaveCreateCommand>()
+    .AddScoped<IOpgaveGetAllQuery, OpgaveGetAllQuery>()
+    .AddScoped<IOpgaveGetQuery, OpgaveGetQuery>()
+    .AddScoped<IOpgaveRepository, OpgaveRepository>()
+    ;
+
 
 
 // Database

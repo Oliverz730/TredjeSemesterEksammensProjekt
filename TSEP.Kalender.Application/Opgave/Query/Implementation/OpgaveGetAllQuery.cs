@@ -7,7 +7,7 @@ using TSEP.Kalender.Application.Opgave.Repositories;
 
 namespace TSEP.Kalender.Application.Opgave.Query.Implementation
 {
-    internal class OpgaveGetAllQuery : IOpgaveGetAllQuery
+    public class OpgaveGetAllQuery : IOpgaveGetAllQuery
     {
         private readonly IOpgaveRepository _opgaveRepository;
 
