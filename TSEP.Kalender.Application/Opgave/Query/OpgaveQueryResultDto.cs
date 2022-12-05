@@ -8,12 +8,12 @@ namespace TSEP.Kalender.Application.Opgave.Query
 {
     public class OpgaveQueryResultDto
     {
-        public int ProjektId { get; private set; }
-        public int OpgaveTypeId { get; private set; }
-        public int AnsatId { get; private set; }
-        public string Status { get; private set; }
-        public DateTime StartTid { get; private set; }
-        public DateTime SlutTid { get; private set; }
-        public byte[] RowVersion { get; private set; }
+        public int ProjektId { get; set; }
+        public int OpgaveTypeId { get; set; }
+        public int AnsatId { get; set; }
+        public string Status { get; set; }
+        public DateTime StartTid { get; set; }
+        public DateTime SlutTid { get; set; }
+        public byte[] RowVersion { get; set; }
     }
 }

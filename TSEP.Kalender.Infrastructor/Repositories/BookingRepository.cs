@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using TSEP.Kalender.Application.Booking.Repositories;
 using TSEP.Kalender.Domain.Model;
 using TSEP.Kalender.Application.Booking.Query;
