@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TSEP.Kalender.Application.Booking.Commands
+﻿namespace TSEP.App.Infrastructure.Kalender.Contract.Dto
 {
     public class BookingCreateRequestDto
     {

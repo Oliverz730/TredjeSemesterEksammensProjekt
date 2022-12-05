@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TSEP.Igangsættelse.Application\TSEP.Igangsættelse.Application.csproj" />
     <ProjectReference Include="..\TSEP.Igangsættelse.Infrastructor\TSEP.Igangsættelse.Infrastructor.csproj" />
+    <ProjectReference Include="..\TSEP.Kalender.Application\TSEP.Kalender.Application.csproj" />
     <ProjectReference Include="..\TSEP.StamData.Infrastructor\TSEP.StamData.Infrastructor.csproj" />
     <ProjectReference Include="..\TSEP.StamData.Application\TSEP.StamData.Application.csproj" />
     <ProjectReference Include="..\TSEP.SqlDbContext\TSEP.SqlDbContext.csproj" />

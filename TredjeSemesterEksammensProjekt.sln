@@ -39,11 +39,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Igangsættelse.Infrast
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kalender", "Kalender", "{8503C999-B563-4937-8082-5CB74F974D6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSEP.Kalender.Application", "TSEP.Kalender.Application\TSEP.Kalender.Application.csproj", "{40650AB6-EFF7-4A66-A1B6-8864BE37C56F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Kalender.Application", "TSEP.Kalender.Application\TSEP.Kalender.Application.csproj", "{40650AB6-EFF7-4A66-A1B6-8864BE37C56F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSEP.Kalender.Domain", "TSEP.Kalender.Domain\TSEP.Kalender.Domain.csproj", "{C773EE4A-0818-4CD9-9EC5-0CF86BDD5E11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Kalender.Domain", "TSEP.Kalender.Domain\TSEP.Kalender.Domain.csproj", "{C773EE4A-0818-4CD9-9EC5-0CF86BDD5E11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSEP.Kalender.Infrastructor", "TSEP.Kalender.Infrastructor\TSEP.Kalender.Infrastructor.csproj", "{7FDFF224-F326-4AA6-80D7-7069FFD400E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Kalender.Infrastructor", "TSEP.Kalender.Infrastructor\TSEP.Kalender.Infrastructor.csproj", "{7FDFF224-F326-4AA6-80D7-7069FFD400E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
