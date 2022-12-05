@@ -21,9 +21,8 @@ namespace TSEP.Kalender.Infrastructor.DomainServices
         bool IBookingDomainService.BookingExsistsOnDate(DateTime startDate, DateTime endDate)
         {
             return _db.BookingEntities.AsNoTracking().ToList().Any(b =>
-            {
-                return true;
-            });
+            startDate < b.EndDate && endDate > b.StartDate
+            );
         }
     }
 }
