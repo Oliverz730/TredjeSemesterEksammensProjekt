@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using TSEP.Kalender.Domain.DomainServices;
 
 namespace TSEP.Kalender.Domain.Model
 {
@@ -8,13 +9,28 @@ namespace TSEP.Kalender.Domain.Model
         public int Id { get; private set; }
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
+
+
+
         [Timestamp]
         public byte[] RowVersion { get; set; }
-        public BookingEntity(int id, DateTime startDate, DateTime endDate)
+
+
+
+        private readonly IBookingDomainService _domainService;
+        public BookingEntity(IBookingDomainService domainService, int id, DateTime startDate, DateTime endDate)
         {
+
+            _domainService = domainService;
+
+
+            //Pre COnditions
             Id = id;
             StartDate = startDate;
             EndDate = endDate;
+
+
+            if (_domainService.BookingExsistsOnDate(StartDate.Date, EndDate.Date)) throw new ArgumentException("Der eksistere allerede en Bmi måling for i dag!");
         }
         //EF
         internal BookingEntity() {}
