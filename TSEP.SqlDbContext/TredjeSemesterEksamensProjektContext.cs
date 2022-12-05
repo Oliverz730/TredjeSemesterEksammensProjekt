@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TSEP.SqlDbContext.OpgaveConfiguration;
 using TSEP.StamData.Domain.Model;
 using TSEP.Igangsættelse.Domain.Model;
+using TSEP.SqlDbContext.StamDataConfiguration;
+using TSEP.SqlDbContext.IgangsættelseConfiguration;
 
 
 namespace TSEP.SqlDbContext

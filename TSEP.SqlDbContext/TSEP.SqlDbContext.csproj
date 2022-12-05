@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TSEP.Igangsættelse.Domain\TSEP.Igangsættelse.Domain.csproj" />
+    <ProjectReference Include="..\TSEP.Kalender.Domain\TSEP.Kalender.Domain.csproj" />
     <ProjectReference Include="..\TSEP.StamData.Domain\TSEP.StamData.Domain.csproj" />
   </ItemGroup>
 

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TSEP.Igangsættelse.Domain.Model;
 
-namespace TSEP.SqlDbContext.OpgaveConfiguration
+namespace TSEP.SqlDbContext.IgangsættelseConfiguration
 {
     public class ProjektConfuguration : IEntityTypeConfiguration<ProjektEntity>
     {

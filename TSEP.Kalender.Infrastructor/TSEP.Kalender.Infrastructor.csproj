@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TSEP.Kalender.Application\TSEP.Kalender.Application.csproj" />
+    <ProjectReference Include="..\TSEP.SqlDbContext\TSEP.SqlDbContext.csproj" />
+  </ItemGroup>
+
 </Project>

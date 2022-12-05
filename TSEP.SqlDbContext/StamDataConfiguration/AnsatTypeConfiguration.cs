@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TSEP.StamData.Domain.Model;
 
-namespace TSEP.SqlDbContext.OpgaveConfiguration
+namespace TSEP.SqlDbContext.StamDataConfiguration
 {
     internal class AnsatTypeConfiguration : IEntityTypeConfiguration<AnsatEntity>
     {
