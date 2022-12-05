@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TSEP.Kalender.Application.Booking.Query
 {
-    public interface IBookingGetQuery
+    public interface IBookingGetAllQuery
     {
+        IEnumerable<BookingQueryResultDto> GetAll();
     }
 }

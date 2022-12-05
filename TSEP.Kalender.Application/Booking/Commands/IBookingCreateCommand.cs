@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace TSEP.Kalender.Application.Booking.Commands
 {
-    public class BookingCreateRequestDto
+    public interface IBookingCreateCommand
     {
-        public int Id { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        void Create(BookingCreateRequestDto bookingCreateRequestDto);
     }
 }
