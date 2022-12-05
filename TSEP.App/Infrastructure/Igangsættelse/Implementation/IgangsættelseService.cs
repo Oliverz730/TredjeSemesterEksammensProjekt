@@ -25,6 +25,11 @@ namespace TSEP.App.Infrastructure.Igangsættelse.Implementation
         async Task IIgangsættelseService.CreateProjekt(ProjektCreateRequestDto projektCreateRequestDto)
         {
             var res = await _httpClient.PostAsJsonAsync($"api/Projekt", projektCreateRequestDto);
+
+            if (res.IsSuccessStatusCode) return;
+
+            var message = await res.Content.ReadAsStringAsync();
+            throw new Exception(message);
         }
         async Task<IEnumerable<ProjektQueryResultDto>?> IIgangsættelseService.GetAllProjekt(string userId)
         {
