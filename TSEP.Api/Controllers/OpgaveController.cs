@@ -37,10 +37,10 @@ namespace TSEP.Api.Controllers
         }
 
         // GET api/<OpgaveController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{projektId}/{opgaveTypeId}/{ansatId}")]
+        public OpgaveQueryResultDto Get(int projektId,int opgaveTypeId,int ansatId)
         {
-            return "value";
+            return _opgaveGetQuery.Get(projektId, opgaveTypeId, ansatId);
         }
 
         // POST api/<OpgaveController>

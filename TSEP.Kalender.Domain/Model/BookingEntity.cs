@@ -10,12 +10,9 @@ namespace TSEP.Kalender.Domain.Model
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
 
-
-
         [Timestamp]
         public byte[] RowVersion { get; set; }
-
-
+        
 
         private readonly IBookingDomainService _domainService;
         public BookingEntity(IBookingDomainService domainService, int id, DateTime startDate, DateTime endDate)
