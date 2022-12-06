@@ -14,17 +14,19 @@ namespace TSEP.Api.Controllers
 
         private readonly IAnsatCreateCommand _createAnsatCommand;
         private readonly IAnsatGetQuery _getAnsatQuery;
-        private readonly IAnsatGetAllQuery
+        private readonly IAnsatGetAllQuery _ansatGetAllQuery;
         private readonly IAnsatEditCommand _editAnsatCommand;
 
         public AnsatController(
             IAnsatCreateCommand createCommand, 
             IAnsatGetQuery ansatGetQuery, 
-            IAnsatEditCommand editAnsatCommand
+            IAnsatEditCommand editAnsatCommand,
+            IAnsatGetAllQuery ansatGetAllQuery
             )
         {
             _createAnsatCommand = createCommand;
             _getAnsatQuery = ansatGetQuery;
+            _ansatGetAllQuery= ansatGetAllQuery;
             _editAnsatCommand = editAnsatCommand;
         }
 
@@ -32,7 +34,7 @@ namespace TSEP.Api.Controllers
         [HttpGet]
         public IEnumerable<AnsatQueryResultDto> Get()
         {   
-            return _getAnsatGetAllQuery.GetAll();
+            return _ansatGetAllQuery.GetAll();
         }
 
         // GET api/<AnsatController>/5
