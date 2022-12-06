@@ -22,27 +22,15 @@ namespace TSEP.Kalender.Application.Booking.Commands.Implementation
 
         void IBookingCreateCommand.Create(BookingCreateRequestDto bookingCreateRequestDto)
         {
-
             var booking = new BookingEntity(
                 _domainService,
                 bookingCreateRequestDto.Id,
                 bookingCreateRequestDto.StartDate,
-                bookingCreateRequestDto.EndDate
+                bookingCreateRequestDto.EndDate,
+                bookingCreateRequestDto.MedarbejderId
                 );
 
             _bookingRepository.Add(booking);
-
-            //var projekt = new ProjektEntity(
-            //    projektCreateRequestDto.StartDate,
-            //    projektCreateRequestDto.EndDate,
-            //    projektCreateRequestDto.EstimatedTime,
-            //    projektCreateRequestDto.ActualEstimated,
-            //    projektCreateRequestDto.SælgerUserId,
-            //    projektCreateRequestDto.KundeUserId,
-            //    projektCreateRequestDto.ProjektName
-            //    );
-
-            //_projektRepository.Add(projekt);
         }
     }
 }

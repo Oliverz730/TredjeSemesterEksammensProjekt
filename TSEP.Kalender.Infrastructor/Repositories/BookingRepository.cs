@@ -32,6 +32,7 @@ namespace TSEP.Kalender.Infrastructor.Repositories
                     Id = projekt.Id,
                     StartDate = projekt.StartDate,
                     EndDate = projekt.EndDate,
+                    MedarbejderId = projekt.MedarbejderId,
                     RowVersion = projekt.RowVersion,
                 };
             }

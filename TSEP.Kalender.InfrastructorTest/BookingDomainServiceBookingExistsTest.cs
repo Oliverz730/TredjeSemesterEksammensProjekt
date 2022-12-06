@@ -18,7 +18,7 @@ namespace TSEP.Kalender.InfrastructorTest
     public class BookingDomainServiceBookingExistsTest
     {
         [Theory]
-        [InlineData(25)]
+        [InlineData(25)]    //Timer
         void Given_Data_Has_No_Overlap_Return_False(int offset)
         {
             //Arrange
@@ -32,11 +32,11 @@ namespace TSEP.Kalender.InfrastructorTest
             DateTime end2 = DateTime.Now + TimeSpan.FromDays(1);
 
             var serviceMoq = new Mock<IBookingDomainService>();
-            serviceMoq.Setup(s => s.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(false);
+            serviceMoq.Setup(s => s.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>(), string.Empty)).Returns(false);
 
             IList<BookingEntity> data = new List<BookingEntity>()
             {
-                new BookingEntity(serviceMoq.Object, 1, start2, end2)
+                new BookingEntity(serviceMoq.Object, 1, start2, end2, string.Empty)
             };
 
             var moq = new Mock<TredjeSemesterEksamensProjektContext>();
@@ -45,14 +45,14 @@ namespace TSEP.Kalender.InfrastructorTest
             IBookingDomainService sut = new BookingDomainService(moq.Object);
 
             //Act
-            bool expectFalse = sut.BookingExsistsOnDate(start1, end1);
+            bool expectFalse = sut.BookingExsistsOnDate(start1, end1, string.Empty);
 
             //Assert
             Assert.False(expectFalse);
         }
 
         [Theory]
-        [InlineData(20)]
+        [InlineData(20)]    //Timer
         void Given_Data_Has_Overlap_Return_True(int offset)
         {
             //Arrange
@@ -66,7 +66,7 @@ namespace TSEP.Kalender.InfrastructorTest
             DateTime end2 = DateTime.Now + TimeSpan.FromDays(1);
 
             var serviceMoq = new Mock<IBookingDomainService>();
-            serviceMoq.Setup(s => s.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(false);
+            serviceMoq.Setup(s => s.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>(), string.Empty)).Returns(false);
 
             IList<BookingEntity> data = new List<BookingEntity>()
             {

@@ -9,8 +9,7 @@ namespace TSEP.Kalender.Domain.Model
         public int Id { get; private set; }
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
-
-        public string SælgerId { get; private set; }
+        public string MedarbejderId { get; private set; }
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
@@ -18,7 +17,8 @@ namespace TSEP.Kalender.Domain.Model
 
 
         private readonly IBookingDomainService _domainService;
-        public BookingEntity(IBookingDomainService domainService, int id, DateTime startDate, DateTime endDate, string sælgerId)
+
+        public BookingEntity(IBookingDomainService domainService, int id, DateTime startDate, DateTime endDate, string medarbejderId)
         {
 
             _domainService = domainService;
@@ -28,10 +28,10 @@ namespace TSEP.Kalender.Domain.Model
             Id = id;
             StartDate = startDate;
             EndDate = endDate;
-            SælgerId = sælgerId;
+            MedarbejderId = medarbejderId;
 
             if (!IsValid()) throw new ArgumentException("Pre-conditions er ikke over holdt");
-            if (_domainService.BookingExsistsOnDate(StartDate.Date, EndDate.Date)) throw new ArgumentException("Der eksistere allerede en Opgave i den periode");
+            if (_domainService.BookingExsistsOnDate(StartDate.Date, EndDate.Date, MedarbejderId)) throw new ArgumentException("Der eksistere allerede en Opgave i den periode");
         }
 
         protected bool IsValid()

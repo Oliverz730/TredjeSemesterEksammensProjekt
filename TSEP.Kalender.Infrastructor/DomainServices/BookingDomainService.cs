@@ -18,10 +18,11 @@ namespace TSEP.Kalender.Infrastructor.DomainServices
         {
             _db = db;
         }
-        bool IBookingDomainService.BookingExsistsOnDate(DateTime startDate, DateTime endDate)
+        bool IBookingDomainService.BookingExsistsOnDate(DateTime startDate, DateTime endDate, string medarbejderId)
         {
             return _db.BookingEntities.AsNoTracking().ToList().Any(b =>
             startDate < b.EndDate && endDate > b.StartDate
+            && b.MedarbejderId == medarbejderId
             );
         }
     }

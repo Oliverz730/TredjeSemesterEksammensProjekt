@@ -22,10 +22,10 @@ namespace TSEP.Kalender.DomainTest
             DateTime end = start + TimeSpan.FromSeconds(offset);
 
             var mock = new Mock<IBookingDomainService>();
-            mock.Setup(m => m.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(false);
+            mock.Setup(m => m.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>(), string.Empty)).Returns(false);
 
             //Act
-            var sut = new BookingEntity(mock.Object, 1, start, end);
+            var sut = new BookingEntity(mock.Object, 1, start, end, string.Empty);
 
             //Assert
         }
@@ -41,12 +41,12 @@ namespace TSEP.Kalender.DomainTest
             DateTime end = start + TimeSpan.FromSeconds(offset);
 
             var mock = new Mock<IBookingDomainService>();
-            mock.Setup(m => m.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(false);
+            mock.Setup(m => m.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>(), string.Empty)).Returns(false);
 
             //Act
 
             //Assert
-            Assert.Throws<ArgumentException>(() => new BookingEntity(mock.Object, 1, start, end));
+            Assert.Throws<ArgumentException>(() => new BookingEntity(mock.Object, 1, start, end, string.Empty));
         }
 
         [Fact]
@@ -58,10 +58,10 @@ namespace TSEP.Kalender.DomainTest
             DateTime end = start + TimeSpan.FromSeconds(1000);
 
             var mock = new Mock<IBookingDomainService>();
-            mock.Setup(m => m.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(false);
+            mock.Setup(m => m.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>(), string.Empty)).Returns(false);
 
             //Act
-            var sut = new BookingEntity(mock.Object, 1, start, end);
+            var sut = new BookingEntity(mock.Object, 1, start, end, string.Empty);
 
             //Assert
         }
@@ -74,12 +74,12 @@ namespace TSEP.Kalender.DomainTest
             DateTime end = start + TimeSpan.FromSeconds(1000);
 
             var mock = new Mock<IBookingDomainService>();
-            mock.Setup(m => m.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(true);
+            mock.Setup(m => m.BookingExsistsOnDate(It.IsAny<DateTime>(), It.IsAny<DateTime>(), string.Empty)).Returns(true);
 
             //Act
 
             //Assert
-            Assert.Throws<ArgumentException>(() => new BookingEntity(mock.Object, 1, start, end));
+            Assert.Throws<ArgumentException>(() => new BookingEntity(mock.Object, 1, start, end, string.Empty));
         }
     }
 }
