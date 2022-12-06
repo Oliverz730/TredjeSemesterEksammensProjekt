@@ -45,7 +45,25 @@ namespace TSEP.Kalender.Infrastructor.Repositories
 
         }
 
-        IEnumerable<OpgaveQueryResultDto> IOpgaveRepository.GetAll(int projektId)
+        IEnumerable<OpgaveQueryResultDto> IOpgaveRepository.GetAllByAnsat(int ansatId)
+        {
+            foreach (var opgave in _db.OpgaveEntities.Where(o => o.AnsatId == ansatId).AsNoTracking().ToList())
+            {
+                yield return new OpgaveQueryResultDto
+                {
+                    ProjektId = opgave.ProjektId,
+                    OpgaveTypeId = opgave.OpgaveTypeId,
+                    AnsatId = opgave.AnsatId,
+                    RowVersion = opgave.RowVersion,
+                    Status = opgave.Status,
+                    StartTid = opgave.StartTid,
+                    SlutTid = opgave.SlutTid,
+                };
+            }
+
+        }
+
+        IEnumerable<OpgaveQueryResultDto> IOpgaveRepository.GetAllByProjekt(int projektId)
         {
             foreach (var opgave in _db.OpgaveEntities.Where(o => o.ProjektId == projektId).AsNoTracking().ToList())
             {

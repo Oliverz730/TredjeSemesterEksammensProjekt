@@ -30,10 +30,26 @@ namespace TSEP.Api.Controllers
         }
 
         // GET: api/<OpgaveController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("{index}/{id}")]
+        public IEnumerable<OpgaveQueryResultDto> Get(int index, int id)
         {
-            return new string[] { "value1", "value2" };
+
+            switch (index)
+            {
+                case 0: //Get By Projekt
+                    return _opgaveGetAllQuery.GetAllByProjekt(id);
+                    break;
+
+                case 1:
+                    return _opgaveGetAllQuery.GetAllByAnsat(id);
+                    break;
+
+                default:
+                    //WTF
+                    throw new Exception("Wrong get all index");
+                    break;
+            }
+
         }
 
         // GET api/<OpgaveController>/5
