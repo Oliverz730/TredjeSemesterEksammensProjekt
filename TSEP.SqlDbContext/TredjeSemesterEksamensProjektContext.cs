@@ -16,12 +16,17 @@ namespace TSEP.SqlDbContext
 
         }
 
+        public TredjeSemesterEksamensProjektContext()
+        {
+
+        }
+
         public DbSet<KompetanceEntity> KompetanceEntities { get; set; }
         public DbSet<OpgaveTypeEntity> OpgaveTypeEntities { get; set; }
         public DbSet<AnsatEntity> AnsatEntities { get; set; }
         public DbSet<ProjektEntity> ProjektEntities { get; set; }
         public DbSet<OpgaveEntity> OpgaveEntities { get; set; }
-        public DbSet<BookingEntity> BookingEntities { get; set; }
+        public virtual DbSet<BookingEntity> BookingEntities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
