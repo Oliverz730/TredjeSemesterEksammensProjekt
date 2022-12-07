@@ -16,6 +16,33 @@
                 <a class="btn btn-lg btn-primary" asp-area="" asp-page="/OpgaveType/Create">Ny Opgave Type</a>
             </li>
         </ul>
+        
+        <table>
+            
+            <thead>
+            
+            <tr>
+                <td>Beskrivelse</td>
+            </tr>
+            <tr></tr>
+            </thead>
+
+            <tbody>
+
+            @foreach (var opgaveType in Model.OpgaveTypeList)
+            {
+                <tr>
+                    <td>
+                        @opgaveType.Beskrivelse
+                    </td>
+
+                    <td class="form-check-label">
+                        <a asp-page="./Edit" asp-route-id="@opgaveType.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
 
     </section>
 

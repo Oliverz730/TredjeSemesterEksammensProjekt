@@ -33,7 +33,7 @@ namespace TSEP.App.Pages.OpgaveType
                 KompetanceId = Input.KompetanceId
             });
 
-            return RedirectToPage("./OpgaveType/Index");
+            return RedirectToPage("./Index");
         }
 
         public async Task<IActionResult> OnGetAsync()
