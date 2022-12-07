@@ -23,10 +23,22 @@ namespace TSEP.StamData.Infrastructor.Repositories
             _db.SaveChanges();
         }
 
-        KompetanceEntity IKompetanceRepository.Load(int id)
+        KompetanceEntity IKompetanceRepository.LoadWithTracking(int id)
         {
             //Find den Ansat med det givne userId
             var kompetanceEntity = _db.KompetanceEntities.FirstOrDefault(x => x.Id == id);
+
+            //Hvis Kompetancen ikke findes, smid en exception
+            if (kompetanceEntity == null) throw new Exception("Kompetance findes ikke");
+
+            //Returnerer den fundne Kompetance
+            return kompetanceEntity;
+        }
+
+        KompetanceEntity IKompetanceRepository.LoadWithoutTracking(int id)
+        {
+            //Find den Ansat med det givne userId
+            var kompetanceEntity = _db.KompetanceEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
 
             //Hvis Kompetancen ikke findes, smid en exception
             if (kompetanceEntity == null) throw new Exception("Kompetance findes ikke");

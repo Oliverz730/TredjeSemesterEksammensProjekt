@@ -19,7 +19,7 @@ namespace TSEP.StamData.Application.Kompetance.Commands.Implementation
         void IKompetanceEditCommand.Edit(KompetanceEditRequestDto kompetanceEditRequestDto)
         {
             //Read It
-            var model = _kompetanceRepository.Load(kompetanceEditRequestDto.Id);
+            var model = _kompetanceRepository.LoadWithoutTracking(kompetanceEditRequestDto.Id);
             //List<AnsatEntity> ansatte = kompetanceEditRequestDto.Ansatte.Select(a => _ansatRepository.Load(a.UserId) ).ToList();
 
             //Do It

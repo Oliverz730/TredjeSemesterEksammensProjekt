@@ -64,6 +64,7 @@ builder.Services
     .AddScoped<IKompetanceGetAllQuery, KompetanceGetAllQuery>()
     .AddScoped<IKompetanceGetQuery, KompetanceGetQuery>()
     .AddScoped<IAnsatGetQuery, AnsatGetQuery>()
+    .AddScoped<IAnsatGetAllQuery, AnsatGetAllQuery>()
     .AddScoped<IAnsatEditCommand, AnsatEditCommand>()
     .AddScoped<IKompetanceEditCommand, KompetanceEditCommand>()
     ;

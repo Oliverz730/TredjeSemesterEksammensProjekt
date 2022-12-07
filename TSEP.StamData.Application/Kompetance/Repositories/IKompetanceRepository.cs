@@ -6,7 +6,8 @@ namespace TSEP.StamData.Application.Kompetance.Repositories
     public interface IKompetanceRepository
     {
         void Add(KompetanceEntity kompetance);
-        KompetanceEntity Load(int id);
+        KompetanceEntity LoadWithTracking(int id);
+        KompetanceEntity LoadWithoutTracking(int id);
         KompetanceQueryResultDto Get(int id);
         IEnumerable<KompetanceQueryResultDto> GetAll();
         void Update(KompetanceEntity kompetance);

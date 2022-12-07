@@ -22,7 +22,7 @@ namespace TSEP.StamData.Application.Ansat.Commands.Implementation
             var model = _ansatRepository.Load(ansatEditRequestDto.UserId);
             List<KompetanceEntity> kompetancer = ansatEditRequestDto
                 .Kompetancer
-                .Select(k => _kompetanceRepository.Load(k.Id))
+                .Select(k => _kompetanceRepository.LoadWithTracking(k.Id))
                 .ToList();
 
             //Do It
