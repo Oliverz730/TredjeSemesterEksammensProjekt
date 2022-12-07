@@ -9,5 +9,6 @@ namespace TSEP.StamData.Application.Ansat.Repositories
         AnsatEntity Load(string userId);
         AnsatQueryResultDto Get(string userId);
         void Update(AnsatEntity ansat);
+        IEnumerable<AnsatQueryResultDto> GetAll();
     }
 }

@@ -81,7 +81,7 @@ builder.Services
 
 //Kalender
 builder.Services
-    .AddScoped<IBookingCreateCommand, BookingCreateCommand>()
+    //.AddScoped<IBookingCreateCommand, BookingCreateCommand>()
     .AddScoped<IBookingGetAllQuery, BookingGetAllQuery>()
     .AddScoped<IBookingRepository, BookingRepository>()
     .AddScoped<IOpgaveCreateCommand, OpgaveCreateCommand>()

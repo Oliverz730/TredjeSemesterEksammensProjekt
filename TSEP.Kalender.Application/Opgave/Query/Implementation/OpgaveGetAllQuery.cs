@@ -16,9 +16,14 @@ namespace TSEP.Kalender.Application.Opgave.Query.Implementation
             _opgaveRepository = opgaveRepository;
         }
 
-        IEnumerable<OpgaveQueryResultDto> IOpgaveGetAllQuery.GetAll(int projektId)
+        IEnumerable<OpgaveQueryResultDto> IOpgaveGetAllQuery.GetAllByAnsat(int ansatId)
         {
-            return _opgaveRepository.GetAll(projektId);
+            return _opgaveRepository.GetAllByAnsat(ansatId);
+        }
+
+        IEnumerable<OpgaveQueryResultDto> IOpgaveGetAllQuery.GetAllByProjekt(int projektId)
+        {
+            return _opgaveRepository.GetAllByProjekt(projektId);
         }
     }
 }

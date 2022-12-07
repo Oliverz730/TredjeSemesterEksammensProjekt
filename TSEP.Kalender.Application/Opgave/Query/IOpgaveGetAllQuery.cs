@@ -8,6 +8,7 @@ namespace TSEP.Kalender.Application.Opgave.Query
 {
     public interface IOpgaveGetAllQuery
     {
-        public IEnumerable<OpgaveQueryResultDto> GetAll(int projektId);
+        public IEnumerable<OpgaveQueryResultDto> GetAllByProjekt(int projektId);
+        public IEnumerable<OpgaveQueryResultDto> GetAllByAnsat(int ansatId);
     }
 }
