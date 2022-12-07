@@ -8,6 +8,6 @@ namespace TSEP.Kalender.Domain.DomainServices
 {
     public interface IBookingDomainService
     {
-        bool BookingExsistsOnDate(DateTime startDate, DateTime endDate);
+        bool BookingExsistsOnDate(DateTime startDate, DateTime endDate, string medarbejderId);
     }
 }
