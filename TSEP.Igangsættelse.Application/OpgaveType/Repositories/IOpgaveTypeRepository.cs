@@ -9,5 +9,7 @@ namespace TSEP.Igangsættelse.Application.OpgaveType.Repositories
         OpgaveTypeEntity Load(int id);
         void Update(OpgaveTypeEntity opgaveType);
         OpgaveTypeQueryResultDto Get(int id);
+        IEnumerable<OpgaveTypeQueryResultDto> GetAll();
+
     }
 }

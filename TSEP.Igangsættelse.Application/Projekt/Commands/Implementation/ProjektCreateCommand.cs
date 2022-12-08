@@ -17,19 +17,16 @@ namespace TSEP.Igangsættelse.Application.Projekt.Commands.Implementation
             _projektRepository = projektRepository;
         }
 
-        void IProjektCreateCommand.Create(ProjektCreateRequestDto projektCreateRequestDto)
+        int IProjektCreateCommand.Create(ProjektCreateRequestDto projektCreateRequestDto)
         {
             var projekt = new ProjektEntity(
                 projektCreateRequestDto.StartDate,
-                projektCreateRequestDto.EndDate,
-                projektCreateRequestDto.EstimatedTime,
-                projektCreateRequestDto.ActualEstimated,
                 projektCreateRequestDto.SælgerUserId,
                 projektCreateRequestDto.KundeUserId,
                 projektCreateRequestDto.ProjektName
                 );
 
-            _projektRepository.Add(projekt);
+            return _projektRepository.Add(projekt);
         }
     }
 }

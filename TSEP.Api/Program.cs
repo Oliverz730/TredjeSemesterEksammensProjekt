@@ -1,10 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations;
-using TSEP.Igangsættelse.Application.OpgaveType.Commands;
-using TSEP.Igangsættelse.Application.OpgaveType.Commands.Implementation;
-using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
-using TSEP.Igangsættelse.Infrastructor.Repositories;
 
 using TSEP.SqlDbContext;
 using TSEP.StamData.Application.Ansat.Commands;
@@ -21,6 +17,14 @@ using TSEP.StamData.Application.Kompetance.Repositories;
 
 using TSEP.StamData.Infrastructor.Repositories;
 
+using TSEP.Igangsættelse.Application.OpgaveType.Commands;
+using TSEP.Igangsættelse.Application.OpgaveType.Commands.Implementation;
+using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
+using TSEP.Igangsættelse.Application.OpgaveType.Query;
+using TSEP.Igangsættelse.Application.OpgaveType.Query.Implementation;
+
+using TSEP.Igangsættelse.Infrastructor.Repositories;
+
 using TSEP.Igangsættelse.Application.Projekt.Commands;
 using TSEP.Igangsættelse.Application.Projekt.Commands.Implementation;
 using TSEP.Igangsættelse.Application.Projekt.Repositories;
@@ -34,12 +38,15 @@ using TSEP.Kalender.Application.Booking.Query.Implementation;
 using TSEP.Kalender.Application.Booking.Repositories;
 
 using TSEP.Kalender.Infrastructor.Repositories;
+using TSEP.Kalender.Infrastructor.DomainServices;
 
 using TSEP.Kalender.Application.Opgave.Repositories;
 using TSEP.Kalender.Application.Opgave.Commands;
 using TSEP.Kalender.Application.Opgave.Commands.Implementation;
 using TSEP.Kalender.Application.Opgave.Query;
 using TSEP.Kalender.Application.Opgave.Query.Implementation;
+
+using TSEP.Kalender.Domain.DomainServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -77,6 +84,7 @@ builder.Services
     .AddScoped<IProjektGetAllQuery, ProjektGetAllQuery>()
     .AddScoped<IProjektGetQuery, ProjektGetQuery>()
     .AddScoped<IProjektEditCommand, ProjektEditCommand>()
+    .AddScoped<IOpgaveTypeGetAllQuery, OpgaveTypeGetAllQuery>()
     ;
 
 //Kalender
@@ -88,6 +96,7 @@ builder.Services
     .AddScoped<IOpgaveGetAllQuery, OpgaveGetAllQuery>()
     .AddScoped<IOpgaveGetQuery, OpgaveGetQuery>()
     .AddScoped<IOpgaveRepository, OpgaveRepository>()
+    .AddScoped<IBookingDomainService,BookingDomainService>()
     ;
 
 

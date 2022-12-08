@@ -43,9 +43,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Kalender.Domain", "TSE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Kalender.Infrastructor", "TSEP.Kalender.Infrastructor\TSEP.Kalender.Infrastructor.csproj", "{7FDFF224-F326-4AA6-80D7-7069FFD400E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSEP.Kalender.DomainTest", "TSEP.Kalender.DomainTest\TSEP.Kalender.DomainTest.csproj", "{8DC76A2E-EBE0-418B-9855-3925BB85B2E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Kalender.DomainTest", "TSEP.Kalender.DomainTest\TSEP.Kalender.DomainTest.csproj", "{8DC76A2E-EBE0-418B-9855-3925BB85B2E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSEP.Kalender.InfrastructorTest", "TSEP.Kalender.InfrastructorTest\TSEP.Kalender.InfrastructorTest.csproj", "{3AE6CE89-90E9-4860-8F71-6495ADDF8980}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSEP.Kalender.InfrastructorTest", "TSEP.Kalender.InfrastructorTest\TSEP.Kalender.InfrastructorTest.csproj", "{3AE6CE89-90E9-4860-8F71-6495ADDF8980}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

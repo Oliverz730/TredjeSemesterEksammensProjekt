@@ -10,7 +10,7 @@ namespace TSEP.Igangsættelse.Application.Projekt.Repositories
 {
     public interface IProjektRepository
     {
-        void Add(ProjektEntity kompetance);
+        int Add(ProjektEntity projekt);
         ProjektEntity Load(int id);
         ProjektQueryResultDto Get(int id, string userId);
         IEnumerable<ProjektQueryResultDto> GetAll(string userId);

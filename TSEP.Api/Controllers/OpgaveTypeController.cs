@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 using TSEP.Igangsættelse.Application.OpgaveType.Commands;
+using TSEP.Igangsættelse.Application.OpgaveType.Query;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,25 +12,27 @@ namespace TSEP.Api.Controllers
     public class OpgaveTypeController : ControllerBase
     {
         private readonly IOpgaveTypeCreateCommand _opgaveTypeCreateCommand;
+        private readonly IOpgaveTypeGetAllQuery _opgaveTypeGetAllQuery;
 
-        public OpgaveTypeController(IOpgaveTypeCreateCommand opgaveTypeCreateCommand)
+        public OpgaveTypeController(IOpgaveTypeCreateCommand opgaveTypeCreateCommand, IOpgaveTypeGetAllQuery opgaveTypeGetAllQuery)
         {
             _opgaveTypeCreateCommand = opgaveTypeCreateCommand;
+            _opgaveTypeGetAllQuery = opgaveTypeGetAllQuery;
         }
 
         // GET: api/<OpgaveTypeController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<OpgaveTypeQueryResultDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _opgaveTypeGetAllQuery.GetAll(); 
         }
 
         // GET api/<OpgaveTypeController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST api/<OpgaveTypeController>
         [HttpPost]

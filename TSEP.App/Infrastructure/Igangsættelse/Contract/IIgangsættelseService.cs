@@ -5,8 +5,9 @@ namespace TSEP.App.Infrastructure.Igangsættelse.Contract
     public interface IIgangsættelseService
     {
         Task CreateOpgaveType(OpgaveTypeCreateRequestDto opgaveTypeCreateRequestDto);
+        Task<IEnumerable<OpgaveTypeQueryResultDto>?> GetAllOpgaveType();
 
-        Task CreateProjekt(ProjektCreateRequestDto projektCreateRequestDto);
+        Task<int> CreateProjekt(ProjektCreateRequestDto projektCreateRequestDto);
         Task<IEnumerable<ProjektQueryResultDto>?> GetAllProjekt(string userId);
         Task<ProjektQueryResultDto?> GetProjekt(int id, string userId);
         Task EditProjekt(ProjektEditRequestDto projektEditRequestDto);
