@@ -86,6 +86,7 @@ builder.Services
     .AddScoped<IProjektGetQuery, ProjektGetQuery>()
     .AddScoped<IProjektEditCommand, ProjektEditCommand>()
     .AddScoped<IOpgaveTypeGetAllQuery, OpgaveTypeGetAllQuery>()
+    .AddScoped<IProjektGetAllByKundeQuery, ProjektGetAllByKundeQuery>()
     ;
 
 //Kalender

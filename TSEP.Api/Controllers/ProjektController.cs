@@ -14,15 +14,18 @@ namespace TSEP.Api.Controllers
         private readonly IProjektCreateCommand _projektCreateCommand;
         private readonly IProjektGetQuery _projektGetQuery;
         private readonly IProjektGetAllQuery _projektGetAllQuery;
+        private readonly IProjektGetAllByKundeQuery _projektGetAllByKundeQuery;
         public ProjektController(
             IProjektCreateCommand projektCreateCommand,
             IProjektGetAllQuery projektGetAllQuery,
-            IProjektGetQuery projektGetQuery
+            IProjektGetQuery projektGetQuery,
+            IProjektGetAllByKundeQuery projektGetAllByKundeQuery
             )
         {
             _projektCreateCommand = projektCreateCommand;
             _projektGetAllQuery = projektGetAllQuery;
             _projektGetQuery = projektGetQuery;
+            _projektGetAllByKundeQuery = projektGetAllByKundeQuery;
         }
 
         // GET: api/<ProjektController>/sælgerId
@@ -32,6 +35,15 @@ namespace TSEP.Api.Controllers
         public IEnumerable<ProjektQueryResultDto> Get(string userId)
         {
             return _projektGetAllQuery.GetAll(userId);
+        }
+
+        // GET: api/<ProjektController>/kunde/kundeId
+        [HttpGet("Kunde/{userId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IEnumerable<ProjektQueryResultDto> GetAllByKunde(string userId)
+        {
+            return _projektGetAllByKundeQuery.GetAllByKunde(userId);
         }
 
         // GET api/<ProjektController>/5
