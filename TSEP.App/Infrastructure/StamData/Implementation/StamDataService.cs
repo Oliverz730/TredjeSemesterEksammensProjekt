@@ -66,5 +66,10 @@ namespace TSEP.App.Infrastructure.StamData.Implementation
         {
             return await _httpClient.GetFromJsonAsync<AnsatQueryResultDto>($"api/Ansat/{userId}");
         }
+
+        async Task<IEnumerable<AnsatQueryResultDto>?> IStamDataService.GetAllAnsat()
+        {
+            return await _httpClient.GetFromJsonAsync<IEnumerable<AnsatQueryResultDto>>($"api/Ansat");
+        }
     }
 }

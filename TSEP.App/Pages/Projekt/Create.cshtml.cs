@@ -30,7 +30,7 @@ namespace TSEP.App.Pages.Projekt
             };
             var projektId = await _igangsættelseService.CreateProjekt(dto);
 
-            return RedirectToPage($"/Booking/Create",new { projektId = projektId });
+            return RedirectToPage($"/Booking/Create",new { projektId = projektId , startDate = Input.StartDate });
         }
 
         public void OnGet()

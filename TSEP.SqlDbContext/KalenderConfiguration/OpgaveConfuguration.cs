@@ -15,9 +15,7 @@ namespace TSEP.SqlDbContext.KalenderConfiguration
         {
             builder.ToTable("Opgave", "opgave");
 
-            builder.HasKey(x => x.ProjektId);
-            builder.HasKey(x => x.OpgaveTypeId);
-            builder.HasKey(x => x.AnsatId);
+            builder.HasKey(x => new {x.AnsatId,x.OpgaveTypeId,x.ProjektId});
         }
     }
 }

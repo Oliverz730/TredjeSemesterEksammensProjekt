@@ -47,9 +47,20 @@ namespace TSEP.StamData.Infrastructor.Repositories
 
         IEnumerable<AnsatQueryResultDto> IAnsatRepository.GetAll()
         {
-            foreach (var ansat in _db.AnsatEntities.AsNoTracking().ToList())
+            foreach (var ansat in _db.AnsatEntities.Include(a => a.Kompetancer).AsNoTracking().ToList())
             {
-                yield return new AnsatQueryResultDto {  Name = ansat.Name, UserId = ansat.UserId, Kompetancer = (ICollection<AnsatKompetanceQueryResultDto>)ansat.Kompetancer, RowVersion = ansat.RowVersion};
+                yield return new AnsatQueryResultDto
+                {
+                    Name = ansat.Name, 
+                    UserId = ansat.UserId, 
+                    Kompetancer = ansat.Kompetancer.Select(k => new AnsatKompetanceQueryResultDto
+                    {
+                        Id = k.Id,
+                        Description = k.Description,
+                        RowVersion = k.RowVersion
+                    }).ToList(), 
+                    RowVersion = ansat.RowVersion
+                };
             }
         }
 

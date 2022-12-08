@@ -86,6 +86,7 @@ builder.Services
     .AddScoped<IProjektGetQuery, ProjektGetQuery>()
     .AddScoped<IProjektEditCommand, ProjektEditCommand>()
     .AddScoped<IOpgaveTypeGetAllQuery, OpgaveTypeGetAllQuery>()
+    .AddScoped<IOpgaveTypeGetQuery, OpgaveTypeGetQuery>()
     ;
 
 //Kalender
@@ -98,6 +99,7 @@ builder.Services
     .AddScoped<IOpgaveGetQuery, OpgaveGetQuery>()
     .AddScoped<IOpgaveRepository, OpgaveRepository>()
     .AddScoped<IBookingDomainService,BookingDomainService>()
+    .AddScoped<IBookingCreateCommand, BookingCreateCommand>()
     ;
 
 

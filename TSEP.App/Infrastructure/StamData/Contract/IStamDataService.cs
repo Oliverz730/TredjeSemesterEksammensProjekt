@@ -10,6 +10,9 @@ namespace TSEP.App.Infrastructure.StamData.Contract
         Task<IEnumerable<KompetanceQueryResultDto>?> GetAllKompetance();
         Task CreateAnsat(AnsatCreateRequestDto ansatCreateRequestDto);
         Task<AnsatQueryResultDto> GetAnsat(string userId);
+
+        Task<IEnumerable<AnsatQueryResultDto>?> GetAllAnsat();
+
         Task EditAnsat(AnsatEditRequestDto ansatEditRequestDto);
         Task<KompetanceQueryResultDto> GetKompetance(int id);
 

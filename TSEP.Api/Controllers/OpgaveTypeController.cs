@@ -13,11 +13,13 @@ namespace TSEP.Api.Controllers
     {
         private readonly IOpgaveTypeCreateCommand _opgaveTypeCreateCommand;
         private readonly IOpgaveTypeGetAllQuery _opgaveTypeGetAllQuery;
+        private readonly IOpgaveTypeGetQuery _opgaveTypeGetQuery;
 
-        public OpgaveTypeController(IOpgaveTypeCreateCommand opgaveTypeCreateCommand, IOpgaveTypeGetAllQuery opgaveTypeGetAllQuery)
+        public OpgaveTypeController(IOpgaveTypeCreateCommand opgaveTypeCreateCommand, IOpgaveTypeGetAllQuery opgaveTypeGetAllQuery, IOpgaveTypeGetQuery opgaveTypeGetQuery)
         {
             _opgaveTypeCreateCommand = opgaveTypeCreateCommand;
             _opgaveTypeGetAllQuery = opgaveTypeGetAllQuery;
+            _opgaveTypeGetQuery = opgaveTypeGetQuery;
         }
 
         // GET: api/<OpgaveTypeController>
@@ -27,12 +29,12 @@ namespace TSEP.Api.Controllers
             return _opgaveTypeGetAllQuery.GetAll(); 
         }
 
-        // GET api/<OpgaveTypeController>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        //GET api/<OpgaveTypeController>/5
+        [HttpGet("{id}")]
+        public OpgaveTypeQueryResultDto Get(int id)
+        {
+            return _opgaveTypeGetQuery.Get(id);
+        }
 
         // POST api/<OpgaveTypeController>
         [HttpPost]

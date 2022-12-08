@@ -22,6 +22,11 @@ namespace TSEP.App.Infrastructure.Igangsættelse.Implementation
             throw new Exception(message);
         }
 
+        async Task<OpgaveTypeQueryResultDto?> IIgangsættelseService.GetOpgaveType(int id)
+        {
+            return await _httpClient.GetFromJsonAsync<OpgaveTypeQueryResultDto>($"api/OpgaveType/{id}");
+        }
+
         async Task<int> IIgangsættelseService.CreateProjekt(ProjektCreateRequestDto projektCreateRequestDto)
         {
             var res = await _httpClient.PostAsJsonAsync($"api/Projekt", projektCreateRequestDto);

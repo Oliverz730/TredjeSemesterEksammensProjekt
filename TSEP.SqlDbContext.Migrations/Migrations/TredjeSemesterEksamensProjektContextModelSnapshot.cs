@@ -137,11 +137,8 @@ namespace TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations
 
             modelBuilder.Entity("TSEP.Kalender.Domain.Model.OpgaveEntity", b =>
                 {
-                    b.Property<int>("AnsatId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AnsatId"), 1L, 1);
+                    b.Property<string>("AnsatId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("OpgaveTypeId")
                         .HasColumnType("int");
@@ -165,7 +162,7 @@ namespace TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("AnsatId");
+                    b.HasKey("AnsatId", "OpgaveTypeId", "ProjektId");
 
                     b.ToTable("Opgave", "opgave");
                 });

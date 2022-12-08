@@ -24,7 +24,6 @@ namespace TSEP.Kalender.Application.Booking.Commands.Implementation
         {
             var booking = new BookingEntity(
                 _domainService,
-                bookingCreateRequestDto.Id,
                 bookingCreateRequestDto.StartDate,
                 bookingCreateRequestDto.EndDate,
                 bookingCreateRequestDto.MedarbejderId

@@ -17,14 +17,13 @@ namespace TSEP.Kalender.Domain.Model
 
         private readonly IBookingDomainService _domainService;
 
-        public BookingEntity(IBookingDomainService domainService, int id, DateTime startDate, DateTime endDate, string medarbejderId)
+        public BookingEntity(IBookingDomainService domainService, DateTime startDate, DateTime endDate, string medarbejderId)
         {
 
             _domainService = domainService;
 
 
             //Pre Conditions
-            Id = id;
             StartDate = startDate;
             EndDate = endDate;
             MedarbejderId = medarbejderId;
