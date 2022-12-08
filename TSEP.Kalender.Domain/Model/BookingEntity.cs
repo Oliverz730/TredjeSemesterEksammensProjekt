@@ -13,8 +13,7 @@ namespace TSEP.Kalender.Domain.Model
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
-
-
+        
 
         private readonly IBookingDomainService _domainService;
 
