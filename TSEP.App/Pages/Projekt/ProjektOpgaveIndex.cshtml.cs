@@ -1,14 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TSEP.App.Pages.Projekt
+namespace TSEP.App.Pages.Booking
 {
-    public class IndexModel : PageModel
+    public class ProjektOpgaveIndexModel : PageModel
     {
         public void OnGet()
         {
-
-
         }
     }
 }

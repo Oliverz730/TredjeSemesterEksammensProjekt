@@ -36,6 +36,20 @@ namespace TSEP.Igangsættelse.Infrastructor.Repositories
             };
         }
 
+        IEnumerable<OpgaveTypeQueryResultDto> IOpgaveTypeRepository.GetAll()
+        {
+            foreach (var opgaveType in _db.OpgaveTypeEntities.AsNoTracking().ToList())
+            {
+                yield return new OpgaveTypeQueryResultDto
+                {
+                    Id = opgaveType.Id,
+                    Beskrivelse = opgaveType.Beskrivelse,
+                    KompetanceId = opgaveType.KompetanceId,
+                    RowVersion = opgaveType.RowVersion
+                };
+            }
+        }
+
         OpgaveTypeEntity IOpgaveTypeRepository.Load(int id)
         {
             var opgaveType = _db.OpgaveTypeEntities.AsNoTracking().First(o => o.Id == id);

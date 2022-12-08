@@ -26,14 +26,11 @@ namespace TSEP.App.Pages.Projekt
                 ProjektName = Input.ProjektName,
                 KundeUserId= Input.KundeUserId,
                 SælgerUserId= User.Identity.Name,
-                EndDate= Input.EndDate,
                 StartDate= Input.StartDate,
-                ActualEstimated= Input.ActualEstimated,
-                EstimatedTime= Input.EstimatedTime,
             };
-            await _igangsættelseService.CreateProjekt(dto);
+            var projektId = await _igangsættelseService.CreateProjekt(dto);
 
-            return RedirectToPage("/Sælger/Index");
+            return RedirectToPage($"/Booking/Create",new { projektId = projektId });
         }
 
         public void OnGet()

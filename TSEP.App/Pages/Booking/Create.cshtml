@@ -1,0 +1,17 @@
+﻿@page
+@model TSEP.App.Pages.Booking.CreateModel
+@{
+}
+
+<section>
+
+	<h2>@Model.BookingModel.ProjektId</h2>
+
+	<form>
+
+		<select asp-for="BookingModel.OpgaveTypeId" asp-items="Model.OpgaveTypeSelect"></select>
+		<input asp-for="BookingModel.StartTid"/>
+
+	</form>
+
+</section>

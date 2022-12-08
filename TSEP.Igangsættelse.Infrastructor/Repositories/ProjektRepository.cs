@@ -18,10 +18,11 @@ namespace TSEP.Igangsættelse.Infrastructor.Repositories
         {
             _db = db;
         }
-        void IProjektRepository.Add(ProjektEntity projekt)
+        int IProjektRepository.Add(ProjektEntity projekt)
         {
             _db.ProjektEntities.Add(projekt);
             _db.SaveChanges();
+            return projekt.Id;
         }
         ProjektEntity IProjektRepository.Load(int id)
         {

@@ -8,6 +8,6 @@ namespace TSEP.Igangsættelse.Application.Projekt.Commands
 {
     public interface IProjektCreateCommand
     {
-        void Create(ProjektCreateRequestDto projektCreateRequestDto);
+        int Create(ProjektCreateRequestDto projektCreateRequestDto);
     }
 }

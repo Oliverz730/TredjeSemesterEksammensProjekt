@@ -5,34 +5,20 @@ namespace TSEP.Igangsættelse.Domain.Model
     public class ProjektEntity
     {
         public int Id { get; private set; }
-        public string ProjektName { get; set; }
+        public string ProjektName { get; private set; }
         public DateTime StartDate { get; private set; }
-        public DateTime EndDate { get; private set; }
-        public string EstimatedTime { get; private set; }
-        public string ActualEstimated { get; private set; }
+        public DateTime? EndDate { get; private set; }
+        public string? EstimatedTime { get; private set; }
+        public string? ActualEstimated { get; private set; }
         public string SælgerUserId { get; private set; }
         public string KundeUserId { get; private set; }
         [Timestamp]
         public byte[] RowVersion { get; private set; }
-        public ProjektEntity(int id, DateTime startDate, DateTime endDate, string estimatedTime, string actualEstimated, string sælgerUserId, string kundeUserId, string projektName,byte[] rowVersion)
-        {
-            Id = id;
-            ProjektName = projektName;
-            StartDate = startDate;
-            EndDate = endDate;
-            EstimatedTime = estimatedTime;
-            ActualEstimated = actualEstimated;
-            SælgerUserId = sælgerUserId;
-            KundeUserId = kundeUserId;
-            RowVersion = rowVersion;
-        }
-        public ProjektEntity(DateTime startDate, DateTime endDate, string estimatedTime, string actualEstimated, string sælgerUserId, string kundeUserId, string projektName)
+        
+        public ProjektEntity(DateTime startDate, string sælgerUserId, string kundeUserId, string projektName)
         {
             ProjektName = projektName;
             StartDate = startDate;
-            EndDate = endDate;
-            EstimatedTime = estimatedTime;
-            ActualEstimated = actualEstimated;
             SælgerUserId = sælgerUserId;
             KundeUserId = kundeUserId;
         }
@@ -46,7 +32,7 @@ namespace TSEP.Igangsættelse.Domain.Model
         { 
             return 1; 
         }
-        public void Edit(DateTime startDate, DateTime endDate, string estimatedTime, string actualEstimated, string kundeUserId, string projektName, byte[] rowVersion)
+        public void Edit(DateTime startDate, DateTime? endDate, string? estimatedTime, string? actualEstimated, string kundeUserId, string projektName, byte[] rowVersion)
         {
             ProjektName = projektName;
             StartDate = startDate;

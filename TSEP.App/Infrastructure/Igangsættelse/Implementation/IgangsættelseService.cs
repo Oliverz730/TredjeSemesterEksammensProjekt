@@ -22,11 +22,21 @@ namespace TSEP.App.Infrastructure.Igangsættelse.Implementation
             throw new Exception(message);
         }
 
-        async Task IIgangsættelseService.CreateProjekt(ProjektCreateRequestDto projektCreateRequestDto)
+        async Task<int> IIgangsættelseService.CreateProjekt(ProjektCreateRequestDto projektCreateRequestDto)
         {
             var res = await _httpClient.PostAsJsonAsync($"api/Projekt", projektCreateRequestDto);
 
-            if (res.IsSuccessStatusCode) return;
+            var projektId = 0;
+            try
+            {
+                projektId = int.Parse(await res.Content.ReadAsStringAsync());
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+            if (res.IsSuccessStatusCode) return projektId;
 
             var message = await res.Content.ReadAsStringAsync();
             throw new Exception(message);
@@ -43,6 +53,11 @@ namespace TSEP.App.Infrastructure.Igangsættelse.Implementation
         async Task IIgangsættelseService.EditProjekt(ProjektEditRequestDto projektEditRequestDto)
         {
             var res = await _httpClient.PutAsJsonAsync($"api/Projekt", projektEditRequestDto);
+        }
+
+        async Task<IEnumerable<OpgaveTypeQueryResultDto>?> IIgangsættelseService.GetAllOpgaveType()
+        {
+            return await _httpClient.GetFromJsonAsync<IEnumerable<OpgaveTypeQueryResultDto>>($"api/OpgaveType");
         }
     }
 }

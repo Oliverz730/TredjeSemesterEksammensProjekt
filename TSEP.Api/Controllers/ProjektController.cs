@@ -48,12 +48,12 @@ namespace TSEP.Api.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult Post(ProjektCreateRequestDto request)
+        public IActionResult Post(ProjektCreateRequestDto request)
         {
             try
             {
-                _projektCreateCommand.Create(request);
-                return Ok();
+                var projektId = _projektCreateCommand.Create(request);
+                return Ok(projektId);
             }
             catch (Exception e)
             {
