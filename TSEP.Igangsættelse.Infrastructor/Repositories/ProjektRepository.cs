@@ -74,5 +74,25 @@ namespace TSEP.Igangsættelse.Infrastructor.Repositories
                 };
             }
         }
+
+        IEnumerable<ProjektQueryResultDto> IProjektRepository.GetAllByKunde(string userId)
+        {
+            foreach (var projekt in _db.ProjektEntities.Where(pId => pId.KundeUserId == userId).AsNoTracking().ToList())
+            {
+                //var ansatte = entity.Ansatte.Select(a => new KompetanceAnsatQueryResultDto { UserId = a.UserId});
+                yield return new ProjektQueryResultDto
+                {
+                    Id = projekt.Id,
+                    ProjektName = projekt.ProjektName,
+                    StartDate = projekt.StartDate,
+                    EndDate = projekt.EndDate,
+                    EstimatedTime = projekt.EstimatedTime,
+                    ActualEstimated = projekt.ActualEstimated,
+                    SælgerUserId = projekt.SælgerUserId,
+                    KundeUserId = projekt.KundeUserId,
+                    RowVersion = projekt.RowVersion,
+                };
+            }
+        }
     }
 }

@@ -50,6 +50,10 @@ namespace TSEP.App.Infrastructure.Igangsættelse.Implementation
         {
             return await _httpClient.GetFromJsonAsync<IEnumerable<ProjektQueryResultDto>>($"api/Projekt/" + userId);
         }
+        async Task<IEnumerable<ProjektQueryResultDto>?> IIgangsættelseService.GetAllProjektByKunde(string userId)
+        {
+            return await _httpClient.GetFromJsonAsync<IEnumerable<ProjektQueryResultDto>>($"api/Projekt/Kunde/" + userId);
+        }
 
         async Task<ProjektQueryResultDto?> IIgangsættelseService.GetProjekt(int id, string userId)
         {

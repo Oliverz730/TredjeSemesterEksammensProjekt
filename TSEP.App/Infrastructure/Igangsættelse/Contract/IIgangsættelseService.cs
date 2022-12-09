@@ -10,6 +10,7 @@ namespace TSEP.App.Infrastructure.Igangsættelse.Contract
 
         Task<int> CreateProjekt(ProjektCreateRequestDto projektCreateRequestDto);
         Task<IEnumerable<ProjektQueryResultDto>?> GetAllProjekt(string userId);
+        Task<IEnumerable<ProjektQueryResultDto>?> GetAllProjektByKunde(string userId);
         Task<ProjektQueryResultDto?> GetProjekt(int id, string userId);
         Task EditProjekt(ProjektEditRequestDto projektEditRequestDto);
 

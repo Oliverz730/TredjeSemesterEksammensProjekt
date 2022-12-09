@@ -1,4 +1,6 @@
 ﻿@page
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthService
 @model TSEP.App.Areas.Identity.Pages.Account.RegisterModel
 @{
     ViewData["Title"] = "Register";
@@ -35,12 +37,16 @@
             <div class="form-floating">
                 <select asp-for="Input.RoleChoice" class="form-control" autocomplete="Role" aria-required="true">
 
-                    <option value="Tekniker">Tekniker</option>
-                    <option value="Sælger">Sælger</option>
-                    <option value="Konsulent">Konsulent</option>
-                    <option value="Konverter">Konverter</option>
+                    @if (AuthService.AuthorizeAsync(User, "AdminPolicy").Result.Succeeded)
+                    {
+                        <option value="Tekniker">Tekniker</option>
+                        <option value="Sælger">Sælger</option>
+                        <option value="Konsulent">Konsulent</option>
+                        <option value="Konverter">Konverter</option>
+                        <option value="Admin">Admin</option>
+                    }
                     <option value="Kunde">Kunde</option>
-                    <option value="Admin">Admin</option>
+                    
 
 
                 </select>

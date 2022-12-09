@@ -18,7 +18,7 @@ using TSEP.App.Infrastructure.StamData.Contract.Dto;
 
 namespace TSEP.App.Areas.Identity.Pages.Account
 {
-    [Authorize(Policy = "AdminPolicy")]
+    [Authorize(Policy = "SælgerPolicy")]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -142,7 +142,10 @@ namespace TSEP.App.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    if (Input.RoleChoice != "Kunde")
+                    {
                     await _stamDataService.CreateAnsat(new AnsatCreateRequestDto { Name = Input.Name, UserId = Input.Email });
+                    }
 
                     _logger.LogInformation("User created a new account with password.");
 

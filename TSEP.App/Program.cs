@@ -27,8 +27,16 @@ builder.Configuration.AddEnvironmentVariables();
 // Update-Database -Context WebAppUserDbContext
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<WebAppUserDbContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 5;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredUniqueChars = 0;
+    options.Password.RequireUppercase = false;
+    options.SignIn.RequireConfirmedAccount = false;
+}).AddEntityFrameworkStores<WebAppUserDbContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 

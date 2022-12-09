@@ -17,19 +17,19 @@ using TSEP.StamData.Application.Kompetance.Repositories;
 
 using TSEP.StamData.Infrastructor.Repositories;
 
-using TSEP.Igangsættelse.Application.OpgaveType.Commands;
-using TSEP.Igangsættelse.Application.OpgaveType.Commands.Implementation;
-using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
-using TSEP.Igangsættelse.Application.OpgaveType.Query;
-using TSEP.Igangsættelse.Application.OpgaveType.Query.Implementation;
+using TSEP.IgangsÃ¦ttelse.Application.OpgaveType.Commands;
+using TSEP.IgangsÃ¦ttelse.Application.OpgaveType.Commands.Implementation;
+using TSEP.IgangsÃ¦ttelse.Application.OpgaveType.Repositories;
+using TSEP.IgangsÃ¦ttelse.Application.OpgaveType.Query;
+using TSEP.IgangsÃ¦ttelse.Application.OpgaveType.Query.Implementation;
 
-using TSEP.Igangsættelse.Infrastructor.Repositories;
+using TSEP.IgangsÃ¦ttelse.Infrastructor.Repositories;
 
-using TSEP.Igangsættelse.Application.Projekt.Commands;
-using TSEP.Igangsættelse.Application.Projekt.Commands.Implementation;
-using TSEP.Igangsættelse.Application.Projekt.Repositories;
-using TSEP.Igangsættelse.Application.Projekt.Queries;
-using TSEP.Igangsættelse.Application.Projekt.Queries.Implementation;
+using TSEP.IgangsÃ¦ttelse.Application.Projekt.Commands;
+using TSEP.IgangsÃ¦ttelse.Application.Projekt.Commands.Implementation;
+using TSEP.IgangsÃ¦ttelse.Application.Projekt.Repositories;
+using TSEP.IgangsÃ¦ttelse.Application.Projekt.Queries;
+using TSEP.IgangsÃ¦ttelse.Application.Projekt.Queries.Implementation;
 
 using TSEP.Kalender.Application.Booking.Commands;
 using TSEP.Kalender.Application.Booking.Commands.Implementation;
@@ -76,7 +76,7 @@ builder.Services
     .AddScoped<IKompetanceEditCommand, KompetanceEditCommand>()
     ;
 
-//IgangSættelse
+//IgangSÃ¦ttelse
 builder.Services
     .AddScoped<IOpgaveTypeCreateCommand, OpgaveTypeCreateCommand>()
     .AddScoped<IOpgaveTypeRepository, OpgaveTypeRepository>()
@@ -86,6 +86,7 @@ builder.Services
     .AddScoped<IProjektGetQuery, ProjektGetQuery>()
     .AddScoped<IProjektEditCommand, ProjektEditCommand>()
     .AddScoped<IOpgaveTypeGetAllQuery, OpgaveTypeGetAllQuery>()
+    .AddScoped<IProjektGetAllByKundeQuery, ProjektGetAllByKundeQuery>()
     .AddScoped<IOpgaveTypeGetQuery, OpgaveTypeGetQuery>()
     ;
 
@@ -105,7 +106,7 @@ builder.Services
 
 
 // Database
-// Add -Migration RowVersionIgangsættelse -Context TredjeSemesterEksamensProjektContext -Project TSEP.SqlDbContext.Migrations
+// Add -Migration RowVersionIgangsÃ¦ttelse -Context TredjeSemesterEksamensProjektContext -Project TSEP.SqlDbContext.Migrations
 // Update-Database -Context TredjeSemesterEksamensProjektContext
 var connectionString = builder.Configuration.GetConnectionString("TredjeSemesterEksamensProjektDbConnection");
 //Connection string til opdatering af database via migration, Set til True under Migration
