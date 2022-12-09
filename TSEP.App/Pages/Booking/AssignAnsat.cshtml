@@ -26,16 +26,19 @@
 
             </thead>
             <tbody>            
-            @foreach (var ansat in Model.AnsatSelectList)
+            @for (int i = 0; i < Model.AnsatSelectList.Count; i++)
             {
                 <tr>
                     <td>
                         <section class="form-check">
-                            <input type="radio" name="BookingModel.AnsatId" class="form-check-input" value="@ansat.AnsatId" />
+                                <input type="radio" name="BookingModel.AnsatId" class="form-check-input" value="@Model.AnsatSelectList[i].AnsatId" />
+                                <input type="hidden" asp-for="AnsatSelectList[i].StartTid" />
+                                <input type="hidden" asp-for="AnsatSelectList[i].Navn" />
+                                <input type="hidden" asp-for="AnsatSelectList[i].AnsatId" />
                         </section>
                     </td>
-                    <td>@ansat.Navn</td>
-                    <td>@ansat.StartTid</td>
+                        <td>@Model.AnsatSelectList[i].Navn</td>
+                        <td>@Model.AnsatSelectList[i].StartTid</td>
                 </tr>
             }
             </tbody>

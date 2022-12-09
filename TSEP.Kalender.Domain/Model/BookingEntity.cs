@@ -29,7 +29,7 @@ namespace TSEP.Kalender.Domain.Model
             MedarbejderId = medarbejderId;
 
             if (!IsValid()) throw new ArgumentException("Pre-conditions er ikke over holdt");
-            if (_domainService.BookingExsistsOnDate(StartDate.Date, EndDate.Date, MedarbejderId)) throw new ArgumentException("Der eksistere allerede en Opgave i den periode");
+            if (_domainService.BookingExsistsOnDate(StartDate, EndDate, MedarbejderId)) throw new ArgumentException("Der eksistere allerede en Opgave i den periode");
         }
 
         protected bool IsValid()

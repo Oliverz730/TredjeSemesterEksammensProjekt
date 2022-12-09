@@ -50,17 +50,21 @@ namespace TSEP.App.Pages.Booking
 
         public async Task<IActionResult> OnPostAsync()
         {
+
+            var updatedBookingStart = AnsatSelectList.Find(a => BookingModel.AnsatId == a.AnsatId).StartTid;
+            var updatedBookingSlut = updatedBookingStart + (BookingModel.SlutTid - BookingModel.StartTid); 
+
             await _kalenderService.CreateBooking(new BookingCreateRequestDto
             {
                 MedarbejderId = BookingModel.AnsatId,
-                EndDate = BookingModel.SlutTid,
-                StartDate = BookingModel.StartTid
+                EndDate = updatedBookingSlut,
+                StartDate = updatedBookingStart
             });
 
             await _kalenderService.CreateOpgave(new OpgaveCreateRequestDto
             {
-                StartTid = BookingModel.StartTid,
-                SlutTid = BookingModel.SlutTid,
+                StartTid = updatedBookingStart,
+                SlutTid = updatedBookingSlut,
                 AnsatId = BookingModel.AnsatId,
                 OpgaveTypeId = BookingModel.OpgaveTypeId,
                 ProjektId = BookingModel.ProjektId,
@@ -153,13 +157,11 @@ namespace TSEP.App.Pages.Booking
                     {
                         BetweenTid.EndDate = BetweenTid.StartDate + OpgaveDuration;
                         orderedTidBetweenBookings.Add(BetweenTid);
-                        break;
                     }
                     else
                     {
                         BetweenTid.EndDate = orderedBookingList[next].StartDate;
                         orderedTidBetweenBookings.Add(BetweenTid);
-                        break;
                     }
 
                 }
@@ -167,7 +169,12 @@ namespace TSEP.App.Pages.Booking
 
             var førsteLedigeTid = ansatteMedKompetancen.Select(
                 a => orderedTidBetweenBookings.First(
-                    b => b.MedarbejderId == a.UserId && (b.EndDate - b.StartDate) <= OpgaveDuration));
+                    b =>
+                    {
+                        bool o = b.EndDate >= b.StartDate + OpgaveDuration;
+
+                        return b.MedarbejderId == a.UserId && o;
+                    }));
 
             return førsteLedigeTid.Select(b => new AnsatBookingViewModel
             {
