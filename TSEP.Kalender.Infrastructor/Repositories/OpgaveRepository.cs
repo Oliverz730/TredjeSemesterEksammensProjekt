@@ -26,7 +26,7 @@ namespace TSEP.Kalender.Infrastructor.Repositories
             _db.SaveChanges();
         }
 
-        OpgaveQueryResultDto IOpgaveRepository.Get(int projektId, int opgaveTypeId, int ansatId)
+        OpgaveQueryResultDto IOpgaveRepository.Get(int projektId, int opgaveTypeId, string ansatId)
         {
             var opgave = _db.OpgaveEntities.First(o =>
                 o.ProjektId == projektId && o.OpgaveTypeId == opgaveTypeId && o.AnsatId == ansatId);
@@ -45,7 +45,7 @@ namespace TSEP.Kalender.Infrastructor.Repositories
 
         }
 
-        IEnumerable<OpgaveQueryResultDto> IOpgaveRepository.GetAllByAnsat(int ansatId)
+        IEnumerable<OpgaveQueryResultDto> IOpgaveRepository.GetAllByAnsat(string ansatId)
         {
             foreach (var opgave in _db.OpgaveEntities.Where(o => o.AnsatId == ansatId).AsNoTracking().ToList())
             {

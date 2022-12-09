@@ -16,7 +16,7 @@ namespace TSEP.Kalender.Application.Opgave.Query.Implementation
             _opgaveRepository = opgaveRepository;
         }
 
-        OpgaveQueryResultDto IOpgaveGetQuery.Get(int projektId, int opgaveTypeId, int ansatId)
+        OpgaveQueryResultDto IOpgaveGetQuery.Get(int projektId, int opgaveTypeId, string ansatId)
         {
             return _opgaveRepository.Get(projektId, opgaveTypeId, ansatId);
         }

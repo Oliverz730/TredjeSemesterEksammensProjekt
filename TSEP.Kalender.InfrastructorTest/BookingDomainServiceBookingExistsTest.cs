@@ -36,7 +36,7 @@ namespace TSEP.Kalender.InfrastructorTest
 
             IList<BookingEntity> data = new List<BookingEntity>()
             {
-                new BookingEntity(serviceMoq.Object, 1, start2, end2, string.Empty)
+                new BookingEntity(serviceMoq.Object, start2, end2, string.Empty)
             };
 
             var moq = new Mock<TredjeSemesterEksamensProjektContext>();
@@ -70,7 +70,7 @@ namespace TSEP.Kalender.InfrastructorTest
 
             IList<BookingEntity> data = new List<BookingEntity>()
             {
-                new BookingEntity(serviceMoq.Object, 1, start2, end2, string.Empty)
+                new BookingEntity(serviceMoq.Object, start2, end2, string.Empty)
             };
 
             var moq = new Mock<TredjeSemesterEksamensProjektContext>();

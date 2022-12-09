@@ -14,47 +14,36 @@ namespace TSEP.Api.Controllers
         private readonly IOpgaveCreateCommand _opgaveCreateCommand;
         private readonly IOpgaveGetAllQuery _opgaveGetAllQuery;
         private readonly IOpgaveGetQuery _opgaveGetQuery;
-        private readonly IOpgaveEditCommand _opgaveEditCommand;
 
         public OpgaveController(
             IOpgaveCreateCommand opgaveCreateCommand,
             IOpgaveGetAllQuery opgaveGetAllQuery, 
-            IOpgaveGetQuery opgaveGetQuery, 
-            IOpgaveEditCommand opgaveEditCommand
+            IOpgaveGetQuery opgaveGetQuery
             )
         {
             _opgaveCreateCommand = opgaveCreateCommand;
             _opgaveGetAllQuery = opgaveGetAllQuery;
             _opgaveGetQuery = opgaveGetQuery;
-            _opgaveEditCommand = opgaveEditCommand;
         }
 
         // GET: api/<OpgaveController>
-        [HttpGet("{index}/{id}")]
-        public IEnumerable<OpgaveQueryResultDto> Get(int index, int id)
+        [HttpGet("Projekt/{id}")]
+        public IEnumerable<OpgaveQueryResultDto> GetByProjekt(int id)
         {
+            return _opgaveGetAllQuery.GetAllByProjekt(id);
+        }
 
-            switch (index)
-            {
-                case 0: //Get By Projekt
-                    return _opgaveGetAllQuery.GetAllByProjekt(id);
-                    break;
-
-                case 1:
-                    return _opgaveGetAllQuery.GetAllByAnsat(id);
-                    break;
-
-                default:
-                    //WTF
-                    throw new Exception("Wrong get all index");
-                    break;
-            }
-
+        // GET: api/<OpgaveController>
+        [HttpGet("Ansat/{id}")]
+        public IEnumerable<OpgaveQueryResultDto> GetByAnsat(string id)
+        {
+            return _opgaveGetAllQuery.GetAllByAnsat(id);
+            
         }
 
         // GET api/<OpgaveController>/5
         [HttpGet("{projektId}/{opgaveTypeId}/{ansatId}")]
-        public OpgaveQueryResultDto Get(int projektId,int opgaveTypeId,int ansatId)
+        public OpgaveQueryResultDto Get(int projektId,int opgaveTypeId,string ansatId)
         {
             return _opgaveGetQuery.Get(projektId, opgaveTypeId, ansatId);
         }

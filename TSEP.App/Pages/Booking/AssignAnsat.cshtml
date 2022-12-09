@@ -2,3 +2,51 @@
 @model TSEP.App.Pages.Booking.AssignAnsatModel
 @{
 }
+
+
+<section>
+    
+    <h2>Vælg Ansat Til At Udføre Opgaven</h2>
+
+    <form class="form-floating" method="post">
+        
+        <input type="hidden" asp-for="BookingModel.ProjektId"/>
+        <input type="hidden" asp-for="BookingModel.OpgaveTypeId"/>
+        <input type="hidden" asp-for="BookingModel.StartTid"/>
+        <input type="hidden" asp-for="BookingModel.SlutTid" />
+
+        <table class="table table-striped">
+            <thead>
+
+            <tr>
+                <th class="col-1">Valg</th>
+                <th>Navn</th>
+                <th>Tidligste Start</th>
+            </tr>
+
+            </thead>
+            <tbody>            
+            @for (int i = 0; i < Model.AnsatSelectList.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <section class="form-check">
+                                <input type="radio" name="BookingModel.AnsatId" class="form-check-input" value="@Model.AnsatSelectList[i].AnsatId" />
+                                <input type="hidden" asp-for="AnsatSelectList[i].StartTid" />
+                                <input type="hidden" asp-for="AnsatSelectList[i].Navn" />
+                                <input type="hidden" asp-for="AnsatSelectList[i].AnsatId" />
+                        </section>
+                    </td>
+                        <td>@Model.AnsatSelectList[i].Navn</td>
+                        <td>@Model.AnsatSelectList[i].StartTid</td>
+                </tr>
+            }
+            </tbody>
+
+        </table>
+        
+        <input class="w-25 btn btn-lg btn-primary" type="submit" />
+
+    </form>
+
+</section>

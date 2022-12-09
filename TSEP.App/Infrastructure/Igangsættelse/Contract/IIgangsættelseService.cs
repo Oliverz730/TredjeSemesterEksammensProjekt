@@ -6,6 +6,7 @@ namespace TSEP.App.Infrastructure.Igangsættelse.Contract
     {
         Task CreateOpgaveType(OpgaveTypeCreateRequestDto opgaveTypeCreateRequestDto);
         Task<IEnumerable<OpgaveTypeQueryResultDto>?> GetAllOpgaveType();
+        Task<OpgaveTypeQueryResultDto> GetOpgaveType(int id);
 
         Task<int> CreateProjekt(ProjektCreateRequestDto projektCreateRequestDto);
         Task<IEnumerable<ProjektQueryResultDto>?> GetAllProjekt(string userId);

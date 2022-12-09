@@ -22,20 +22,20 @@ namespace TSEP.App.Pages.Booking
 
         public async Task<IActionResult> OnPostAsync()
         {
-
-
-            return RedirectToPage("");
+            return RedirectToPage("./AssignAnsat", BookingModel);
         }
 
-        public async Task<IActionResult> OnGet(int? projektId)
+        public async Task<IActionResult> OnGetAsync(int? projektId, DateTime? startDate)
         {
             if(projektId == null) return NotFound();
-
-            BookingModel = new();
-
+            if (startDate == null) return NotFound();
             var sælgerId = User.Identity.Name;
 
-            BookingModel.ProjektId = projektId.Value;
+            BookingModel = new BookingCreateViewModel
+            {
+                ProjektId = projektId.Value,
+                StartTid = startDate.Value
+            };
 
             var opgaveTyper = await _igangsættelseService.GetAllOpgaveType();
 
