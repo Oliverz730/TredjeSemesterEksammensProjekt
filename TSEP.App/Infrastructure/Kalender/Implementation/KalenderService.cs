@@ -21,6 +21,17 @@ namespace TSEP.App.Infrastructure.Kalender.Implementation
             var message = await res.Content.ReadAsStringAsync();
             throw new Exception(message);
         }
+
+        async Task IKalenderService.CreateOpgave(OpgaveCreateRequestDto opgaveCreateRequestDto)
+        {
+            var res = await _httpClient.PostAsJsonAsync($"api/Opgave", opgaveCreateRequestDto);
+
+            if (res.IsSuccessStatusCode) return;
+
+            var message = await res.Content.ReadAsStringAsync();
+            throw new Exception(message);
+        }
+
         async Task<IEnumerable<BookingQueryResultDto>?> IKalenderService.GetAllBookings()
         {
             return await _httpClient.GetFromJsonAsync<IEnumerable<BookingQueryResultDto>>($"api/Booking");

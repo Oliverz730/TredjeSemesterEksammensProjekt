@@ -6,5 +6,7 @@ namespace TSEP.App.Infrastructure.Kalender.Contract
     {
         Task CreateBooking(BookingCreateRequestDto bookingCreateRequestDto);
         Task<IEnumerable<BookingQueryResultDto>?> GetAllBookings();
+        Task CreateOpgave(OpgaveCreateRequestDto opgaveCreateRequestDto);
+
     }
 }

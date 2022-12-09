@@ -12,8 +12,8 @@ using TSEP.SqlDbContext;
 namespace TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations
 {
     [DbContext(typeof(TredjeSemesterEksamensProjektContext))]
-    [Migration("20221205105417_KalenderMigration")]
-    partial class KalenderMigration
+    [Migration("20221208142206_FixedKalenderKeys")]
+    partial class FixedKalenderKeys
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,14 +74,12 @@ namespace TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ActualEstimated")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EstimatedTime")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("KundeUserId")
@@ -121,6 +119,10 @@ namespace TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("MedarbejderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
                         .IsRequired()
@@ -137,11 +139,8 @@ namespace TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations
 
             modelBuilder.Entity("TSEP.Kalender.Domain.Model.OpgaveEntity", b =>
                 {
-                    b.Property<int>("AnsatId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AnsatId"), 1L, 1);
+                    b.Property<string>("AnsatId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("OpgaveTypeId")
                         .HasColumnType("int");
@@ -165,7 +164,7 @@ namespace TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("AnsatId");
+                    b.HasKey("AnsatId", "OpgaveTypeId", "ProjektId");
 
                     b.ToTable("Opgave", "opgave");
                 });

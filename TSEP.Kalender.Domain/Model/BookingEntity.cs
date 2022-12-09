@@ -17,20 +17,19 @@ namespace TSEP.Kalender.Domain.Model
 
         private readonly IBookingDomainService _domainService;
 
-        public BookingEntity(IBookingDomainService domainService, int id, DateTime startDate, DateTime endDate, string medarbejderId)
+        public BookingEntity(IBookingDomainService domainService, DateTime startDate, DateTime endDate, string medarbejderId)
         {
 
             _domainService = domainService;
 
 
             //Pre Conditions
-            Id = id;
             StartDate = startDate;
             EndDate = endDate;
             MedarbejderId = medarbejderId;
 
             if (!IsValid()) throw new ArgumentException("Pre-conditions er ikke over holdt");
-            if (_domainService.BookingExsistsOnDate(StartDate.Date, EndDate.Date, MedarbejderId)) throw new ArgumentException("Der eksistere allerede en Opgave i den periode");
+            if (_domainService.BookingExsistsOnDate(StartDate, EndDate, MedarbejderId)) throw new ArgumentException("Der eksistere allerede en Opgave i den periode");
         }
 
         protected bool IsValid()

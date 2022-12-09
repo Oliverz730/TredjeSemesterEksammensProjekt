@@ -11,7 +11,7 @@ namespace TSEP.Kalender.Domain.Model
     {
         public int ProjektId { get; private set; }
         public int OpgaveTypeId { get; private set; }
-        public int AnsatId { get; private set; }
+        public string AnsatId { get; private set; }
         public string Status { get; private set; }
         public DateTime StartTid { get; private set; }
         public DateTime SlutTid { get; private set; }
@@ -22,7 +22,7 @@ namespace TSEP.Kalender.Domain.Model
         //EF
         internal OpgaveEntity() { }
 
-        public OpgaveEntity(int projektId, int opgaveTypeId, int ansatId, string status, DateTime startTid, DateTime slutTid)
+        public OpgaveEntity(int projektId, int opgaveTypeId, string ansatId, string status, DateTime startTid, DateTime slutTid)
         {
             ProjektId = projektId;
             OpgaveTypeId = opgaveTypeId;

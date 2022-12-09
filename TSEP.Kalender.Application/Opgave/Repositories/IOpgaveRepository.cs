@@ -11,8 +11,8 @@ namespace TSEP.Kalender.Application.Opgave.Repositories
     public interface IOpgaveRepository
     {
         void Add(OpgaveEntity opgave);
-        OpgaveQueryResultDto Get(int projektId, int opgaveTypeId, int ansatId);
+        OpgaveQueryResultDto Get(int projektId, int opgaveTypeId, string ansatId);
         IEnumerable<OpgaveQueryResultDto> GetAllByProjekt(int projektId);
-        IEnumerable<OpgaveQueryResultDto> GetAllByAnsat(int ansatId);
+        IEnumerable<OpgaveQueryResultDto> GetAllByAnsat(string ansatId);
     }
 }

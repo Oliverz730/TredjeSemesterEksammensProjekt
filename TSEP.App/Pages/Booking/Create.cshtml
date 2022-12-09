@@ -7,11 +7,14 @@
 
 	<h2>@Model.BookingModel.ProjektId</h2>
 
-	<form>
+    <form class="form-floating w-25" method="post">
+        
+        <input type="hidden" asp-for="BookingModel.ProjektId"/>
+        <select asp-for="BookingModel.OpgaveTypeId" asp-items="Model.OpgaveTypeSelect" class="form-control"></select>
+        <input asp-for="BookingModel.StartTid" class="form-control"/>
 
-		<select asp-for="BookingModel.OpgaveTypeId" asp-items="Model.OpgaveTypeSelect"></select>
-		<input asp-for="BookingModel.StartTid"/>
+        <input class="w-100 btn btn-lg btn-primary" type="submit" />
 
-	</form>
+    </form>
 
 </section>
