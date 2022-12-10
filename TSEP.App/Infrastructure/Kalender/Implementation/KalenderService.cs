@@ -36,5 +36,10 @@ namespace TSEP.App.Infrastructure.Kalender.Implementation
         {
             return await _httpClient.GetFromJsonAsync<IEnumerable<BookingQueryResultDto>>($"api/Booking");
         }
+
+        async Task<IEnumerable<OpgaveQueryResultDto>> IKalenderService.GetAllOpgaverByProjekt(int projektId)
+        {
+            return await _httpClient.GetFromJsonAsync<IEnumerable<OpgaveQueryResultDto>>($"api/Opgave/Projekt/{projektId}");
+        }
     }
 }
