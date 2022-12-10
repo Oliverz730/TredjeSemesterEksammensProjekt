@@ -71,7 +71,7 @@ namespace TSEP.App.Pages.Booking
                 Status = "TEST"
             });
 
-            return Redirect("/Projekt/Create");
+            return RedirectToPage("/Projekt/Edit", BookingModel.ProjektId);
         }
 
 
@@ -131,8 +131,8 @@ namespace TSEP.App.Pages.Booking
 
             foreach (var ansat in ansatteMedKompetancen)
             {
-                var ansatOrderedBooking = orderedBookingList.Where(b => b.MedarbejderId == ansat.UserId);
-                if (ansatOrderedBooking.Count() == 0)
+                var ansatOrderedBooking = orderedBookingList.Where(b => b.MedarbejderId == ansat.UserId).ToList();
+                if (ansatOrderedBooking.Count == 0)
                 {
                     orderedTidBetweenBookings.Add(new BookingQueryResultDto
                     {
@@ -143,14 +143,14 @@ namespace TSEP.App.Pages.Booking
                     continue;
                 }
                 
-                for (int i = 0; i < ansatOrderedBooking.Count(); i++)
+                for (int i = 0; i < ansatOrderedBooking.Count; i++)
                 {
                     int next = i + 1;
                     var BetweenTid = new BookingQueryResultDto
                     {
                         MedarbejderId = ansat.UserId,
-                        RowVersion = orderedBookingList[i].RowVersion,
-                        StartDate = orderedBookingList[i].EndDate
+                        RowVersion = ansatOrderedBooking[i].RowVersion,
+                        StartDate = ansatOrderedBooking[i].EndDate
                     };
 
                     if (next == ansatOrderedBooking.Count())
