@@ -51,6 +51,8 @@ namespace TSEP.App.Pages.Projekt
             var opgaveDtoer = await _kalenderService.GetAllOpgaverByProjekt(projekt.Id);
             var ansatDtoer = await _stamDataService.GetAllAnsat();
             var opgaveTypeDtoer = await _igangsættelseService.GetAllOpgaveType();
+            if(opgaveDtoer.Count() > 0) nextOpgaveStartTime = opgaveDtoer.MaxBy(o => o.SlutTid).SlutTid;
+            else nextOpgaveStartTime = DateTime.Today;
 
             OpgaveIndexes = opgaveDtoer.Select(o =>
             
@@ -60,6 +62,7 @@ namespace TSEP.App.Pages.Projekt
                     OpgaveTypeId = o.OpgaveTypeId,
                     EndTime = o.SlutTid,
                     StartTime = o.StartTid,
+                    Status = o.Status,
                     RowVersion = o.RowVersion,
                     AnsatName = ansatDtoer.First(a => a.UserId == o.AnsatId).Name,
                     OpgaveTypeName = opgaveTypeDtoer.First(oT => oT.Id == o.OpgaveTypeId).Beskrivelse
