@@ -30,7 +30,7 @@ namespace TSEP.App.Pages.Projekt
 
         public async Task<IActionResult> OnPostAsync()
         {
-            return RedirectToPage("Booking/Create", new{ startDate = nextOpgaveStartTime, projektId = Input.Id});
+            return RedirectToPage("/Booking/Create", new{ projektId = Input.Id, startDate = nextOpgaveStartTime});
         }
 
         public async Task<IActionResult> OnGetAsync(int? id)

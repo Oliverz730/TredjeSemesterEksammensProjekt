@@ -2,7 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using TredjeSemesterEksamensProjekt.SqlServerContext.Migrations.Migrations;
 
+using TSEP.Crosscut.TransactionHandling;
+using TSEP.Crosscut.TransactionHandling.Implementation;
+
 using TSEP.SqlDbContext;
+
 using TSEP.StamData.Application.Ansat.Commands;
 using TSEP.StamData.Application.Ansat.Commands.Implementation;
 using TSEP.StamData.Application.Ansat.Queries;
@@ -61,6 +65,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //IOC
+
+//Crosscut
+builder.Services
+    .AddScoped<IUnitOfWork, UnitOfWork>(p =>
+        {
+            var db = p.GetService<TredjeSemesterEksamensProjektContext>();
+            return new UnitOfWork(db);
+        }
+        )
+    ;
 
 //StamData
 builder.Services

@@ -9,9 +9,6 @@
     <section class="w-25">
 
         <form class="form-floating" method="post">
-            <input type="hidden" asp-for="Input.Id"/>
-            <input type="hidden" asp-for="Input.RowVersion"/>
-
             <section class="form-group">
                 <label asp-for="Input.ProjektName"></label>
                 <input asp-for="Input.ProjektName" class="form-control" autocomplete="new-description" aria-required="true"/>
@@ -30,13 +27,16 @@
             
             <h3>Vælg start tidspunkt på næste opgave</h3>
             <section class="form-group">
-                <input asp-for="nextOpgaveStartTime" class="form-control"/>
+                <input asp-for="nextOpgaveStartTime" class="form-control" />
             </section>
             <br/>
 
             <section class="form-group">
                 <button type="submit" class="w-100 btn btn-lg btn-primary">Commit Ændringer og tilføj Opgave</button>
             </section>
+            
+            <input type="hidden" asp-for="Input.Id"/>
+            <input type="hidden" asp-for="Input.RowVersion"/>
         </form>
     </section>    
     
