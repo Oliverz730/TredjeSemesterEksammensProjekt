@@ -80,11 +80,5 @@ namespace TSEP.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
-
-        // DELETE api/<AnsatController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

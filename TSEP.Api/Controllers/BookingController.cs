@@ -27,14 +27,7 @@ namespace TSEP.Api.Controllers
         {
             return _bookingGetAllQuery.GetAll();
         }
-
-        // GET api/<BookingController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
+        
         // POST api/<BookingController>
         [HttpPost]
         [Consumes(MediaTypeNames.Application.Json)]
@@ -51,18 +44,6 @@ namespace TSEP.Api.Controllers
             {
                 return BadRequest(e.Message);
             }
-        }
-
-        // PUT api/<BookingController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<BookingController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

@@ -72,17 +72,5 @@ namespace TSEP.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
-
-        // PUT api/<ProjektController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ProjektController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

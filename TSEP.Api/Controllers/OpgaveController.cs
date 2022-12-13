@@ -65,17 +65,5 @@ namespace TSEP.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
-
-        // PUT api/<OpgaveController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<OpgaveController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

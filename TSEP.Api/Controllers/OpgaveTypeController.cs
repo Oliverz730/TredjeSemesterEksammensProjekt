@@ -53,20 +53,5 @@ namespace TSEP.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
-
-        // PUT api/<OpgaveTypeController>/5
-        [HttpPut("{id}")]
-        [Consumes(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public void Put(int id)
-        {
-        }
-
-        // DELETE api/<OpgaveTypeController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
