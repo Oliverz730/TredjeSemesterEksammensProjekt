@@ -8,11 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TSEP.Igangsættelse.Application\TSEP.Igangsættelse.Application.csproj" />
-    <ProjectReference Include="..\TSEP.SqlDbContext\TSEP.SqlDbContext.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\TSEP.Igangsættelse.Application\TSEP.Igangsættelse.Application.csproj" />
     <ProjectReference Include="..\TSEP.Igangsættelse.Domain\TSEP.Igangsættelse.Domain.csproj" />
     <ProjectReference Include="..\TSEP.SqlDbContext\TSEP.SqlDbContext.csproj" />
   </ItemGroup>

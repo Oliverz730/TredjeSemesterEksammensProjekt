@@ -4,5 +4,6 @@
     {
         public int Id { get; set; }
         public string Beskrivelse { get; set; }
+        public string KompetanceBeskrivelse { get; set; }
     }
 }

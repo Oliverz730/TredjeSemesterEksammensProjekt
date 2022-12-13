@@ -17,14 +17,15 @@
             </li>
         </ul>
         
-        <table>
+        <table class="table table-striped w-50">
             
             <thead>
             
             <tr>
-                <td>Beskrivelse</td>
+                <th>Beskrivelse</th>
+                <th>Kompetance</th>
+
             </tr>
-            <tr></tr>
             </thead>
 
             <tbody>
@@ -35,9 +36,8 @@
                     <td>
                         @opgaveType.Beskrivelse
                     </td>
-
-                    <td class="form-check-label">
-                        <a asp-page="./Edit" asp-route-id="@opgaveType.Id">Edit</a>
+                    <td>
+                        @opgaveType.KompetanceBeskrivelse
                     </td>
                 </tr>
             }

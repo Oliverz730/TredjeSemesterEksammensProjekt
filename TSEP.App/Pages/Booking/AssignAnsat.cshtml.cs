@@ -86,7 +86,6 @@ namespace TSEP.App.Pages.Booking
 
             BookingModel.SlutTid = BookingModel.StartTid + OpgaveDuration;
 
-
             var ansatteMedKompetancen = ansatte.Where(
                 a => a.Kompetancer.Any(
                     k => k.Id == opgaveType.KompetanceId
