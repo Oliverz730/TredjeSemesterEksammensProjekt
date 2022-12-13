@@ -25,9 +25,9 @@ namespace TSEP.App.Pages.Kunde
 
             IndexViewModels = businessModels.Select(pDto => new KundeProjektIndexViewModel
             {
-                projektNavn = pDto.ProjektName,
-                startDate = pDto.StartDate,
-                endDate = pDto.EndDate
+                ProjektNavn = pDto.ProjektName,
+                StartDate = pDto.StartDate,
+                EndDate = pDto.EndDate
             }).ToList();
 
 

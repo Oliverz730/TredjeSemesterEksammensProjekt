@@ -2,11 +2,46 @@
 @model TSEP.App.Pages.Kunde.IndexModel
 @{
 }
- @foreach(var projekt in Model.IndexViewModels)
-    {
-        
-        <h2>
-            @projekt.projektNavn
-        </h2>
+<script src="lib/jquery/dist/jquery.js"></script>
 
-    }
+<section class="container">
+    
+    <section class="row my-3">
+    <h1>@Model.User.Identity.Name</h1>
+    </section>
+    
+
+    <section class="container w-100">
+        @foreach (var projekt in Model.IndexViewModels)
+        {
+            <section class="w-50">
+                <section class="w-auto card border-primary m-3">
+                    <section class="card-header">
+                        <h3 class="mt-2 justify-content-between w-100 d-flex">
+                            @projekt.ProjektNavn
+                            
+                        </h3>
+                    </section>
+                    <section class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <h4 class="d-flex justify-content-between w-100">
+                                    Sælger
+
+                                    <span class=" text-uppercase badge rounded-pill bg-info mx-3">@projekt.StartDate</span>
+                                </h4>
+                            </li>
+                            <li class="list-group-item">
+                                <h4 class="d-flex justify-content-between w-100">
+                                    Kunde
+
+                                    <span class=" text-uppercase badge rounded-pill bg-success mx-3">@projekt.EndDate</span>
+                                </h4>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+            </section>
+        }
+    </section>
+</section>

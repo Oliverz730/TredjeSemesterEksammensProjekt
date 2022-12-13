@@ -30,7 +30,7 @@ builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.Password.RequireDigit = false;
-    options.Password.RequiredLength = 5;
+    options.Password.RequiredLength = 1;
     options.Password.RequireLowercase = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequiredUniqueChars = 0;

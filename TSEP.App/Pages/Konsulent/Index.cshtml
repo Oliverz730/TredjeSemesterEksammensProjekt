@@ -2,46 +2,61 @@
 @model TSEP.App.Pages.Konsulent.IndexModel
 @{
 }
+<script src="lib/jquery/dist/jquery.js"></script>
 
-<section>
-
-    <h1>Konsulent</h1>
-
-    <section class="container w-25 border border-2">
-
-        <section class="row">
-            <h3 class="text-center">
-                Igangsættelse 1
-            </h3>
-        </section>
-        <section class="row">
-            <section class="col-sm">
-                <span class="text-center">
-                    Konsul opg
-                </span>
-                <section class="border border-2">
-                    <p>Kompetancer</p>
-                    <ul>
-                        <li>K1</li>
-                        <li>K2</li>
-                        <li>K3</li>
-                    </ul>
-                    <p>Varighed</p>
-                    <ul>
-                        <li>2 dage</li>
-                    </ul>
-                    <p>Status</p>
-                    <ul>
-                        <li>Igang</li>
-                    </ul>
-                    <p>Kommentarer</p>
-                    <ul>
-                        <li>...</li>
-                    </ul>
-                </section>
-            </section>
-        </section>
-
+<section class="container">
+    
+    <section class="row my-3">
+    <h1>@Model.User.Identity.Name</h1>
     </section>
 
+    <section class="container w-100">
+        @foreach (var opgave in Model.IndexViewModels)
+        {
+            <section class="w-50">
+                <section class="w-auto card border-primary m-3">
+                    <section class="card-header">
+                        <h3 class="mt-2 justify-content-between w-100 d-flex">
+                            @opgave.AnsatId
+                        </h3>
+                    </section>
+                    <section class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <h4 class="d-flex justify-content-between w-100">
+                                    Projekt Id
+
+                                    <span class=" text-uppercase badge rounded-pill bg-info mx-3">@opgave.ProjektId</span>
+                                </h4>
+                            </li>
+                            <li class="list-group-item">
+                                <h4 class="d-flex justify-content-between w-100">
+                                    Opgave type
+
+                                    <span class=" text-uppercase badge rounded-pill bg-success mx-3">@opgave.OpgaveTypeId</span>
+                                </h4>
+                            </li>
+                            <li class="list-group-item">
+                                <h4 class="d-flex justify-content-between w-100">
+                                    Status
+
+                                    <span class=" text-uppercase badge rounded-pill bg-success mx-3">@opgave.Status</span>
+                                </h4>
+                            </li>
+
+                            <li class="list-group-item">
+                                <h4 class="d-flex justify-content-between w-100">
+                                    Varighed
+                                    <span class=" text-uppercase badge rounded-pill bg-success mx-3">@opgave.StartTid</span>
+
+                                    <span class=" text-uppercase badge rounded-pill bg-warning mx-3">@opgave.SlutTid</span>
+                                </h4>
+                            </li>
+
+                        </ul>
+                    </section>
+                </section>
+            </section>
+        }
+    </section>
 </section>
