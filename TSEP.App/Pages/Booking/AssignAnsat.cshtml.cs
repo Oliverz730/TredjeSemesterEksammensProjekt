@@ -71,7 +71,7 @@ namespace TSEP.App.Pages.Booking
                 Status = "TEST"
             });
 
-            return RedirectToPage("/Projekt/Edit", BookingModel.ProjektId);
+            return RedirectToPage("/Projekt/Edit",new{id = BookingModel.ProjektId});
         }
 
 
