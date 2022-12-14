@@ -43,7 +43,7 @@ namespace TSEP.App.Infrastructure.Kalender.Implementation
         }
         async Task<IEnumerable<OpgaveQueryResultDto>> IKalenderService.GetAllOpgaverByAnsat(string userId)
         {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<OpgaveQueryResultDto>>($"api/Ansat/{userId}");
+            return await _httpClient.GetFromJsonAsync<IEnumerable<OpgaveQueryResultDto>>($"api/Opgave/Ansat/{userId}");
         }
     }
 }

@@ -50,7 +50,6 @@ namespace TSEP.App.Pages.Booking
 
         public async Task<IActionResult> OnPostAsync()
         {
-
             var updatedBookingStart = AnsatSelectList.Find(a => BookingModel.AnsatId == a.AnsatId).StartTid;
             var updatedBookingSlut = updatedBookingStart + (BookingModel.SlutTid - BookingModel.StartTid); 
 
