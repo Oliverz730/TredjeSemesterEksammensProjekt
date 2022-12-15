@@ -11,45 +11,46 @@
     </section>
 
     <table class="table table-striped">
+        <thead>
+
+                <tr>
+                    <th class="col-1">Projekt Id</th>
+                    <th class="col-6">Opgave Beskrivelse</th>
+                    <th>Status</th>
+                    <th>Start tid</th>
+                    <th>Slut tid</th>
+                </tr>
+
+            </thead>
         @foreach (var opgave in Model.IndexViewModels)
         {
             <tr>
                 <td>
-                    <h3>
-                        @opgave.AnsatId
-                    </h3>
-                </td>
-
-                <td>
-                    <h4>
-                        Projekt Id
-
+                    
                         <span>@opgave.ProjektId</span>
-                    </h4>
+                    
                 </td>
 
                  <td>
-                    <h4>
-                    Opgave type
-
+                    
                     <span>@opgave.OpgaveTypeBeskrivelse</span>
-                    </h4>
+                    
                  </td>
                  <td>
-                    <h4>
-                    Status
-
+                    
                         <span>@opgave.Status</span>
-                    </h4>
+                    
                 </td>
 
                 <td>
-                    <h4>
-                        Varighed
+                    
                         <span>@opgave.StartTid</span>
-
+                    
+                </td>
+                <td>
+                    
                         <span>@opgave.SlutTid</span>
-                    </h4>
+                    
                 </td>
 
             </tr>

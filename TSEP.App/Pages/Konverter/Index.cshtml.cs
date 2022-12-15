@@ -1,16 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TSEP.App.Infrastructure.Kalender.Contract;
+using TSEP.App.Infrastructure.Igangsættelse.Contract;
 
 namespace TSEP.App.Pages.Konverter
 {
     public class IndexModel : PageModel
     {
         private readonly IKalenderService _kalenderService;
+        private readonly IIgangsættelseService _igangsættelseService;
 
-        public IndexModel(IKalenderService kalenderService)
+        public IndexModel(IKalenderService kalenderService, IIgangsættelseService igangsættelseService)
         {
             _kalenderService = kalenderService;
+            _igangsættelseService = igangsættelseService;
         }
 
 
@@ -23,6 +26,8 @@ namespace TSEP.App.Pages.Konverter
 
             var businessModels = await _kalenderService.GetAllOpgaverByAnsat(User.Identity.Name);
 
+            var opgavetyper = await _igangsættelseService.GetAllOpgaveType();
+
             IndexViewModels = businessModels.Select(oDto => new KonverterIndexViewModel
             {
                 ProjektId = oDto.ProjektId,
@@ -30,7 +35,7 @@ namespace TSEP.App.Pages.Konverter
                 Status = oDto.Status,
                 StartTid = oDto.StartTid,
                 SlutTid = oDto.SlutTid,
-                OpgaveTypeId = oDto.OpgaveTypeId,
+                OpgaveTypeBeskrivelse = opgavetyper.First(o => o.Id == oDto.OpgaveTypeId).Beskrivelse
 
             }).ToList();
 

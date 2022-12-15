@@ -11,53 +11,53 @@
     <h1>@Model.User.Identity.Name</h1>
     </section>
 
-    <section class="container w-100">
+    <table class="table table-striped">
+        <thead>
+
+                <tr>
+                    <th class="col-1">Projekt Id</th>
+                    <th class="col-6">Opgave Beskrivelse</th>
+                    <th>Status</th>
+                    <th>Start tid</th>
+                    <th>Slut tid</th>
+                </tr>
+
+            </thead>
         @foreach (var opgave in Model.IndexViewModels)
         {
-            <section class="w-50">
-                <section class="w-auto card border-primary m-3">
-                    <section class="card-header">
-                        <h3 class="mt-2 justify-content-between w-100 d-flex">
-                            @opgave.AnsatId
-                        </h3>
-                    </section>
-                    <section class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <h4 class="d-flex justify-content-between w-100">
-                                    Projekt Id
+            <tr>
+                <td>
+                    
+                        <span>@opgave.ProjektId</span>
+                    
+                </td>
 
-                                    <span class=" text-uppercase badge rounded-pill bg-info mx-3">@opgave.ProjektId</span>
-                                </h4>
-                            </li>
-                            <li class="list-group-item">
-                                <h4 class="d-flex justify-content-between w-100">
-                                    Opgave type
+                 <td>
+                    
+                    <span>@opgave.OpgaveTypeBeskrivelse</span>
+                    
+                 </td>
+                 <td>
+                    
+                        <span>@opgave.Status</span>
+                    
+                </td>
 
-                                    <span class=" text-uppercase badge rounded-pill bg-success mx-3">@opgave.OpgaveTypeId</span>
-                                </h4>
-                            </li>
-                            <li class="list-group-item">
-                                <h4 class="d-flex justify-content-between w-100">
-                                    Status
+                <td>
+                    
+                        <span>@opgave.StartTid</span>
+                    
+                </td>
+                <td>
+                    
+                        <span>@opgave.SlutTid</span>
+                    
+                </td>
 
-                                    <span class=" text-uppercase badge rounded-pill bg-success mx-3">@opgave.Status</span>
-                                </h4>
-                            </li>
+            </tr>
 
-                            <li class="list-group-item">
-                                <h4 class="d-flex justify-content-between w-100">
-                                    Varighed
-                                    <span class=" text-uppercase badge rounded-pill bg-success mx-3">@opgave.StartTid</span>
-
-                                    <span class=" text-uppercase badge rounded-pill bg-warning mx-3">@opgave.SlutTid</span>
-                                </h4>
-                            </li>
-
-                        </ul>
-                    </section>
-                </section>
-            </section>
+        }
+    </table>
         }
     </section>
 </section>

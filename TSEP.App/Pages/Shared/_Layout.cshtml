@@ -29,7 +29,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                         -->
-                        @if (!AuthService.AuthorizeAsync(User, "KundePolicy").Result.Succeeded)
+                        @if (AuthService.AuthorizeAsync(User, "AnsatPolicy").Result.Succeeded)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Kalender/Index">Kalender</a>

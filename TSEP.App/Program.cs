@@ -49,6 +49,8 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("KonsulentPolicy", policyBuilder => policyBuilder.RequireAssertion(context => context.User.HasClaim(c => c.Type == "Konsulent" || c.Type == "Admin")));
     options.AddPolicy("KundePolicy", policyBuilder => policyBuilder.RequireAssertion(context => context.User.HasClaim(c => c.Type == "Kunde" || c.Type == "Admin")));
     
+    options.AddPolicy("AnsatPolicy", policyBuilder => policyBuilder.RequireAssertion(context => context.User.HasClaim(c => c.Type == "Tekniker" || c.Type == "Sælger" || c.Type == "Konverter" || c.Type == "Konsulent" || c.Type == "Admin")));
+
     options.AddPolicy("AdminPolicy", policyBuilder => policyBuilder.RequireClaim("Admin"));
 }
 );
@@ -60,6 +62,11 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.AuthorizeFolder("/Konverter", "KonverterPolicy");
     options.Conventions.AuthorizeFolder("/Konsulent", "KonsulentPolicy");
     options.Conventions.AuthorizeFolder("/Kunde", "KundePolicy");
+
+    options.Conventions.AuthorizeFolder("/Kompetance", "AnsatPolicy");
+    options.Conventions.AuthorizeFolder("/Kalender", "AnsatPolicy");
+
+    options.Conventions.AuthorizeFolder("/Booking", "SælgerPolicy");
 });
 
 //IOC
