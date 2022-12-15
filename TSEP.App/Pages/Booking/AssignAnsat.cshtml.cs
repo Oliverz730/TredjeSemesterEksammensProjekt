@@ -69,7 +69,7 @@ namespace TSEP.App.Pages.Booking
                 AnsatId = BookingModel.AnsatId,
                 OpgaveTypeId = BookingModel.OpgaveTypeId,
                 ProjektId = BookingModel.ProjektId,
-                Status = "TEST"
+                Status = BookingModel.Status
             });
 
             return RedirectToPage("/Projekt/Edit",new{id = BookingModel.ProjektId});
