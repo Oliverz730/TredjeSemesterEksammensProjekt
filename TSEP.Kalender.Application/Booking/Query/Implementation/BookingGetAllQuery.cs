@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TSEP.Kalender.Application.Booking.Repositories;
+﻿using TSEP.Kalender.Application.Booking.Repositories;
 
 namespace TSEP.Kalender.Application.Booking.Query.Implementation
 {
@@ -17,6 +12,7 @@ namespace TSEP.Kalender.Application.Booking.Query.Implementation
         }
         IEnumerable<BookingQueryResultDto> IBookingGetAllQuery.GetAll()
         {
+            //Return de fundne koobingdto fra repository
             return _bookingRepository.GetAll();
         }
     }

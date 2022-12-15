@@ -19,14 +19,17 @@ namespace TSEP.StamData.Application.Kompetance.Commands.Implementation
         void IKompetanceEditCommand.Edit(KompetanceEditRequestDto kompetanceEditRequestDto)
         {
             //Read It
+            //indlæs data fra repository
             var model = _kompetanceRepository.LoadWithoutTracking(kompetanceEditRequestDto.Id);
             //List<AnsatEntity> ansatte = kompetanceEditRequestDto.Ansatte.Select(a => _ansatRepository.Load(a.UserId) ).ToList();
 
             //Do It
+            //tilføj ændringer
             //model.Edit(kompetanceEditRequestDto.Description, ansatte, kompetanceEditRequestDto.RowVersion);
             model.Edit(kompetanceEditRequestDto.Description, kompetanceEditRequestDto.RowVersion);
 
             //Save It
+            //Gem ændringer i repository
             _kompetanceRepository.Update(model);
         }
     }

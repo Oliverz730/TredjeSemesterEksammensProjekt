@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TSEP.Kalender.Application.Opgave.Query;
+﻿using TSEP.Kalender.Application.Opgave.Query;
 using TSEP.Kalender.Domain.Model;
 
 namespace TSEP.Kalender.Application.Opgave.Repositories

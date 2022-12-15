@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+
 
 namespace TSEP.Kalender.Domain.Model
 {
@@ -15,7 +11,7 @@ namespace TSEP.Kalender.Domain.Model
         public string Status { get; private set; }
         public DateTime StartTid { get; private set; }
         public DateTime SlutTid { get; private set; }
-
+        //Hvis Timestamp (RowVersion) tabes under roundtrip, vil man ikke få lov til at edit.
         [Timestamp]
         public byte[] RowVersion { get; private set; }
 

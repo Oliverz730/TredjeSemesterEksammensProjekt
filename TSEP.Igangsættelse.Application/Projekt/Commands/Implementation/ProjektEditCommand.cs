@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TSEP.Igangsættelse.Application.Projekt.Repositories;
+﻿using TSEP.Igangsættelse.Application.Projekt.Repositories;
 using TSEP.Igangsættelse.Domain.Model;
 using TSEP.Igangsættelse.Application.Projekt.Commands;
 
@@ -20,10 +15,16 @@ namespace TSEP.Igangsættelse.Application.Projekt.Commands.Implementation
 
         void IProjektEditCommand.Edit(ProjektEditRequestDto editRequestDto)
         {
+            //Read it
+            //Indlæs data fra repository
             var model= _projektRepository.Load(editRequestDto.Id );
 
+            //Do it
+            //tilføj ændringer 
             model.Edit( editRequestDto.StartDate, editRequestDto.EndDate, editRequestDto.EstimatedTime, editRequestDto.ActualEstimated, editRequestDto.KundeUserId, editRequestDto.ProjektName,editRequestDto.RowVersion);
             
+            //Save it
+            // gem ændringer i repository
             _projektRepository.Update(model);
         }
     }

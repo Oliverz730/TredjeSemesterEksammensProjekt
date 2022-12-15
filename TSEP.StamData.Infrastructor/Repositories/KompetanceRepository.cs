@@ -66,6 +66,7 @@ namespace TSEP.StamData.Infrastructor.Repositories
 
         void IKompetanceRepository.Update(KompetanceEntity kompetance)
         {
+            //Updater kompetencer i databasen
             _db.KompetanceEntities.Update(kompetance);
 
             //Gem ændringer på Kompetancen 
@@ -78,7 +79,11 @@ namespace TSEP.StamData.Infrastructor.Repositories
             foreach(var entity in _db.KompetanceEntities.AsNoTracking().ToList())
             {
                 //Konverter fra KompetanceEntity til KompetanceQueryResultDto, og yield hver enkeltvis
-                yield return new KompetanceQueryResultDto { Description = entity.Description, Id = entity.Id,RowVersion = entity.RowVersion};
+                yield return new KompetanceQueryResultDto 
+                { Description = entity.Description, 
+                    Id = entity.Id,
+                    RowVersion = entity.RowVersion
+                };
             }
         }
     }

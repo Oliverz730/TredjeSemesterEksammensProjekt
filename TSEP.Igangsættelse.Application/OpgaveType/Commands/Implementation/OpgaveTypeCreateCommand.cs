@@ -14,7 +14,9 @@ namespace TSEP.Igangsættelse.Application.OpgaveType.Commands.Implementation
 
         void IOpgaveTypeCreateCommand.CreateOpgaveType(OpgaveTypeCreateRequestDto opgaveTypeCreateRequestDto)
         {
+            //Opret opgave med givne data
             var opgaveType = new OpgaveTypeEntity(opgaveTypeCreateRequestDto.Beskrivelse, opgaveTypeCreateRequestDto.KompetanceId);
+            //Tilføj data til repositoriet
             _opgaveTypeRepository.Add(opgaveType);
         }
     }

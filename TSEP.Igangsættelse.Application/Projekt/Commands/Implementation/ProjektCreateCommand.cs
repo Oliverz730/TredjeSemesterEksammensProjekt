@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TSEP.Igangsættelse.Application.Projekt.Repositories;
+﻿using TSEP.Igangsættelse.Application.Projekt.Repositories;
 using TSEP.Igangsættelse.Domain.Model;
 
 namespace TSEP.Igangsættelse.Application.Projekt.Commands.Implementation
@@ -19,13 +14,14 @@ namespace TSEP.Igangsættelse.Application.Projekt.Commands.Implementation
 
         int IProjektCreateCommand.Create(ProjektCreateRequestDto projektCreateRequestDto)
         {
+            //opret projekt med givne data
             var projekt = new ProjektEntity(
                 projektCreateRequestDto.StartDate,
                 projektCreateRequestDto.SælgerUserId,
                 projektCreateRequestDto.KundeUserId,
                 projektCreateRequestDto.ProjektName
                 );
-
+            //tiolføj projekt til repositoriet
             return _projektRepository.Add(projekt);
         }
     }

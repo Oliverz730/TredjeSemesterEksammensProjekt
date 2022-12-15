@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TSEP.Igangsættelse.Application.Projekt.Repositories;
+﻿using TSEP.Igangsættelse.Application.Projekt.Repositories;
 using TSEP.Igangsættelse.Application.Projekt.Queries;
 using TSEP.SqlDbContext;
 using TSEP.Igangsættelse.Domain.Model;
@@ -20,24 +15,33 @@ namespace TSEP.Igangsættelse.Infrastructor.Repositories
         }
         int IProjektRepository.Add(ProjektEntity projekt)
         {
+            //Tilføj projekt til databasen
             _db.ProjektEntities.Add(projekt);
+            //Gem ændringer i databasen
             _db.SaveChanges();
+            // Returner id for projekt
             return projekt.Id;
         }
         ProjektEntity IProjektRepository.Load(int id)
         {
+            // Find projekt med givne id
             var projektEntity = _db.ProjektEntities.FirstOrDefault(x => x.Id == id);
+            //hvis ikke projektet findes, throw exception ""
             if (projektEntity == null) throw new Exception("Projekt findes ikke");
-
+            //Returner projekt, som blev fundet
             return projektEntity;
         }
         ProjektQueryResultDto IProjektRepository.Get(int id, string userId)
         {
+            //Indlæs data baseret på id
             var projektEntity = _db.ProjektEntities.AsNoTracking().FirstOrDefault(x => x.Id == id);
-            
+
+            //hvis ikke projektet findes, throw exception ""
             if (projektEntity == null) throw new Exception("Projekt findes ikke");
+            // Hvis ikke sælgerId matcher brugerid, throw exeption "" -Ikke brugerens projekt
             if (projektEntity.SælgerUserId != userId) throw new Exception("Sælger har ikke lov til at se dette projekt"); 
 
+            //Konverter fra entity til dto
             return new ProjektQueryResultDto
             {
                 Id = projektEntity.Id,
@@ -53,13 +57,18 @@ namespace TSEP.Igangsættelse.Infrastructor.Repositories
         }
         void IProjektRepository.Update(ProjektEntity projekt)
         {
+            //updater projekt i databasen
             _db.ProjektEntities.Update(projekt);
+            //Gem ændringer i databasen på projekt
             _db.SaveChanges();
         }
         IEnumerable<ProjektQueryResultDto> IProjektRepository.GetAll(string userId)
         {
+            //iterer over projekt hvor sælgerid matcher userid
             foreach (var projekt in _db.ProjektEntities.Where(pId => pId.SælgerUserId == userId).AsNoTracking().ToList())
             {
+                //Konverter fra entitet til dto, yield hver enkeltvis
+
                 //var ansatte = entity.Ansatte.Select(a => new KompetanceAnsatQueryResultDto { UserId = a.UserId});
                 yield return new ProjektQueryResultDto { 
                     Id = projekt.Id, 
