@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using TSEP.Igangsættelse.Application.Projekt.Repositories;
 
 namespace TSEP.Igangsættelse.Application.Projekt.Queries.Implementation
@@ -18,8 +14,10 @@ namespace TSEP.Igangsættelse.Application.Projekt.Queries.Implementation
 
         ProjektQueryResultDto IProjektGetQuery.Get(int id, string userId)
         {
+            //Hent projektQueryResultDto fra Repository
             var projektDto = _projektRepository.Get(id, userId);
 
+            //Returnerer den fundne projektQueryResultDto
             return projektDto;
         }
     }

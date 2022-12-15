@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TSEP.Igangsættelse.Domain.Model;
-using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
+﻿using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
 
 namespace TSEP.Igangsættelse.Application.OpgaveType.Query.Implementation
 {
@@ -19,6 +13,7 @@ namespace TSEP.Igangsættelse.Application.OpgaveType.Query.Implementation
 
         IEnumerable<OpgaveTypeQueryResultDto> IOpgaveTypeGetAllQuery.GetAll()
         {
+            //Return de fundne opgaveTypedto fra repository
             return _opgaveTypeRepository.GetAll();
         }
     }

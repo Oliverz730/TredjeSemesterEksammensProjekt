@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using TSEP.Crosscut.TransactionHandling;
 using TSEP.Kalender.Application.Booking.Repositories;
 using TSEP.Kalender.Domain.DomainServices;
@@ -28,8 +23,10 @@ namespace TSEP.Kalender.Application.Booking.Commands.Implementation
         {
             try
             {
+                // kald på UnitOfWork for at sætte isolationsniveau serializable (pessimistisk concurrency) 
                 _uow.BeginTransaction(IsolationLevel.Serializable);
 
+                //Opræt Booking med de givne data
                 var booking = new BookingEntity(
                     _domainService,
                     bookingCreateRequestDto.StartDate,
@@ -37,11 +34,14 @@ namespace TSEP.Kalender.Application.Booking.Commands.Implementation
                     bookingCreateRequestDto.MedarbejderId
                     );
 
+                //Tilføj booking til repository
                 _bookingRepository.Add(booking);
 
+                //Gennemfør isolationsniveau
                 _uow.Commit();
 
             }
+            //hvis ikke det er muligt throw exception "" og rollback alle ændringer lavet i DB
             catch(Exception e)
             {
                 _uow.Rollback();

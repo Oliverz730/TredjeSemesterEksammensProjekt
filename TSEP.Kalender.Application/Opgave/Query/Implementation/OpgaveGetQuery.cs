@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using TSEP.Kalender.Application.Opgave.Repositories;
 
 namespace TSEP.Kalender.Application.Opgave.Query.Implementation
@@ -18,6 +14,7 @@ namespace TSEP.Kalender.Application.Opgave.Query.Implementation
 
         OpgaveQueryResultDto IOpgaveGetQuery.Get(int projektId, int opgaveTypeId, string ansatId)
         {
+            //Returnerer den fundne OpgaveQueryResultDto fra repository
             return _opgaveRepository.Get(projektId, opgaveTypeId, ansatId);
         }
     }

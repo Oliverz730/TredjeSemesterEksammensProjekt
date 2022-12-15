@@ -19,6 +19,7 @@ namespace TSEP.Kalender.Application.Opgave.Commands.Implementation
 
         void IOpgaveCreateCommand.Create(OpgaveCreateRequestDto opgaveCreateRequestDto)
         {
+            //Tilføj Kompetancen til Repositoriet med givne data
             _opgaveRepository.Add(
                 new OpgaveEntity
                     (

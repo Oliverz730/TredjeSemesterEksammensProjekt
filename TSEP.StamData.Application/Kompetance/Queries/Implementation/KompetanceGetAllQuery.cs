@@ -14,6 +14,7 @@ namespace TSEP.StamData.Application.Kompetance.Queries.Implementation
 
         IEnumerable<KompetanceQueryResultDto> IKompetanceGetAllQuery.GetAll()
         {
+            //Return de fundne kompetencedto fra repository
             return _kompetanceRepository.GetAll();
         }
     }

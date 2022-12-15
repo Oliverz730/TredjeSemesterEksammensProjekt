@@ -13,6 +13,7 @@ namespace TSEP.StamData.Application.Ansat.Queries.Implementation
 
         AnsatQueryResultDto IAnsatGetQuery.Get(string UserId)
         {
+            //Return den fundne ansatdto fra repository
             return _ansatRepository.Get(UserId);
         }
     }

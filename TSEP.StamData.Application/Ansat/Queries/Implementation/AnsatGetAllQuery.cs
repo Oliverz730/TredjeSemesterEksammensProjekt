@@ -12,6 +12,7 @@ namespace TSEP.StamData.Application.Ansat.Queries.Implementation
         }
         IEnumerable<AnsatQueryResultDto> IAnsatGetAllQuery.GetAll()
         {
+            //Return de fundne ansatdto fra repository
             return _ansatRepository.GetAll();
         }
     }

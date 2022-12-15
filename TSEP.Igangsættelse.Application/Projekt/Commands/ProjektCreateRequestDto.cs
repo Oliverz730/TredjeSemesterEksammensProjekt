@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 namespace TSEP.Igangsættelse.Application.Projekt.Commands
 {
     public class ProjektCreateRequestDto
@@ -9,5 +7,6 @@ namespace TSEP.Igangsættelse.Application.Projekt.Commands
         public DateTime StartDate { get;  set; }
         public string SælgerUserId { get;  set; }
         public string KundeUserId { get;  set; }
+        //Create har ikke en RowVersion, da det kun kræves på handlinger på eksisterende rækker i databasen
     }
 }

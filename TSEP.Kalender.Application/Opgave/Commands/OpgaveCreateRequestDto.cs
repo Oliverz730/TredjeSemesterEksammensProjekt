@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace TSEP.Kalender.Application.Opgave.Commands
 {
     public class OpgaveCreateRequestDto
@@ -14,5 +9,6 @@ namespace TSEP.Kalender.Application.Opgave.Commands
         public string Status { get; set; }
         public DateTime StartTid { get; set; }
         public DateTime SlutTid { get; set; }
+        //Create har ikke en RowVersion, da det kun kræves på handlinger på eksisterende rækker i databasen
     }
 }

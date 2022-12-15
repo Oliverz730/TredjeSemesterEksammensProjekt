@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
+﻿using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
 
 namespace TSEP.Igangsættelse.Application.OpgaveType.Query.Implementation
 {
@@ -17,6 +12,7 @@ namespace TSEP.Igangsættelse.Application.OpgaveType.Query.Implementation
 
         OpgaveTypeQueryResultDto IOpgaveTypeGetQuery.Get(int id)
         {
+            //returner den fundne dto fra repository
             return _opgaveRepository.Get(id);
         }
     }

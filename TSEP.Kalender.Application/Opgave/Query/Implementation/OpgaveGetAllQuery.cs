@@ -18,11 +18,13 @@ namespace TSEP.Kalender.Application.Opgave.Query.Implementation
 
         IEnumerable<OpgaveQueryResultDto> IOpgaveGetAllQuery.GetAllByAnsat(string ansatId)
         {
+            //Return de fundne opgavedto med givne ansatId fra repository
             return _opgaveRepository.GetAllByAnsat(ansatId);
         }
 
         IEnumerable<OpgaveQueryResultDto> IOpgaveGetAllQuery.GetAllByProjekt(int projektId)
         {
+            //Return de fundne opgavedto med givne projektid fra repository
             return _opgaveRepository.GetAllByProjekt(projektId);
         }
     }

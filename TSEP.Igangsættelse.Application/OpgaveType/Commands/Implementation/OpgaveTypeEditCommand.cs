@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
+﻿using TSEP.Igangsættelse.Application.OpgaveType.Repositories;
 
 namespace TSEP.Igangsættelse.Application.OpgaveType.Commands.Implementation
 {
@@ -19,12 +14,15 @@ namespace TSEP.Igangsættelse.Application.OpgaveType.Commands.Implementation
         void IOpgaveTypeEditCommand.Edit(OpgaveTypeEditRequestDto opgaveType)
         {
             //Read it
+            //indlæs data fra repository
             var opgaveEntity = _opgaveTypeRepository.Load(opgaveType.Id);
 
             //Do it
+            //Tilføj ændringer
             opgaveEntity.Edit(opgaveType.Beskrivelse,opgaveType.Id,opgaveType.RowVersion);
 
             //Save it
+            //gem ændringer i repository
             _opgaveTypeRepository.Update(opgaveEntity);
 
         }
