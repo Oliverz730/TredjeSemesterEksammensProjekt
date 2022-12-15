@@ -8,6 +8,7 @@ namespace TSEP.App.Infrastructure.Kalender.Contract
         Task<IEnumerable<BookingQueryResultDto>?> GetAllBookings();
         Task CreateOpgave(OpgaveCreateRequestDto opgaveCreateRequestDto);
         Task<IEnumerable<OpgaveQueryResultDto>> GetAllOpgaverByProjekt(int projektId);
+        Task<IEnumerable<OpgaveQueryResultDto>> GetAllOpgaverByAnsat(string userId);
 
     }
 }

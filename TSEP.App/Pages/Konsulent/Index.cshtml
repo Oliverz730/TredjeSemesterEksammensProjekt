@@ -2,46 +2,59 @@
 @model TSEP.App.Pages.Konsulent.IndexModel
 @{
 }
+<script src="lib/jquery/dist/jquery.js"></script>
 
-<section>
-
-    <h1>Konsulent</h1>
-
-    <section class="container w-25 border border-2">
-
-        <section class="row">
-            <h3 class="text-center">
-                Igangsættelse 1
-            </h3>
-        </section>
-        <section class="row">
-            <section class="col-sm">
-                <span class="text-center">
-                    Konsul opg
-                </span>
-                <section class="border border-2">
-                    <p>Kompetancer</p>
-                    <ul>
-                        <li>K1</li>
-                        <li>K2</li>
-                        <li>K3</li>
-                    </ul>
-                    <p>Varighed</p>
-                    <ul>
-                        <li>2 dage</li>
-                    </ul>
-                    <p>Status</p>
-                    <ul>
-                        <li>Igang</li>
-                    </ul>
-                    <p>Kommentarer</p>
-                    <ul>
-                        <li>...</li>
-                    </ul>
-                </section>
-            </section>
-        </section>
-
+<section class="container">
+    
+    <section class="row my-3">
+    <h1>@Model.User.Identity.Name</h1>
     </section>
 
+    <table class="table table-striped">
+        <thead>
+
+                <tr>
+                    <th class="col-1">Projekt Id</th>
+                    <th class="col-6">Opgave Beskrivelse</th>
+                    <th>Status</th>
+                    <th>Start tid</th>
+                    <th>Slut tid</th>
+                </tr>
+
+            </thead>
+        @foreach (var opgave in Model.IndexViewModels)
+        {
+            <tr>
+                <td>
+                    
+                        <span>@opgave.ProjektId</span>
+                    
+                </td>
+
+                 <td>
+                    
+                    <span>@opgave.OpgaveTypeBeskrivelse</span>
+                    
+                 </td>
+                 <td>
+                    
+                        <span>@opgave.Status</span>
+                    
+                </td>
+
+                <td>
+                    
+                        <span>@opgave.StartTid</span>
+                    
+                </td>
+                <td>
+                    
+                        <span>@opgave.SlutTid</span>
+                    
+                </td>
+
+            </tr>
+
+        }
+    </table>
 </section>

@@ -30,7 +30,7 @@ builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.Password.RequireDigit = false;
-    options.Password.RequiredLength = 5;
+    options.Password.RequiredLength = 1;
     options.Password.RequireLowercase = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequiredUniqueChars = 0;
@@ -47,6 +47,9 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("SælgerPolicy", policyBuilder => policyBuilder.RequireAssertion(context => context.User.HasClaim(c => c.Type == "Sælger" || c.Type == "Admin")));
     options.AddPolicy("KonverterPolicy", policyBuilder => policyBuilder.RequireAssertion(context => context.User.HasClaim(c => c.Type == "Konverter" || c.Type == "Admin")));
     options.AddPolicy("KonsulentPolicy", policyBuilder => policyBuilder.RequireAssertion(context => context.User.HasClaim(c => c.Type == "Konsulent" || c.Type == "Admin")));
+    options.AddPolicy("KundePolicy", policyBuilder => policyBuilder.RequireAssertion(context => context.User.HasClaim(c => c.Type == "Kunde" || c.Type == "Admin")));
+    
+    options.AddPolicy("AnsatPolicy", policyBuilder => policyBuilder.RequireAssertion(context => context.User.HasClaim(c => c.Type == "Tekniker" || c.Type == "Sælger" || c.Type == "Konverter" || c.Type == "Konsulent" || c.Type == "Admin")));
 
     options.AddPolicy("AdminPolicy", policyBuilder => policyBuilder.RequireClaim("Admin"));
 }
@@ -58,6 +61,12 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.AuthorizeFolder("/Sælger", "SælgerPolicy");
     options.Conventions.AuthorizeFolder("/Konverter", "KonverterPolicy");
     options.Conventions.AuthorizeFolder("/Konsulent", "KonsulentPolicy");
+    options.Conventions.AuthorizeFolder("/Kunde", "KundePolicy");
+
+    options.Conventions.AuthorizeFolder("/Kompetance", "AnsatPolicy");
+    options.Conventions.AuthorizeFolder("/Kalender", "AnsatPolicy");
+
+    options.Conventions.AuthorizeFolder("/Booking", "SælgerPolicy");
 });
 
 //IOC
