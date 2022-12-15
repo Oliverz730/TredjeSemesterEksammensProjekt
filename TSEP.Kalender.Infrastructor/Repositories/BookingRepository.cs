@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TSEP.Kalender.Application.Booking.Repositories;
 using TSEP.Kalender.Domain.Model;
 using TSEP.Kalender.Application.Booking.Query;
@@ -20,13 +15,17 @@ namespace TSEP.Kalender.Infrastructor.Repositories
         }
         void IBookingRepository.Add(BookingEntity booking)
         {
+            //tilføj bookings til databasen
             _db.BookingEntities.Add(booking);
+            // gem ændringer i databasen
             _db.SaveChanges();
         }
         IEnumerable<BookingQueryResultDto> IBookingRepository.GetAll()
         {
+            //iterer over listen af booking
             foreach (var projekt in _db.BookingEntities.AsNoTracking().ToList())
             {
+                //Konverter fra Entity til BookingQueryResultDto, og yield hver enkeltvis
                 yield return new BookingQueryResultDto
                 {
                     Id = projekt.Id,

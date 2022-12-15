@@ -12,6 +12,7 @@ namespace TSEP.Igangsættelse.Domain.Model
         public string? ActualEstimated { get; private set; }
         public string SælgerUserId { get; private set; }
         public string KundeUserId { get; private set; }
+        //Hvis Timestamp (RowVersion) tabes under roundtrip, vil man ikke få lov til at edit.
         [Timestamp]
         public byte[] RowVersion { get; private set; }
         

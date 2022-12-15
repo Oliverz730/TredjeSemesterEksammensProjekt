@@ -1,4 +1,4 @@
-﻿    using TSEP.StamData.Application.Ansat.Repositories;
+﻿using TSEP.StamData.Application.Ansat.Repositories;
 using TSEP.StamData.Application.Kompetance.Repositories;
 using TSEP.StamData.Domain.Model;
 
