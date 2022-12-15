@@ -11,37 +11,31 @@
     </section>
     
 
-    <section class="container w-100">
+    <table class="table table-striped">
+        <thead>
+
+                <tr>
+                    <th class="col-3">Projekt</th>
+                    <th>Start dato</th>
+                    <th>Slut dato</th>
+                </tr>
+
+            </thead>
         @foreach (var projekt in Model.IndexViewModels)
         {
-            <section class="w-50">
-                <section class="w-auto card border-primary m-3">
-                    <section class="card-header">
-                        <h3 class="mt-2 justify-content-between w-100 d-flex">
-                            @projekt.ProjektNavn
-                            
-                        </h3>
-                    </section>
-                    <section class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <h4 class="d-flex justify-content-between w-100">
-                                    Sælger
+            <tr>
+                <td>
+                        <span>@projekt.ProjektNavn</span>
+                 </td>
+                 <td>
+                    <span>@projekt.StartDate</span>
+                 </td>
+                 <td>
+                        <span>@projekt.EndDate</span>
+                </td>
 
-                                    <span class=" text-uppercase badge rounded-pill bg-info mx-3">@projekt.StartDate</span>
-                                </h4>
-                            </li>
-                            <li class="list-group-item">
-                                <h4 class="d-flex justify-content-between w-100">
-                                    Kunde
+            </tr>
 
-                                    <span class=" text-uppercase badge rounded-pill bg-success mx-3">@projekt.EndDate</span>
-                                </h4>
-                            </li>
-                        </ul>
-                    </section>
-                </section>
-            </section>
         }
-    </section>
+    </table>
 </section>
